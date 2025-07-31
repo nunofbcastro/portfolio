@@ -107,50 +107,69 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
             </h2>
           </div>
 
-          {/* Horizontal Timeline */}
+          {/* Vertical Timeline */}
           <div 
             ref={timelineRef}
-            className="relative"
+            className="relative max-w-6xl mx-auto"
           >
-            {/* Timeline Line */}
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-muted -translate-y-1/2 hidden lg:block">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-1/2 top-0 w-1 bg-muted transform -translate-x-1/2">
               <div 
-                className={`h-full bg-gradient-to-r from-primary to-accent transition-all duration-2000 delay-500 ${
-                  timelineVisible ? 'animate-draw-line' : 'w-0'
+                className={`w-full bg-gradient-to-b from-primary to-accent transition-all duration-2000 delay-500 ${
+                  timelineVisible ? 'h-full' : 'h-0'
                 }`}
               />
             </div>
 
-            {/* Desktop Timeline Cards */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-8 relative">
+            {/* Timeline Items */}
+            <div className="space-y-12">
               {text.experiences.map((exp, index) => {
                 const delay = 800 + (index * 300);
+                const isLeft = index % 2 === 0;
+                
                 return (
-                  <div key={index} className="relative">
-                    {/* Timeline Dot */}
-                    <div 
-                      className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg z-10 transition-all duration-500`}
-                      style={{ 
-                        transitionDelay: timelineVisible ? `${delay}ms` : '0ms',
-                        transform: timelineVisible 
-                          ? 'translate(-50%, -50%) scale(1)' 
-                          : 'translate(-50%, -50%) scale(0)'
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20" />
+                  <div key={index} className="relative flex items-center">
+                    {/* Timeline Dot with Date */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                      <div 
+                        className={`w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg transition-all duration-500 flex items-center justify-center`}
+                        style={{ 
+                          transitionDelay: timelineVisible ? `${delay}ms` : '0ms',
+                          transform: timelineVisible 
+                            ? 'scale(1)' 
+                            : 'scale(0)'
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20" />
+                        <Calendar className="h-4 w-4 text-background" />
+                      </div>
+                      
+                      {/* Date Badge */}
+                      <div 
+                        className={`absolute top-10 left-1/2 transform -translate-x-1/2 bg-primary text-background px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-500`}
+                        style={{ 
+                          transitionDelay: timelineVisible ? `${delay + 200}ms` : '0ms',
+                          opacity: timelineVisible ? 1 : 0,
+                          transform: timelineVisible 
+                            ? 'translateX(-50%) translateY(0)' 
+                            : 'translateX(-50%) translateY(10px)'
+                        }}
+                      >
+                        {exp.period}
+                      </div>
                     </div>
 
                     {/* Experience Card */}
                     <div 
-                      className={`transition-all duration-700 ${
-                        index % 2 === 0 ? 'mb-32' : 'mt-32'
+                      className={`w-full max-w-md transition-all duration-700 ${
+                        isLeft ? 'mr-auto pr-8 lg:pr-16' : 'ml-auto pl-8 lg:pl-16'
                       }`}
                       style={{ 
-                        transitionDelay: timelineVisible ? `${delay + 200}ms` : '0ms',
+                        transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
                         opacity: timelineVisible ? 1 : 0,
                         transform: timelineVisible 
-                          ? 'translateY(0)' 
-                          : `translateY(${index % 2 === 0 ? '50px' : '-50px'})`
+                          ? 'translateX(0)' 
+                          : `translateX(${isLeft ? '-50px' : '50px'})`
                       }}
                     >
                       <Card className="group hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-card to-card/80">
@@ -169,15 +188,9 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                             </div>
                           </div>
 
-                          <div className="flex flex-col gap-2 text-sm text-muted-foreground mb-4">
-                            <div className="flex items-center gap-2">
-                              <MapPin className="h-4 w-4" />
-                              <span>{exp.location}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4" />
-                              <span>{exp.period}</span>
-                            </div>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                            <MapPin className="h-4 w-4" />
+                            <span>{exp.location}</span>
                           </div>
 
                           <ul className="space-y-2">
@@ -191,62 +204,6 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                         </CardContent>
                       </Card>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile Timeline */}
-            <div className="lg:hidden space-y-8">
-              {text.experiences.map((exp, index) => {
-                const delay = 400 + (index * 200);
-                return (
-                  <div 
-                    key={index}
-                    className="transition-all duration-700"
-                    style={{ 
-                      transitionDelay: timelineVisible ? `${delay}ms` : '0ms',
-                      opacity: timelineVisible ? 1 : 0,
-                      transform: timelineVisible ? 'translateX(0)' : 'translateX(-30px)'
-                    }}
-                  >
-                    <Card className="hover:shadow-lg transition-all duration-300 hover:scale-105">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 bg-primary/10 rounded-full">
-                            <Briefcase className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-lg text-foreground">
-                              {exp.company}
-                            </h3>
-                            <p className="font-semibold text-primary">
-                              {exp.role}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col gap-2 text-sm text-muted-foreground mb-4">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4" />
-                            <span>{exp.location}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Calendar className="h-4 w-4" />
-                            <span>{exp.period}</span>
-                          </div>
-                        </div>
-
-                        <ul className="space-y-2">
-                          {exp.description.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                              <span className="text-muted-foreground">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
                   </div>
                 );
               })}
