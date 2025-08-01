@@ -137,8 +137,8 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                     <div 
                       className={`absolute top-1/2 z-5 h-0.5 bg-gradient-to-r transition-all duration-1000 ${
                         isLeft 
-                          ? 'left-1/2 ml-4 bg-gradient-to-r from-primary to-transparent' 
-                          : 'right-1/2 mr-4 bg-gradient-to-l from-primary to-transparent'
+                          ? 'right-1/2 mr-4 bg-gradient-to-l from-primary to-transparent' 
+                          : 'left-1/2 ml-4 bg-gradient-to-r from-primary to-transparent'
                       }`}
                       style={{ 
                         transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
