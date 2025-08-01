@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Briefcase } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
@@ -38,49 +39,55 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
           </div>
 
           <div ref={timelineRef} className="relative">
-            {/* Central Timeline */}
-            <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-all duration-1000 ${
-              timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
-            }`} />
+            {/* Central Timeline - Only on desktop */}
+            {!isMobile && (
+              <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-all duration-1000 ${
+                timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
+              }`} />
+            )}
 
-            <div className="space-y-8 md:space-y-16">
+            <div className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
               {data.experiences.map((exp, index) => {
                 const delay = index * 200;
                 const isLeft = index % 2 === 0;
 
                 return (
-                  <div key={index} className="relative flex items-center min-h-[200px]">
-                    {/* Timeline Dot */}
-                    <div 
-                      className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
-                        timelineVisible 
-                          ? 'bg-primary scale-100 shadow-lg shadow-primary/50' 
-                          : 'bg-muted scale-0'
-                      }`}
-                      style={{ 
-                        transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
-                      }}
-                    >
-                      <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
-                        timelineVisible ? 'scale-100' : 'scale-0'
-                      }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
-                    </div>
+                  <div key={index} className={`${isMobile ? 'relative' : 'relative flex items-center min-h-[200px]'}`}>
+                    {/* Timeline Dot - Only on desktop */}
+                    {!isMobile && (
+                      <div 
+                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
+                          timelineVisible 
+                            ? 'bg-primary scale-100 shadow-lg shadow-primary/50' 
+                            : 'bg-muted scale-0'
+                        }`}
+                        style={{ 
+                          transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
+                        }}
+                      >
+                        <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
+                          timelineVisible ? 'scale-100' : 'scale-0'
+                        }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
+                      </div>
+                    )}
 
-                    {/* Connecting Line */}
-                    <div 
-                      className={`absolute top-1/2 z-5 h-0.5 bg-gradient-to-r transition-all duration-1000 ${
-                        isLeft 
-                          ? 'right-1/2 mr-4 bg-gradient-to-l from-primary to-transparent' 
-                          : 'left-1/2 ml-4 bg-gradient-to-r from-primary to-transparent'
-                      }`}
-                      style={{ 
-                        transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
-                        width: timelineVisible ? '60px' : '0px'
-                      }}
-                    />
+                    {/* Connecting Line - Only on desktop */}
+                    {!isMobile && (
+                      <div 
+                        className={`absolute top-1/2 z-5 h-0.5 transition-all duration-1000 ${
+                          isLeft 
+                            ? 'left-1/2 ml-4 bg-gradient-to-r from-primary to-transparent' 
+                            : 'right-1/2 mr-4 bg-gradient-to-l from-primary to-transparent'
+                        }`}
+                        style={{ 
+                          transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
+                          width: timelineVisible ? '60px' : '0px'
+                        }}
+                      />
+                    )}
 
                     {/* Experience Card */}
-                    <div className={`flex-1 ${isMobile ? 'pl-8' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
+                    <div className={`flex-1 ${isMobile ? '' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
                       <Card 
                         className={`transition-all duration-1000 hover:shadow-xl hover:scale-105 ${
                           timelineVisible 
@@ -113,7 +120,7 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                             </div>
                           </div>
                           
-                          <ul className="space-y-2">
+                          <ul className="space-y-2 mb-4">
                             {exp.description.map((desc, idx) => (
                               <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
                                 <span className="text-primary mt-1">•</span>
@@ -121,6 +128,17 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                               </li>
                             ))}
                           </ul>
+
+                          {/* Technologies */}
+                          {exp.technologies && exp.technologies.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech, techIdx) => (
+                                <Badge key={techIdx} variant="secondary" className="text-xs">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          )}
                         </CardContent>
                       </Card>
                     </div>

@@ -1,22 +1,22 @@
 export const portfolioData = {
   personal: {
-    name: "João Silva",
+    name: "Nuno Castro",
     title: {
       pt: "Engenheiro de Software",
       en: "Software Engineer"
     },
-    email: "joao@exemplo.com",
+    email: "nunofbcastro@gmail.com",
     location: {
-      pt: "Lisboa, Portugal",
-      en: "Lisbon, Portugal"
+      pt: "Rio Tinto, Porto",
+      en: "Rio Tinto, Porto"
     },
     availability: {
       pt: "Disponível para freelancing",
       en: "Available for freelancing"
     },
     subtitle: {
-      pt: "Especialista em desenvolvimento web moderno",
-      en: "Expert in modern web development"
+      pt: "Especialista em desenvolvimento web e mobile",
+      en: "Expert in web and mobile development"
     },
     greeting: {
       pt: "Olá, eu sou",
@@ -27,15 +27,15 @@ export const portfolioData = {
   about: {
     pt: {
       title: "Sobre Mim",
-      description: "Sou um engenheiro de software apaixonado por tecnologia e inovação. Com mais de 5 anos de experiência, especializo-me em desenvolvimento web moderno, criando soluções eficientes e escaláveis.",
-      skills: ["JavaScript", "TypeScript", "React", "Node.js", "Python", "PostgreSQL"],
-      interests: ["Tecnologia", "Inovação", "Design", "Música"]
+      description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em agosto de 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, dedico o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
+      skills: [".NET", ".NET Core", "React", "Angular", "Next.js", "Express.js", "NestJS", "FastAPI", "Azure", "Docker", "SQL Server", "MongoDB"],
+      interests: ["Tecnologia", "Inovação", "Programação", "Desenvolvimento Mobile"]
     },
     en: {
       title: "About Me",
-      description: "I'm a software engineer passionate about technology and innovation. With over 5 years of experience, I specialize in modern web development, creating efficient and scalable solutions.",
-      skills: ["JavaScript", "TypeScript", "React", "Node.js", "Python", "PostgreSQL"],
-      interests: ["Technology", "Innovation", "Design", "Music"]
+      description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in August 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
+      skills: [".NET", ".NET Core", "React", "Angular", "Next.js", "Express.js", "NestJS", "FastAPI", "Azure", "Docker", "SQL Server", "MongoDB"],
+      interests: ["Technology", "Innovation", "Programming", "Mobile Development"]
     }
   },
 
@@ -44,37 +44,52 @@ export const portfolioData = {
       title: "Experiência",
       experiences: [
         {
-          company: "TechNova Solutions",
-          role: "Engenheiro de Software",
-          location: "Lisboa, Portugal",
-          period: "2022 – Presente",
+          company: "B2F - Business To Future",
+          role: "Software Developer",
+          location: "Presencial",
+          period: "set 2023 – Atual",
           description: [
-            "Desenvolvimento de aplicações web e mobile",
-            "Integração com APIs externas",
-            "Participação em planeamento ágil (Scrum)"
-          ]
+            "Desenvolvimento de aplicações web com .NET Framework",
+            "Criação de interfaces com Razor ASP.NET",
+            "Manutenção e otimização de sistemas existentes"
+          ],
+          technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
         },
         {
-          company: "Digital Innovations",
-          role: "Desenvolvedor Frontend",
-          location: "Porto, Portugal",
-          period: "2020 – 2022",
+          company: "B2F - Business To Future",
+          role: "Software Developer (Estágio)",
+          location: "Presencial",
+          period: "mar 2023 – jul 2023",
           description: [
-            "Criação de interfaces modernas e responsivas",
-            "Optimização de performance e SEO",
-            "Colaboração com equipas multidisciplinares"
-          ]
+            "Automatização de ETL para obtenção de dados escolares",
+            "Manutenção de website com dados de fontes como Eurostat e DGEEC",
+            "Desenvolvimento de soluções escaláveis"
+          ],
+          technologies: [".NET Framework", "Razor ASP.NET", "ETL", "Web Development"]
         },
         {
-          company: "StartupLab",
-          role: "Developer Júnior",
-          location: "Braga, Portugal",
-          period: "2019 – 2020",
+          company: "Agrupamento de Escolas Dr. Serafim Leite",
+          role: "Programador Informático",
+          location: "São João da Madeira, Aveiro",
+          period: "abr 2020 – jul 2020",
           description: [
-            "Desenvolvimento de protótipos",
-            "Testes e debugging",
-            "Documentação técnica"
-          ]
+            "Desenvolvimento de website para angariação de fundos",
+            "Criação de aplicação mobile Android",
+            "Remodelação de campos desportivos da escola"
+          ],
+          technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
+        },
+        {
+          company: "Etn Experience",
+          role: "Computer Programming",
+          location: "Portsmouth, Inglaterra",
+          period: "jun 2019",
+          description: [
+            "Estágio Erasmus+ em Inglaterra",
+            "Desenvolvimento de páginas web pequenas",
+            "Experiência internacional em programação"
+          ],
+          technologies: ["HTML", "CSS", "JavaScript", "Web Development"]
         }
       ]
     },
@@ -82,37 +97,52 @@ export const portfolioData = {
       title: "Experience",
       experiences: [
         {
-          company: "TechNova Solutions",
-          role: "Software Engineer",
-          location: "Lisbon, Portugal",
-          period: "2022 – Present",
+          company: "B2F - Business To Future",
+          role: "Software Developer",
+          location: "On-site",
+          period: "Sep 2023 – Present",
           description: [
-            "Web and mobile application development",
-            "External API integration",
-            "Agile planning participation (Scrum)"
-          ]
+            "Web application development with .NET Framework",
+            "Interface creation with Razor ASP.NET",
+            "Maintenance and optimization of existing systems"
+          ],
+          technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
         },
         {
-          company: "Digital Innovations",
-          role: "Frontend Developer",
-          location: "Porto, Portugal",
-          period: "2020 – 2022",
+          company: "B2F - Business To Future",
+          role: "Software Developer (Internship)",
+          location: "On-site",
+          period: "Mar 2023 – Jul 2023",
           description: [
-            "Modern and responsive interface creation",
-            "Performance and SEO optimization",
-            "Multidisciplinary team collaboration"
-          ]
+            "ETL automation for school data extraction",
+            "Website maintenance with data from sources like Eurostat and DGEEC",
+            "Development of scalable solutions"
+          ],
+          technologies: [".NET Framework", "Razor ASP.NET", "ETL", "Web Development"]
         },
         {
-          company: "StartupLab",
-          role: "Junior Developer",
-          location: "Braga, Portugal",
-          period: "2019 – 2020",
+          company: "Agrupamento de Escolas Dr. Serafim Leite",
+          role: "Computer Programmer",
+          location: "São João da Madeira, Aveiro",
+          period: "Apr 2020 – Jul 2020",
           description: [
-            "Prototype development",
-            "Testing and debugging",
-            "Technical documentation"
-          ]
+            "Website development for fundraising",
+            "Android mobile application creation",
+            "School sports fields remodeling"
+          ],
+          technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
+        },
+        {
+          company: "Etn Experience",
+          role: "Computer Programming",
+          location: "Portsmouth, England",
+          period: "Jun 2019",
+          description: [
+            "Erasmus+ internship in England",
+            "Small web pages development",
+            "International programming experience"
+          ],
+          technologies: ["HTML", "CSS", "JavaScript", "Web Development"]
         }
       ]
     }
@@ -266,10 +296,10 @@ export const portfolioData = {
       title: "Contacto",
       subtitle: "Interessado em trabalhar comigo? Estou disponível para freelancing ou propostas de colaboração.",
       socialLinks: [
-        { icon: "Mail", label: "Email", href: "mailto:joao@exemplo.com" },
-        { icon: "Linkedin", label: "LinkedIn", href: "https://linkedin.com" },
-        { icon: "Github", label: "GitHub", href: "https://github.com" },
-        { icon: "Globe", label: "Website", href: "https://exemplo.com" }
+        { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
+        { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
+        { icon: "Github", label: "GitHub", href: "https://github.com/nunofbcastro" },
+        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.com" }
       ],
       faq: [
         {
@@ -286,10 +316,10 @@ export const portfolioData = {
       title: "Contact",
       subtitle: "Interested in working together? I'm open to freelance or collaboration proposals.",
       socialLinks: [
-        { icon: "Mail", label: "Email", href: "mailto:joao@exemplo.com" },
-        { icon: "Linkedin", label: "LinkedIn", href: "https://linkedin.com" },
-        { icon: "Github", label: "GitHub", href: "https://github.com" },
-        { icon: "Globe", label: "Website", href: "https://exemplo.com" }
+        { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
+        { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
+        { icon: "Github", label: "GitHub", href: "https://github.com/nunofbcastro" },
+        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.com" }
       ],
       faq: [
         {
