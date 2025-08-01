@@ -1,38 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, ArrowDown } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { portfolioData } from "@/data/portfolio";
 
 interface HeroSectionProps {
   language: 'pt' | 'en';
 }
 
 export const HeroSection = ({ language }: HeroSectionProps) => {
-  const content = {
-    pt: {
-      greeting: "Olá, sou o",
-      name: "João Silva!",
-      title: "Engenheiro Informático em Portugal",
-      subtitle: "apaixonado por tecnologia, inovação e soluções digitais eficientes.",
-      location: "Portugal",
-      email: "joao@exemplo.com",
-      availability: "Disponível para novos desafios",
-      viewProjects: "Ver Projetos",
-      contact: "Contactar"
-    },
-    en: {
-      greeting: "Hello, I'm",
-      name: "João Silva!",
-      title: "Software Engineer based in Portugal",
-      subtitle: "passionate about technology, innovation, and efficient digital solutions.",
-      location: "Portugal",
-      email: "joao@exemplo.com",
-      availability: "Open to new opportunities",
-      viewProjects: "View Projects",
-      contact: "Contact"
-    }
-  };
-
-  const text = content[language];
+  const data = portfolioData.personal;
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -48,31 +24,31 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-foreground">{text.greeting} </span>
+            <span className="text-foreground">{data.greeting[language]} </span>
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {text.name}
+              {data.name}
             </span>
           </h1>
           
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-            {text.title}
+            {data.title[language]}
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            {text.subtitle}
+            {data.subtitle[language]}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-sm">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
-              <span>{text.location}</span>
+              <span>{data.location[language]}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span>{text.email}</span>
+              <span>{data.email}</span>
             </div>
             <div className="text-primary font-medium">
-              {text.availability}
+              {data.availability[language]}
             </div>
           </div>
 
@@ -82,14 +58,14 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
               onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {text.viewProjects}
+              {language === 'pt' ? 'Ver Projetos' : 'View Projects'}
             </Button>
             <Button 
               variant="outline" 
               size="lg"
               onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {text.contact}
+              {language === 'pt' ? 'Contactar' : 'Contact'}
             </Button>
           </div>
         </div>
