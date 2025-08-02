@@ -16,7 +16,7 @@ export const EducationSection = ({ language }: EducationSectionProps) => {
       items={text.educations}
       className="bg-muted"
       renderItem={(edu, index, isMobile) => (
-        <Card className="hover:shadow-lg transition-shadow duration-300">
+        <Card className="hover:shadow-xl hover:scale-105 transition-all duration-300">
           <CardHeader>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-start gap-4">
