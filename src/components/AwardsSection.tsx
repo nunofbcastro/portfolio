@@ -2,138 +2,51 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Calendar } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState, useEffect } from "react";
+import { Timeline } from "./Timeline";
 
 interface AwardsSectionProps {
   language: 'pt' | 'en';
 }
 
 export const AwardsSection = ({ language }: AwardsSectionProps) => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
-  const [isMobile, setIsMobile] = useState(false);
-  
   const data = portfolioData.awards[language];
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1150);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   return (
-    <section id="premios" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div 
-            ref={titleRef}
-            className={`text-center mb-16 transition-all duration-1000 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              {data.title}
-            </h2>
-          </div>
-
-          <div ref={timelineRef} className="relative">
-            {/* Timeline - Only on desktop (1024px+) */}
-            {!isMobile && (
-              <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-all duration-1000 ${
-                timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
-              }`} />
-            )}
-
-            <div className={`${isMobile ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-8 md:space-y-16'}`}>
-              {data.awards.map((award, index) => {
-                const delay = index * 200;
-                const isLeft = index % 2 === 0;
-
-                return (
-                  <div key={index} className={`${isMobile ? 'relative' : 'relative flex items-center min-h-[200px]'}`}>
-                    {/* Timeline Dot - Only on desktop */}
-                    {!isMobile && (
-                      <div 
-                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
-                          timelineVisible 
-                            ? 'bg-primary scale-100 shadow-lg shadow-primary/50' 
-                            : 'bg-muted scale-0'
-                        }`}
-                        style={{ 
-                          transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
-                        }}
-                      >
-                        <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
-                          timelineVisible ? 'scale-100' : 'scale-0'
-                        }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
-                      </div>
-                    )}
-
-                    {/* Connecting Line - Only on desktop */}
-                    {!isMobile && (
-                      <div 
-                        className={`absolute top-1/2 z-5 h-0.5 transition-all duration-1000 ${
-                          isLeft 
-                            ? 'left-1/2 ml-4 bg-gradient-to-r from-primary to-transparent' 
-                            : 'right-1/2 mr-4 bg-gradient-to-l from-primary to-transparent'
-                        }`}
-                        style={{ 
-                          transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
-                          width: timelineVisible ? '60px' : '0px'
-                        }}
-                      />
-                    )}
-
-                    {/* Award Card */}
-                    <div className={`flex-1 ${isMobile ? '' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
-                      <Card 
-                        className={`transition-all duration-1000 hover:shadow-xl hover:scale-105 ${
-                          timelineVisible 
-                            ? 'opacity-100 translate-y-0' 
-                            : 'opacity-0 translate-y-8'
-                        } ${!isMobile && isLeft ? 'ml-auto max-w-md' : ''} ${!isMobile && !isLeft ? 'mr-auto max-w-md' : ''}`}
-                        style={{ 
-                          transitionDelay: timelineVisible ? `${delay}ms` : '0ms'
-                        }}
-                      >
-                        <CardHeader>
-                          <div className="flex items-start gap-4">
-                            <div className="p-2 bg-primary/10 rounded-full flex-shrink-0">
-                              <Award className="h-6 w-6 text-primary" />
-                            </div>
-                            <div className="flex-1">
-                              <CardTitle className="text-xl font-bold text-foreground mb-1">
-                                {award.title}
-                              </CardTitle>
-                              <p className="text-lg font-semibold text-primary mb-2">
-                                {award.issuer}
-                              </p>
-                              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                                <Calendar className="h-4 w-4" />
-                                <span>{award.date}</span>
-                              </div>
-                              <Badge variant="outline" className="text-xs">
-                                {award.category}
-                              </Badge>
-                            </div>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground">
-                            {award.description}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </div>
-                );
-              })}
+    <Timeline
+      title={data.title}
+      items={data.awards}
+      className="bg-background"
+      renderItem={(award, index, isMobile) => (
+        <Card className="hover:shadow-xl hover:scale-105">
+          <CardHeader>
+            <div className="flex items-start gap-4">
+              <div className="p-2 bg-primary/10 rounded-full flex-shrink-0">
+                <Award className="h-6 w-6 text-primary" />
+              </div>
+              <div className="flex-1">
+                <CardTitle className="text-xl font-bold text-foreground mb-1">
+                  {award.title}
+                </CardTitle>
+                <p className="text-lg font-semibold text-primary mb-2">
+                  {award.issuer}
+                </p>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{award.date}</span>
+                </div>
+                <Badge variant="outline" className="text-xs">
+                  {award.category}
+                </Badge>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">
+              {award.description}
+            </p>
+          </CardContent>
+        </Card>
+      )}
+    />
   );
 };
