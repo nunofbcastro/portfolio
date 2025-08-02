@@ -19,8 +19,8 @@ export const portfolioData = {
     },
     email: "nunofbcastro@gmail.com",
     location: {
-      pt: "Rio Tinto, Porto",
-      en: "Rio Tinto, Porto"
+      pt: "Porto",
+      en: "Porto"
     },
     availability: {
       pt: "Aberto a novas experiências profissionais",
