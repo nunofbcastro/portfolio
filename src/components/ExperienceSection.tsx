@@ -13,18 +13,14 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
   const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
   
   const data = portfolioData.experience[language];
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
-    };
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024); // Tablet = mobile
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
@@ -43,11 +39,11 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
           </div>
 
           <div ref={timelineRef} className="relative">
-            {/* Timeline - Central on desktop, left on tablet */}
+            {/* Timeline - Only on desktop (1024px+) */}
             {!isMobile && (
-              <div className={`absolute top-0 bottom-0 w-1 transition-all duration-1000 ${
-                isTablet ? 'left-8' : 'left-1/2 transform -translate-x-1/2'
-              } ${timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'}`} />
+              <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-all duration-1000 ${
+                timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
+              }`} />
             )}
 
             <div className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
@@ -57,12 +53,11 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
 
                 return (
                   <div key={index} className={`${isMobile ? 'relative' : 'relative flex items-center min-h-[200px]'}`}>
-                    {/* Timeline Dot */}
+                    {/* Timeline Dot - Only on desktop */}
                     {!isMobile && (
                       <div 
-                        className={`absolute z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
-                          isTablet ? 'left-8 transform -translate-x-1/2' : 'left-1/2 transform -translate-x-1/2'
-                        } ${timelineVisible 
+                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
+                          timelineVisible 
                             ? 'bg-primary scale-100 shadow-lg shadow-primary/50' 
                             : 'bg-muted scale-0'
                         }`}
@@ -76,8 +71,8 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                       </div>
                     )}
 
-                    {/* Connecting Line - Only on desktop (not tablet) */}
-                    {!isMobile && !isTablet && (
+                    {/* Connecting Line - Only on desktop */}
+                    {!isMobile && (
                       <div 
                         className={`absolute top-1/2 z-5 h-0.5 transition-all duration-1000 ${
                           isLeft 
@@ -92,17 +87,13 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                     )}
 
                     {/* Experience Card */}
-                    <div className={`flex-1 ${
-                      isMobile ? '' : 
-                      isTablet ? 'pl-20' : 
-                      (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')
-                    }`}>
+                    <div className={`flex-1 ${isMobile ? '' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
                       <Card 
                         className={`transition-all duration-1000 hover:shadow-xl hover:scale-105 ${
                           timelineVisible 
                             ? 'opacity-100 translate-y-0' 
                             : 'opacity-0 translate-y-8'
-                        } ${!isMobile && !isTablet && isLeft ? 'ml-auto max-w-md' : ''} ${!isMobile && !isTablet && !isLeft ? 'mr-auto max-w-md' : ''}`}
+                        } ${!isMobile && isLeft ? 'ml-auto max-w-md' : ''} ${!isMobile && !isLeft ? 'mr-auto max-w-md' : ''}`}
                         style={{ 
                           transitionDelay: timelineVisible ? `${delay}ms` : '0ms'
                         }}

@@ -40,13 +40,13 @@ export const portfolioData = {
     pt: {
       title: "Sobre Mim",
       description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em agosto de 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, dedico o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
-      skills: [".NET", ".NET Core", "React", "Angular", "Next.js", "Express.js", "NestJS", "FastAPI", "Azure", "Docker", "SQL Server", "MongoDB"],
+      skills: ["NuSMV", "Arduino", "Kernel Linux", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "C++", "Programação Ada", "SPARK", "FreeRTOS", "DigitalOcean", "IIS", "FastAPI", "Blazor", "Arquitetura MVC", "Arquitetura limpa", "Microsoft Power Automate", "Microsoft PowerApps", "Azure DevOps", "Servidor Apache", "Nginx", "R", "Solidity", "Next.js", "NestJS", "React.js", "Aprendizado de máquina", "Tailwind CSS", "Docker", "ERP", "Kotlin", "Prolog", "Android Jetpack", ".NET Framework", "Azure Functions", "Azure Logic", "ETL", "Razor do ASP.NET", "SQLite", "GIMP", "Adobe Dreamweaver", "Linux", "JSON", "GitLab", "Git", "Scrum", "Microsoft SQL Server", "MongoDB", "XML", "Python", "API", "TypeScript", "Express.js", "Java", "C", "SQL", "Wix", "MySQL", "PHP", "Laravel", "HTML", "CSS", "JavaScript", "Node.js", "Android Studio"],
       interests: ["Tecnologia", "Inovação", "Programação", "Desenvolvimento Mobile"]
     },
     en: {
       title: "About Me",
       description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in August 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
-      skills: [".NET", ".NET Core", "React", "Angular", "Next.js", "Express.js", "NestJS", "FastAPI", "Azure", "Docker", "SQL Server", "MongoDB"],
+      skills: ["NuSMV", "Arduino", "Linux Kernel", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "C++", "Ada Programming", "SPARK", "FreeRTOS", "DigitalOcean", "IIS", "FastAPI", "Blazor", "MVC Architecture", "Clean Architecture", "Microsoft Power Automate", "Microsoft PowerApps", "Azure DevOps", "Apache Server", "Nginx", "R", "Solidity", "Next.js", "NestJS", "React.js", "Machine Learning", "Tailwind CSS", "Docker", "ERP", "Kotlin", "Prolog", "Android Jetpack", ".NET Framework", "Azure Functions", "Azure Logic", "ETL", "ASP.NET Razor", "SQLite", "GIMP", "Adobe Dreamweaver", "Linux", "JSON", "GitLab", "Git", "Scrum", "Microsoft SQL Server", "MongoDB", "XML", "Python", "API", "TypeScript", "Express.js", "Java", "C", "SQL", "Wix", "MySQL", "PHP", "Laravel", "HTML", "CSS", "JavaScript", "Node.js", "Android Studio"],
       interests: ["Technology", "Innovation", "Programming", "Mobile Development"]
     }
   },
@@ -169,21 +169,21 @@ export const portfolioData = {
           degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
           location: "Porto, Portugal",
           period: "set 2024 – jul 2026",
-          description: "Programação Ada, SPARK, FreeRTOS, Linux, Kernel Linux, MQTT, DDS, COAP, FIWARE, Scrum"
+          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         },
         {
           institution: "ESTG - Politécnico do Porto",
           degree: "Licenciatura em Engenharia Informática",
           location: "Felgueiras, Portugal",
           period: "out 2020 – jul 2023",
-          description: "Nota final: 15 valores. Projetos em .NET, React, Node.js, Docker, MongoDB, Express.js, e muito mais"
+          description: "European Scale of Comparability of Classifications: A. Projetos: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
         },
         {
           institution: "Agrupamento de Escolas Dr. Serafim Leite",
           degree: "Ensino Secundário Profissional - Técnico de Gestão e Programação de Sistemas Informáticos",
           location: "São João da Madeira, Portugal",
           period: "set 2017 – ago 2020",
-          description: "Nota final: 18 valores. Desenvolvimento em Java, PHP, Laravel, Android Studio, MySQL, Python"
+          description: "Curso profissional com foco em desenvolvimento de software e sistemas informáticos"
         },
         {
           institution: "Academia De Música De Arouca",
@@ -202,21 +202,21 @@ export const portfolioData = {
           degree: "Master's in Critical Computational Systems Engineering",
           location: "Porto, Portugal",
           period: "Sep 2024 – Jul 2026",
-          description: "Ada Programming, SPARK, FreeRTOS, Linux, Linux Kernel, MQTT, DDS, COAP, FIWARE, Scrum"
+          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         },
         {
           institution: "ESTG - Polytechnic of Porto",
           degree: "Bachelor's in Computer Engineering",
           location: "Felgueiras, Portugal",
           period: "Oct 2020 – Jul 2023",
-          description: "Final grade: 15/20. Projects in .NET, React, Node.js, Docker, MongoDB, Express.js, and much more"
+          description: "European Scale of Comparability of Classifications: A. Projects: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
         },
         {
           institution: "Agrupamento de Escolas Dr. Serafim Leite",
           degree: "Professional Secondary Education - IT Systems Management and Programming Technician",
           location: "São João da Madeira, Portugal",
           period: "Sep 2017 – Aug 2020",
-          description: "Final grade: 18/20. Development in Java, PHP, Laravel, Android Studio, MySQL, Python"
+          description: "Professional course focused on software development and information systems"
         },
         {
           institution: "Academia De Música De Arouca",
@@ -235,26 +235,26 @@ export const portfolioData = {
       projects: [
         {
           title: "SandSpace",
-          description: "App mobile que analisa a taxa de ocupação de 865 praias em Portugal, com sistema de cores para análise de risco. Integra dados meteorológicos e votação em tempo real. Destaque em mais de 100 meios de comunicação nacionais e participante do INTEL ISEF (EUA).",
+          description: "2020 foi um ano diferente para todos, proibindo a população mundial de muitas atividades e impondo restrições à maioria delas. Por isso, juntamente com alguns amigos, criei o projeto SandSpace, que consiste numa aplicação móvel que permite analisar a taxa de ocupação de 865 praias em Portugal. Cada praia é representada por um ponto que pode ter quatro cores: verde (baixo risco), amarelo (risco médio), laranja (alto risco) e vermelho (praia fechada). Este projeto foi mencionado em mais de 100 jornais e canais de televisão nacionais (RTP, SIC, CMTV, Porto Canal...) e participou na maior competição de engenharia do mundo organizada pela INTEL ISEF nos Estados Unidos.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
         },
         {
-          title: "SmartHouse",
-          description: "Sistema de segurança integrando sensores/câmaras, app mobile para monitorização ao vivo e controlo de dispositivos, plataforma web para administração. Foco na praticidade, privacidade e sustentabilidade.",
-          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
+          title: "Polumap",
+          description: "Esta aplicação móvel permite a TODOS identificar os locais onde existe poluição: desde a poluição de rios até lixeiras a céu aberto. Desta forma, será criado um novo tipo de cartografia ambiental pela comunidade, identificando pontos críticos de poluição. Para cada ponto selecionado, será enviado um email para a autoridade local e para a Agência Nacional do Ambiente para que sejam tomadas medidas.",
+          technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
+          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
         },
         {
-          title: "Polumap",
-          description: "App mobile que permite reportar poluição ambiental (rios, lixeiras, ...), mapeamento colaborativo de problemas e notificação automática às autoridades. Criado para promover consciência ambiental e ação cívica.",
-          technologies: ["PHP", "Android Studio", "MySQL", "API", "JSON"],
+          title: "SmartHouse",
+          description: "Projeto realizado no âmbito da prova de aptidão profissional (PAP) para o curso profissional TGPSI. Consistiu em conceber um sistema de segurança integrando vários tipos de sensores e câmaras. O proprietário deste sistema poderá também controlar todos os sensores e visualizar vídeo em tempo real da sua casa, tudo através de uma aplicação móvel. A gestão mais técnica do sistema de segurança será feita através de um website dedicado.",
+          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
+          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
         }
       ]
@@ -264,26 +264,26 @@ export const portfolioData = {
       projects: [
         {
           title: "SandSpace",
-          description: "Mobile app analyzing occupancy rates for 865 beaches across Portugal, supporting risk analysis via a color system. Integrates real-time meteorological and voting data. Featured in over 100 national media outlets and participant of INTEL ISEF (USA).",
+          description: "2020 was a different year for everyone, prohibiting the world's population from many activities and imposing restrictions on most of them. That's why, together with some friends, I created the SandSpace project, which consists of a mobile application that allows you to analyze the occupancy rate of 865 beaches in Portugal. Each beach is represented by a dot that can have four colors: green (low risk), yellow (medium risk), orange (high risk) and red (beach closed). This project has been mentioned in more than 100 national newspapers and television channels (RTP, SIC, CMTV, Porto Canal...) and took part in the world's largest engineering competition organized by INTEL ISEF in the United States.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
         },
         {
-          title: "SmartHouse",
-          description: "Security system integrating sensors/cameras, mobile app for live monitoring and device control, web platform for administration. Focus on practicality, privacy and sustainability.",
-          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
+          title: "Polumap",
+          description: "This mobile application allows EVERYONE to identify the places where there is pollution: from river pollution to open-air rubbish dumps. In this way, a new type of environmental cartography will be created by the community, identifying pollution hotspots. For each point selected, an email will be sent to the local authority and the National Environment Agency so that action can be taken.",
+          technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
+          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
         },
         {
-          title: "Polumap",
-          description: "Mobile app allowing users to report environmental pollution (rivers, landfills, ...), crowd-mapping issues and automatically notifying authorities. Created to promote environmental awareness and civic action.",
-          technologies: ["PHP", "Android Studio", "MySQL", "API", "JSON"],
+          title: "SmartHouse",
+          description: "Project carried out as part of the professional aptitude test (PAP) for the TGPSI professional course. It consisted of designing a security system integrating various types of sensors and cameras. The owner of this system will also be able to control all the sensors and view real-time video of their home, all via a mobile application. The more technical management of the security system will be done via a dedicated website.",
+          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
+          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
         }
       ]
