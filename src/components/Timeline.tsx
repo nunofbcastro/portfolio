@@ -1,6 +1,7 @@
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState, useEffect, ReactNode } from "react";
+import { ReactNode } from "react";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 interface TimelineProps<T> {
   title: string;
@@ -12,14 +13,9 @@ interface TimelineProps<T> {
 export const Timeline = <T,>({ title, items, renderItem, className }: TimelineProps<T>) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1150);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const [width] = useWindowSize();
+  const isMobile = width < 1160;
+  console.log(width)
 
   return (
     <section className={`py-20 ${className}`}>

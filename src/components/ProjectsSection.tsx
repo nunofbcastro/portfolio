@@ -30,13 +30,13 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
             </h2>
           </div>
 
-          <div ref={projectsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={projectsRef} className="columns-1 md:columns-2 lg:columns-3 gap-8">
             {text.projects.map((project, index) => {
               const delay = 200 + (index * 200);
               return (
                 <div
                   key={index}
-                  className="transition-all duration-700"
+                  className="transition-all duration-700 mb-8 inline-block w-full"
                   style={{ 
                     transitionDelay: projectsVisible ? `${delay}ms` : '0ms',
                     opacity: projectsVisible ? 1 : 0,
