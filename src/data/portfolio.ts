@@ -1,4 +1,16 @@
 export const portfolioData = {
+  // Configuration for which sections are active
+  sections: {
+    hero: true,
+    about: true,
+    experience: true,
+    education: true,
+    projects: true,
+    awards: true,
+    testimonials: false, // Hidden as requested
+    contact: true
+  },
+
   personal: {
     name: "Nuno Castro",
     title: {
@@ -11,8 +23,8 @@ export const portfolioData = {
       en: "Rio Tinto, Porto"
     },
     availability: {
-      pt: "Disponível para freelancing",
-      en: "Available for freelancing"
+      pt: "Aberto a novas experiências profissionais",
+      en: "Open to new professional experiences"
     },
     subtitle: {
       pt: "Especialista em desenvolvimento web e mobile",
@@ -153,18 +165,32 @@ export const portfolioData = {
       title: "Educação",
       educations: [
         {
-          institution: "Universidade do Porto",
-          degree: "Mestrado em Engenharia Informática",
+          institution: "ISEP - Instituto Superior de Engenharia do Porto",
+          degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
           location: "Porto, Portugal",
-          period: "2017 – 2019",
-          description: "Especialização em Sistemas Distribuídos e Segurança"
+          period: "set 2024 – jul 2026",
+          description: "Programação Ada, SPARK, FreeRTOS, Linux, Kernel Linux, MQTT, DDS, COAP, FIWARE, Scrum"
         },
         {
-          institution: "Instituto Politécnico de Lisboa",
-          degree: "Licenciatura em Informática",
-          location: "Lisboa, Portugal",
-          period: "2014 – 2017",
-          description: "Desenvolvimento de Software e Base de Dados"
+          institution: "ESTG - Politécnico do Porto",
+          degree: "Licenciatura em Engenharia Informática",
+          location: "Felgueiras, Portugal",
+          period: "out 2020 – jul 2023",
+          description: "Nota final: 15 valores. Projetos em .NET, React, Node.js, Docker, MongoDB, Express.js, e muito mais"
+        },
+        {
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "Ensino Secundário Profissional - Técnico de Gestão e Programação de Sistemas Informáticos",
+          location: "São João da Madeira, Portugal",
+          period: "set 2017 – ago 2020",
+          description: "Nota final: 18 valores. Desenvolvimento em Java, PHP, Laravel, Android Studio, MySQL, Python"
+        },
+        {
+          institution: "Academia De Música De Arouca",
+          degree: "Ensino articulado - 5º grau",
+          location: "Arouca, Portugal",
+          period: "set 2012 – jul 2017",
+          description: "Formação em clarinete até ao 5º grau"
         }
       ]
     },
@@ -172,18 +198,32 @@ export const portfolioData = {
       title: "Education",
       educations: [
         {
-          institution: "University of Porto",
-          degree: "Master's in Computer Engineering",
+          institution: "ISEP - Instituto Superior de Engenharia do Porto",
+          degree: "Master's in Critical Computational Systems Engineering",
           location: "Porto, Portugal",
-          period: "2017 – 2019",
-          description: "Specialization in Distributed Systems and Security"
+          period: "Sep 2024 – Jul 2026",
+          description: "Ada Programming, SPARK, FreeRTOS, Linux, Linux Kernel, MQTT, DDS, COAP, FIWARE, Scrum"
         },
         {
-          institution: "Polytechnic Institute of Lisbon",
-          degree: "Bachelor's in Computer Science",
-          location: "Lisbon, Portugal",
-          period: "2014 – 2017",
-          description: "Software Development and Database"
+          institution: "ESTG - Polytechnic of Porto",
+          degree: "Bachelor's in Computer Engineering",
+          location: "Felgueiras, Portugal",
+          period: "Oct 2020 – Jul 2023",
+          description: "Final grade: 15/20. Projects in .NET, React, Node.js, Docker, MongoDB, Express.js, and much more"
+        },
+        {
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "Professional Secondary Education - IT Systems Management and Programming Technician",
+          location: "São João da Madeira, Portugal",
+          period: "Sep 2017 – Aug 2020",
+          description: "Final grade: 18/20. Development in Java, PHP, Laravel, Android Studio, MySQL, Python"
+        },
+        {
+          institution: "Academia De Música De Arouca",
+          degree: "Articulated education - 5th grade",
+          location: "Arouca, Portugal",
+          period: "Sep 2012 – Jul 2017",
+          description: "Clarinet training up to 5th grade"
         }
       ]
     }
@@ -194,28 +234,28 @@ export const portfolioData = {
       title: "Projetos",
       projects: [
         {
-          title: "E-commerce Moderno",
-          description: "Plataforma completa de e-commerce com pagamentos integrados",
-          technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+          title: "SandSpace",
+          description: "App mobile que analisa a taxa de ocupação de 865 praias em Portugal, com sistema de cores para análise de risco. Integra dados meteorológicos e votação em tempo real. Destaque em mais de 100 meios de comunicação nacionais e participante do INTEL ISEF (EUA).",
+          technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
+          github: "https://github.com/nunofbcastro"
         },
         {
-          title: "Dashboard Analytics",
-          description: "Dashboard interativo para análise de dados em tempo real",
-          technologies: ["Vue.js", "D3.js", "Express", "MongoDB"],
+          title: "SmartHouse",
+          description: "Sistema de segurança integrando sensores/câmaras, app mobile para monitorização ao vivo e controlo de dispositivos, plataforma web para administração. Foco na praticidade, privacidade e sustentabilidade.",
+          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
+          github: "https://github.com/nunofbcastro"
         },
         {
-          title: "App Mobile Fitness",
-          description: "Aplicação mobile para tracking de exercícios e nutrição",
-          technologies: ["React Native", "Firebase", "Redux"],
+          title: "Polumap",
+          description: "App mobile que permite reportar poluição ambiental (rios, lixeiras, ...), mapeamento colaborativo de problemas e notificação automática às autoridades. Criado para promover consciência ambiental e ação cívica.",
+          technologies: ["PHP", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
+          github: "https://github.com/nunofbcastro"
         }
       ]
     },
@@ -223,28 +263,167 @@ export const portfolioData = {
       title: "Projects",
       projects: [
         {
-          title: "Modern E-commerce",
-          description: "Complete e-commerce platform with integrated payments",
-          technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+          title: "SandSpace",
+          description: "Mobile app analyzing occupancy rates for 865 beaches across Portugal, supporting risk analysis via a color system. Integrates real-time meteorological and voting data. Featured in over 100 national media outlets and participant of INTEL ISEF (USA).",
+          technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
+          github: "https://github.com/nunofbcastro"
         },
         {
-          title: "Analytics Dashboard",
-          description: "Interactive dashboard for real-time data analysis",
-          technologies: ["Vue.js", "D3.js", "Express", "MongoDB"],
+          title: "SmartHouse",
+          description: "Security system integrating sensors/cameras, mobile app for live monitoring and device control, web platform for administration. Focus on practicality, privacy and sustainability.",
+          technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
+          github: "https://github.com/nunofbcastro"
         },
         {
-          title: "Fitness Mobile App",
-          description: "Mobile app for exercise and nutrition tracking",
-          technologies: ["React Native", "Firebase", "Redux"],
+          title: "Polumap",
+          description: "Mobile app allowing users to report environmental pollution (rivers, landfills, ...), crowd-mapping issues and automatically notifying authorities. Created to promote environmental awareness and civic action.",
+          technologies: ["PHP", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
-          link: "https://exemplo.com",
-          github: "https://github.com"
+          link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
+          github: "https://github.com/nunofbcastro"
+        }
+      ]
+    }
+  },
+
+  awards: {
+    pt: {
+      title: "Prémios e Reconhecimentos",
+      awards: [
+        {
+          title: "Participante INTEL ISEF",
+          issuer: "INTEL ISEF",
+          date: "Jan 2021",
+          description: "Participante no INTEL ISEF com a aplicação SandSpace.",
+          category: "Ciência e Tecnologia"
+        },
+        {
+          title: "Entrevista Portugal Digital Summit",
+          issuer: "Portugal Digital Summit 2020",
+          date: "Nov 2020",
+          description: "Entrevista sobre a app PoluMap.",
+          category: "Reconhecimento Mediático"
+        },
+        {
+          title: "Prémio Proteger a vida marítima",
+          issuer: "AppStartUp",
+          date: "Nov 2020",
+          description: "3ª edição do AppStartUp - Proteger a vida marítima com a app PoluMap.",
+          category: "Sustentabilidade"
+        },
+        {
+          title: "3º Lugar",
+          issuer: "World Skills Portugal",
+          date: "Fev 2020",
+          description: "Campeonato Nacional das Profissões 2020. 3º lugar em Mobile Application Development.",
+          category: "Competição Nacional"
+        },
+        {
+          title: "2º Lugar",
+          issuer: "PAPTICE",
+          date: "Jan 2020",
+          description: "2º lugar na categoria PAPTICE Artefacts com o projeto SmartHouse.",
+          category: "Inovação Tecnológica"
+        },
+        {
+          title: "2º Lugar Jovens Empreendedores",
+          issuer: "Fundação da Juventude",
+          date: "Jan 2020",
+          description: "3ª Mostra Nacional Virtual de Jovens Empreendedores - 2º lugar com a app SandSpace.",
+          category: "Empreendedorismo"
+        },
+        {
+          title: "3º Lugar Jovens Cientistas",
+          issuer: "Fundação da Juventude",
+          date: "Jan 2020",
+          description: "3º lugar com a app SandSpace.",
+          category: "Ciência"
+        },
+        {
+          title: "People's Choice Award",
+          issuer: "Apps For Good UK",
+          date: "Jan 2020",
+          description: "People's Choice Award para a app SandSpace.",
+          category: "Reconhecimento Internacional"
+        },
+        {
+          title: "3º Lugar",
+          issuer: "Apps for Good Portugal",
+          date: "Set 2019",
+          description: "3º lugar com a app PoluMap.",
+          category: "Inovação Social"
+        }
+      ]
+    },
+    en: {
+      title: "Awards and Recognition",
+      awards: [
+        {
+          title: "INTEL ISEF Participant",
+          issuer: "INTEL ISEF",
+          date: "Jan 2021",
+          description: "Participant in INTEL ISEF with the SandSpace application.",
+          category: "Science and Technology"
+        },
+        {
+          title: "Portugal Digital Summit Interview",
+          issuer: "Portugal Digital Summit 2020",
+          date: "Nov 2020",
+          description: "Interview about the PoluMap app.",
+          category: "Media Recognition"
+        },
+        {
+          title: "Protecting Marine Life Award",
+          issuer: "AppStartUp",
+          date: "Nov 2020",
+          description: "3rd edition of AppStartUp - Protecting marine life with the PoluMap app.",
+          category: "Sustainability"
+        },
+        {
+          title: "3rd Place",
+          issuer: "World Skills Portugal",
+          date: "Feb 2020",
+          description: "National Championship of Professions 2020. 3rd place in Mobile Application Development.",
+          category: "National Competition"
+        },
+        {
+          title: "2nd Place",
+          issuer: "PAPTICE",
+          date: "Jan 2020",
+          description: "2nd place in the PAPTICE Artifacts category with the SmartHouse project.",
+          category: "Technological Innovation"
+        },
+        {
+          title: "2nd Place Young Entrepreneurs",
+          issuer: "Youth Foundation",
+          date: "Jan 2020",
+          description: "3rd Virtual National Exhibition of Young Entrepreneurs - 2nd place with the SandSpace app.",
+          category: "Entrepreneurship"
+        },
+        {
+          title: "3rd Place Young Scientists",
+          issuer: "Youth Foundation",
+          date: "Jan 2020",
+          description: "3rd place with the SandSpace app.",
+          category: "Science"
+        },
+        {
+          title: "People's Choice Award",
+          issuer: "Apps For Good UK",
+          date: "Jan 2020",
+          description: "People's Choice Award for the SandSpace app.",
+          category: "International Recognition"
+        },
+        {
+          title: "3rd Place",
+          issuer: "Apps for Good Portugal",
+          date: "Sep 2019",
+          description: "3rd place with the PoluMap app.",
+          category: "Social Innovation"
         }
       ]
     }
@@ -294,7 +473,7 @@ export const portfolioData = {
   contact: {
     pt: {
       title: "Contacto",
-      subtitle: "Interessado em trabalhar comigo? Estou disponível para freelancing ou propostas de colaboração.",
+      subtitle: "Interessado em trabalhar comigo? Estou aberto a novas experiências profissionais e propostas de colaboração.",
       socialLinks: [
         { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
         { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
@@ -314,7 +493,7 @@ export const portfolioData = {
     },
     en: {
       title: "Contact",
-      subtitle: "Interested in working together? I'm open to freelance or collaboration proposals.",
+      subtitle: "Interested in working together? I'm open to new professional experiences and collaboration proposals.",
       socialLinks: [
         { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
         { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
