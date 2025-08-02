@@ -17,7 +17,7 @@ export const AwardsSection = ({ language }: AwardsSectionProps) => {
   const data = portfolioData.awards[language];
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1150);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);

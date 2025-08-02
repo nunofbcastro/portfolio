@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { portfolioData } from "@/data/portfolio";
 
 interface ProjectsSectionProps {
   language: 'pt' | 'en';
@@ -12,66 +13,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
   
-  const content = {
-    pt: {
-      title: "Projetos",
-      projects: [
-        {
-          name: "FinanceTracker Pro",
-          description: "Aplicação de controlo financeiro pessoal com estatísticas e notificações inteligentes.",
-          technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-          github: "#",
-          demo: "#"
-        },
-        {
-          name: "TaskFlow Manager",
-          description: "Sistema de gestão de tarefas para equipas com colaboração em tempo real.",
-          technologies: ["Vue.js", "Express", "Socket.io", "MongoDB"],
-          github: "#",
-          demo: "#"
-        },
-        {
-          name: "EcoTracker",
-          description: "App mobile para acompanhar e reduzir a pegada ecológica pessoal.",
-          technologies: ["React Native", "Firebase", "Chart.js"],
-          github: "#",
-          demo: "#"
-        }
-      ],
-      viewProject: "Ver Projeto",
-      sourceCode: "Código"
-    },
-    en: {
-      title: "Projects",
-      projects: [
-        {
-          name: "FinanceTracker Pro",
-          description: "Personal finance tracker with smart notifications and analytics.",
-          technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-          github: "#",
-          demo: "#"
-        },
-        {
-          name: "TaskFlow Manager",
-          description: "Team task management system with real-time collaboration features.",
-          technologies: ["Vue.js", "Express", "Socket.io", "MongoDB"],
-          github: "#",
-          demo: "#"
-        },
-        {
-          name: "EcoTracker",
-          description: "Mobile app to track and reduce personal environmental footprint.",
-          technologies: ["React Native", "Firebase", "Chart.js"],
-          github: "#",
-          demo: "#"
-        }
-      ],
-      viewProject: "View Project",
-      sourceCode: "Source Code"
-    }
-  };
-
-  const text = content[language];
+  const text = portfolioData.projects[language];
 
   return (
     <section id="projetos" className="py-20 bg-gradient-to-b from-muted to-background">
@@ -104,7 +46,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                   <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105">
                     <CardHeader>
                       <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {project.name}
+                        {project.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -124,7 +66,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                         <Button 
                           size="sm" 
                           className="flex-1"
-                          onClick={() => window.open(project.demo, '_blank')}
+                          onClick={() => window.open(project.link, '_blank')}
                         >
                           <ExternalLink className="h-4 w-4 mr-2" />
                           {text.viewProject}

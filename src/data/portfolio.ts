@@ -232,6 +232,8 @@ export const portfolioData = {
   projects: {
     pt: {
       title: "Projetos",
+      viewProject: "Ver Projeto",
+      sourceCode: "Código",
       projects: [
         {
           title: "SandSpace",
@@ -261,6 +263,8 @@ export const portfolioData = {
     },
     en: {
       title: "Projects",
+      viewProject: "View Project",
+      sourceCode: "Source Code",
       projects: [
         {
           title: "SandSpace",
@@ -406,7 +410,7 @@ export const portfolioData = {
         },
         {
           title: "3rd Place Young Scientists",
-          issuer: "Youth Foundation",
+          issuer: "Fundação da Juventude",
           date: "Jan 2020",
           description: "3rd place with the SandSpace app.",
           category: "Science"
@@ -421,7 +425,7 @@ export const portfolioData = {
         {
           title: "3rd Place",
           issuer: "Apps for Good Portugal",
-          date: "Sep 2019",
+          date: "Set 2019",
           description: "3rd place with the PoluMap app.",
           category: "Social Innovation"
         }

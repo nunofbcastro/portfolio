@@ -17,7 +17,7 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
   const data = portfolioData.experience[language];
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024); // Tablet = mobile
+    const checkMobile = () => setIsMobile(window.innerWidth < 1150);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
