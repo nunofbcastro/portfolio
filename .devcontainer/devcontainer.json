@@ -1,0 +1,14 @@
+{
+  "name": "Portfolio Dev Container",
+  "dockerFile": "../Dockerfile",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}
