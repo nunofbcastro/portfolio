@@ -1,41 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Palette, Cpu, Database } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { portfolioData } from "@/data/portfolio";
+import { Badge } from "@/components/ui/badge";
 
 interface AboutSectionProps {
   language: 'pt' | 'en';
 }
 
+const iconMap = {
+  Code,
+  Palette,
+  Cpu,
+  Database
+};
+
 export const AboutSection = ({ language }: AboutSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: skillsRef, isVisible: skillsVisible } = useScrollAnimation();
   
-  const content = {
-    pt: {
-      title: "Sobre Mim",
-      description: "Sou Engenheiro Informático, com experiência em desenvolvimento de software, design de interfaces e automação de processos. Gosto de criar ferramentas úteis, intuitivas e com impacto real na vida das pessoas.",
-      skillsTitle: "Principais Competências",
-      skills: [
-        { icon: Code, title: "Desenvolvimento Web / Mobile", description: "React, TypeScript, Node.js" },
-        { icon: Palette, title: "UI/UX Design", description: "Figma, Tailwind CSS, Design Systems" },
-        { icon: Cpu, title: "Integrações e APIs", description: "REST, GraphQL, Microserviços" },
-        { icon: Database, title: "Gestão de dados", description: "PostgreSQL, MongoDB, Redis" }
-      ]
-    },
-    en: {
-      title: "About Me",
-      description: "I'm a Software Engineer with experience in software development, UI design, and process automation. I enjoy building useful, intuitive tools that create real impact.",
-      skillsTitle: "Key Skills",
-      skills: [
-        { icon: Code, title: "Web / Mobile Development", description: "React, TypeScript, Node.js" },
-        { icon: Palette, title: "UI/UX Design", description: "Figma, Tailwind CSS, Design Systems" },
-        { icon: Cpu, title: "API Integrations", description: "REST, GraphQL, Microservices" },
-        { icon: Database, title: "Data Management", description: "PostgreSQL, MongoDB, Redis" }
-      ]
-    }
-  };
-
-  const text = content[language];
+  const text = portfolioData.about[language];
 
   return (
     <section id="sobre" className="py-20 bg-gradient-to-b from-background to-muted">
@@ -56,7 +40,7 @@ export const AboutSection = ({ language }: AboutSectionProps) => {
 
         <div ref={skillsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {text.skills.map((skill, index) => {
-            const Icon = skill.icon;
+            const Icon = iconMap[skill.icon as keyof typeof iconMap];
             const delay = 200 + (index * 150);
             return (
               <div
@@ -78,9 +62,13 @@ export const AboutSection = ({ language }: AboutSectionProps) => {
                     <h3 className="font-semibold text-lg mb-2 text-foreground">
                       {skill.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {skill.description}
-                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {skill.description.map((desc, i) => (
+                        <Badge key={i} variant="secondary" className="text-xs">
+                          {desc}
+                        </Badge>
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               </div>

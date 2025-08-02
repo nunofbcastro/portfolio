@@ -39,15 +39,25 @@ export const portfolioData = {
   about: {
     pt: {
       title: "Sobre Mim",
-      description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em agosto de 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, dedico o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
-      skills: ["NuSMV", "Arduino", "Kernel Linux", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "C++", "Programação Ada", "SPARK", "FreeRTOS", "DigitalOcean", "IIS", "FastAPI", "Blazor", "Arquitetura MVC", "Arquitetura limpa", "Microsoft Power Automate", "Microsoft PowerApps", "Azure DevOps", "Servidor Apache", "Nginx", "R", "Solidity", "Next.js", "NestJS", "React.js", "Aprendizado de máquina", "Tailwind CSS", "Docker", "ERP", "Kotlin", "Prolog", "Android Jetpack", ".NET Framework", "Azure Functions", "Azure Logic", "ETL", "Razor do ASP.NET", "SQLite", "GIMP", "Adobe Dreamweaver", "Linux", "JSON", "GitLab", "Git", "Scrum", "Microsoft SQL Server", "MongoDB", "XML", "Python", "API", "TypeScript", "Express.js", "Java", "C", "SQL", "Wix", "MySQL", "PHP", "Laravel", "HTML", "CSS", "JavaScript", "Node.js", "Android Studio"],
-      interests: ["Tecnologia", "Inovação", "Programação", "Desenvolvimento Mobile"]
+      description: "Sou Engenheiro Informático, com experiência em desenvolvimento de software, design de interfaces e automação de processos. Gosto de criar ferramentas úteis, intuitivas e com impacto real na vida das pessoas.",
+      skillsTitle: "Principais Competências",
+      skills: [
+        { icon: "Code", title: "Desenvolvimento Web / Mobile", description: ["React", "TypeScript", "Node.js"] },
+        { icon: "Palette", title: "UI/UX Design", description: ["Figma", "Tailwind CSS", "Design Systems"] },
+        { icon: "Cpu", title: "Integrações e APIs", description: ["REST", "GraphQL", "Microserviços"] },
+        { icon: "Database", title: "Gestão de dados", description: ["PostgreSQL", "MongoDB", "Redis"] }
+      ]
     },
     en: {
       title: "About Me",
-      description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in August 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
-      skills: ["NuSMV", "Arduino", "Linux Kernel", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "C++", "Ada Programming", "SPARK", "FreeRTOS", "DigitalOcean", "IIS", "FastAPI", "Blazor", "MVC Architecture", "Clean Architecture", "Microsoft Power Automate", "Microsoft PowerApps", "Azure DevOps", "Apache Server", "Nginx", "R", "Solidity", "Next.js", "NestJS", "React.js", "Machine Learning", "Tailwind CSS", "Docker", "ERP", "Kotlin", "Prolog", "Android Jetpack", ".NET Framework", "Azure Functions", "Azure Logic", "ETL", "ASP.NET Razor", "SQLite", "GIMP", "Adobe Dreamweaver", "Linux", "JSON", "GitLab", "Git", "Scrum", "Microsoft SQL Server", "MongoDB", "XML", "Python", "API", "TypeScript", "Express.js", "Java", "C", "SQL", "Wix", "MySQL", "PHP", "Laravel", "HTML", "CSS", "JavaScript", "Node.js", "Android Studio"],
-      interests: ["Technology", "Innovation", "Programming", "Mobile Development"]
+      description: "I'm a Software Engineer with experience in software development, UI design, and process automation. I enjoy building useful, intuitive tools that create real impact.",
+      skillsTitle: "Key Skills",
+      skills: [
+        { icon: "Code", title: "Web / Mobile Development", description: ["React", "TypeScript", "Node.js"] },
+        { icon: "Palette", title: "UI/UX Design", description: ["Figma", "Tailwind CSS", "Design Systems"] },
+        { icon: "Cpu", title: "API Integrations", description: ["REST", "GraphQL", "Microservices"] },
+        { icon: "Database", title: "Data Management", description: ["PostgreSQL", "MongoDB", "Redis"] }
+      ]
     }
   },
 
@@ -403,7 +413,7 @@ export const portfolioData = {
         },
         {
           title: "2nd Place Young Entrepreneurs",
-          issuer: "Youth Foundation",
+          issuer: "Fundação da Juventude",
           date: "Jan 2020",
           description: "3rd Virtual National Exhibition of Young Entrepreneurs - 2nd place with the SandSpace app.",
           category: "Entrepreneurship"
@@ -482,7 +492,7 @@ export const portfolioData = {
         { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
         { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
         { icon: "Github", label: "GitHub", href: "https://github.com/nunofbcastro" },
-        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.com" }
+        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.github.io/portfolio/" }
       ],
       faq: [
         {
