@@ -15,7 +15,6 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
   const [width] = useWindowSize();
   const isMobile = width < 1160;
-  console.log(width)
 
   return (
     <section className={`py-20 ${className}`}>
