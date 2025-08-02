@@ -8,12 +8,10 @@ interface EducationSectionProps {
 }
 
 export const EducationSection = ({ language }: EducationSectionProps) => {
-  const text = portfolioData.education[language];
-
   return (
     <Timeline
-      title={text.title}
-      items={text.educations}
+      title={portfolioData.education[language].title}
+      items={portfolioData.education[language].educations}
       className="bg-muted"
       renderItem={(edu, index, isMobile) => (
         <Card className="hover:shadow-xl hover:scale-105 transition-all duration-300">

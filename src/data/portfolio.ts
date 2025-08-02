@@ -236,7 +236,7 @@ export const portfolioData = {
           description: "Clarinet training up to 5th grade"
         }
       ]
-    }
+    }    
   },
 
   projects: {
@@ -245,6 +245,14 @@ export const portfolioData = {
       viewProject: "Ver Projeto",
       sourceCode: "Código",
       projects: [
+        {
+          title: "PORTFOLIO",
+          description: "Este é o meu portfólio pessoal, construído com React, TypeScript e Tailwind CSS.",
+          technologies: ["React", "TypeScript", "Tailwind CSS"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/portfolio/",
+          github: "https://github.com/nunofbcastro/portfolio"
+        },
         {
           title: "SandSpace",
           description: "2020 foi um ano diferente para todos, proibindo a população mundial de muitas atividades e impondo restrições à maioria delas. Por isso, juntamente com alguns amigos, criei o projeto SandSpace, que consiste numa aplicação móvel que permite analisar a taxa de ocupação de 865 praias em Portugal. Cada praia é representada por um ponto que pode ter quatro cores: verde (baixo risco), amarelo (risco médio), laranja (alto risco) e vermelho (praia fechada). Este projeto foi mencionado em mais de 100 jornais e canais de televisão nacionais (RTP, SIC, CMTV, Porto Canal...) e participou na maior competição de engenharia do mundo organizada pela INTEL ISEF nos Estados Unidos.",
@@ -268,6 +276,46 @@ export const portfolioData = {
           image: "/placeholder.svg",
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
+        },
+        {
+          title: "QR-CODE-READER",
+          description: "Um leitor de código QR baseado em HTML.",
+          technologies: ["HTML", "JavaScript"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/qr-code-reader/",
+          github: "https://github.com/nunofbcastro/QR-CODE-READER"
+        },
+        {
+          title: "SMART-MONEY-PAGE",
+          description: "Uma página inteligente para gestão de dinheiro.",
+          technologies: ["TypeScript", "React"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/smart-money-page/",
+          github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
+        },
+        {
+          title: "OLLAMA-DOCKER",
+          description: "Configuração Docker para Ollama.",
+          technologies: ["Docker", "Shell"],
+          image: "/placeholder.svg",
+          link: "https://github.com/nunofbcastro/OLLAMA-DOCKER",
+          github: "https://github.com/nunofbcastro/OLLAMA-DOCKER"
+        },
+        {
+          title: "BLAZORWASMDEPLOY",
+          description: "Exemplo de deploy de uma aplicação Blazor WebAssembly.",
+          technologies: ["Blazor", "C#", "CSS"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/BlazorWASMDeploy/",
+          github: "https://github.com/nunofbcastro/BLAZORWASMDEPLOY"
+        },
+        {
+          title: "PEP-IT-PORTUGAL",
+          description: "Projeto PEP-IT Portugal.",
+          technologies: ["TypeScript", "Node.js"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/pep-it-portugal/",
+          github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
         }
       ]
     },
@@ -276,6 +324,14 @@ export const portfolioData = {
       viewProject: "View Project",
       sourceCode: "Source Code",
       projects: [
+        {
+          title: "PORTFOLIO",
+          description: "This is my personal portfolio, built with React, TypeScript, and Tailwind CSS.",
+          technologies: ["React", "TypeScript", "Tailwind CSS"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/portfolio/",
+          github: "https://github.com/nunofbcastro/portfolio"
+        },
         {
           title: "SandSpace",
           description: "2020 was a different year for everyone, prohibiting the world's population from many activities and imposing restrictions on most of them. That's why, together with some friends, I created the SandSpace project, which consists of a mobile application that allows you to analyze the occupancy rate of 865 beaches in Portugal. Each beach is represented by a dot that can have four colors: green (low risk), yellow (medium risk), orange (high risk) and red (beach closed). This project has been mentioned in more than 100 national newspapers and television channels (RTP, SIC, CMTV, Porto Canal...) and took part in the world's largest engineering competition organized by INTEL ISEF in the United States.",
@@ -299,6 +355,46 @@ export const portfolioData = {
           image: "/placeholder.svg",
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
+        },
+        {
+          title: "QR-CODE-READER",
+          description: "An HTML-based QR code reader.",
+          technologies: ["HTML", "JavaScript"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/qr-code-reader/",
+          github: "https://github.com/nunofbcastro/QR-CODE-READER"
+        },
+        {
+          title: "SMART-MONEY-PAGE",
+          description: "A smart money management page.",
+          technologies: ["TypeScript", "React"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/smart-money-page/",
+          github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
+        },
+        {
+          title: "OLLAMA-DOCKER",
+          description: "Docker configuration for Ollama.",
+          technologies: ["Docker", "Shell"],
+          image: "/placeholder.svg",
+          link: "https://github.com/nunofbcastro/OLLAMA-DOCKER",
+          github: "https://github.com/nunofbcastro/OLLAMA-DOCKER"
+        },
+        {
+          title: "BLAZORWASMDEPLOY",
+          description: "Blazor WebAssembly deployment example.",
+          technologies: ["Blazor", "C#", "CSS"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/BlazorWASMDeploy/",
+          github: "https://github.com/nunofbcastro/BLAZORWASMDEPLOY"
+        },
+        {
+          title: "PEP-IT-PORTUGAL",
+          description: "PEP-IT Portugal project.",
+          technologies: ["TypeScript", "Node.js"],
+          image: "/placeholder.svg",
+          link: "https://nunofbcastro.github.io/pep-it-portugal/",
+          github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
         }
       ]
     }
