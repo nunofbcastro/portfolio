@@ -42,10 +42,10 @@ export const portfolioData = {
       description: "Sou Engenheiro Informático, com experiência em desenvolvimento de software, design de interfaces e automação de processos. Gosto de criar ferramentas úteis, intuitivas e com impacto real na vida das pessoas.",
       skillsTitle: "Principais Competências",
       skills: [
-        { icon: "Code", title: "Desenvolvimento Web / Mobile", description: ["React", "TypeScript", "Node.js"] },
-        { icon: "Palette", title: "UI/UX Design", description: ["Figma", "Tailwind CSS", "Design Systems"] },
-        { icon: "Cpu", title: "Integrações e APIs", description: ["REST", "GraphQL", "Microserviços"] },
-        { icon: "Database", title: "Gestão de dados", description: ["PostgreSQL", "MongoDB", "Redis"] }
+        { icon: "Code", title: "Desenvolvimento Web / Mobile", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React", "React Native", "Ionic"] },
+        { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
+        { icon: "Cpu", title: "Integrações e APIs", description: ["REST", "XML", "RPA"] },
+        { icon: "Database", title: "Gestão de dados", description: ["SQL Server", "MongoDB"] }
       ]
     },
     en: {
@@ -53,10 +53,10 @@ export const portfolioData = {
       description: "I'm a Software Engineer with experience in software development, UI design, and process automation. I enjoy building useful, intuitive tools that create real impact.",
       skillsTitle: "Key Skills",
       skills: [
-        { icon: "Code", title: "Web / Mobile Development", description: ["React", "TypeScript", "Node.js"] },
-        { icon: "Palette", title: "UI/UX Design", description: ["Figma", "Tailwind CSS", "Design Systems"] },
-        { icon: "Cpu", title: "API Integrations", description: ["REST", "GraphQL", "Microservices"] },
-        { icon: "Database", title: "Data Management", description: ["PostgreSQL", "MongoDB", "Redis"] }
+        { icon: "Code", title: "Web / Mobile Development", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React", "React Native", "Ionic"] },
+        { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
+        { icon: "Cpu", title: "API Integrations", description: ["REST", "XML", "RPA"] },
+        { icon: "Database", title: "Data Management", description: ["SQL Server", "MongoDB"] }
       ]
     }
   },
