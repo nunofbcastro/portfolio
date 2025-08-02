@@ -3,15 +3,15 @@ import { Globe } from "lucide-react";
 
 interface LanguageToggleProps {
   language: 'pt' | 'en';
-  onLanguageChange: (language: 'pt' | 'en') => void;
+  setLanguage: (language: 'pt' | 'en') => void;
 }
 
-export const LanguageToggle = ({ language, onLanguageChange }: LanguageToggleProps) => {
+export const LanguageToggle = ({ language, setLanguage }: LanguageToggleProps) => {
   return (
     <Button
       variant="outline"
       size="sm"
-      onClick={() => onLanguageChange(language === 'pt' ? 'en' : 'pt')}
+      onClick={() => setLanguage(language === 'pt' ? 'en' : 'pt')}
       className="flex items-center gap-2"
     >
       <Globe className="h-4 w-4" />

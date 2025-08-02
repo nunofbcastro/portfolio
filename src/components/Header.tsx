@@ -3,10 +3,10 @@ import { ThemeToggle } from "./ThemeToggle";
 
 interface HeaderProps {
   language: 'pt' | 'en';
-  onLanguageChange: (language: 'pt' | 'en') => void;
+  setLanguage: (language: 'pt' | 'en') => void;
 }
 
-export const Header = ({ language, onLanguageChange }: HeaderProps) => {
+export const Header = ({ language, setLanguage }: HeaderProps) => {
   const navigation = [
     { id: 'sobre', pt: 'Sobre', en: 'About' },
     { id: 'experiencia', pt: 'Experiência', en: 'Experience' },
@@ -34,7 +34,7 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageToggle language={language} onLanguageChange={onLanguageChange} />
+          <LanguageToggle language={language} setLanguage={setLanguage} />
           <ThemeToggle />
         </div>
       </div>

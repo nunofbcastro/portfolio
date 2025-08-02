@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -11,13 +10,17 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { portfolioData } from "@/data/portfolio";
 
-const Index = () => {
-  const [language, setLanguage] = useState<'pt' | 'en'>('pt');
+interface IndexProps {
+  language: 'pt' | 'en';
+  setLanguage: (language: 'pt' | 'en') => void;
+}
+
+const Index = ({ language, setLanguage }: IndexProps) => {
   const { sections } = portfolioData;
 
   return (
     <div className="min-h-screen bg-background">
-      <Header language={language} onLanguageChange={setLanguage} />
+      <Header language={language} setLanguage={setLanguage} />
       
       <main>
         {sections.hero && <HeroSection language={language} />}
