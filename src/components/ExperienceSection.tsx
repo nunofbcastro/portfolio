@@ -19,24 +19,26 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
       renderItem={(exp, index, isMobile) => (
         <Card className="hover:shadow-xl hover:scale-105">
           <CardContent className="p-6">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Briefcase className="h-5 w-5 text-primary" />
+            <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
+              <div className="flex items-start gap-3 flex-1">
+                <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-xl text-foreground mb-1">{exp.role}</h3>
+                  <p className="font-semibold text-primary text-lg">{exp.company}</p>
+                </div>
               </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-lg text-foreground">{exp.role}</h3>
-                <p className="font-semibold text-primary">{exp.company}</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-2 mb-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                <span>{exp.period}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                <span>{exp.location}</span>
+              
+              <div className="flex flex-col gap-3 md:items-end">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <span className="font-medium">{exp.period}</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <span className="font-medium">{exp.location}</span>
+                </div>
               </div>
             </div>
             

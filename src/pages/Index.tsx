@@ -8,6 +8,7 @@ import { AwardsSection } from "@/components/AwardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { Separator } from "@/components/ui/separator";
 import { portfolioData } from "@/data/portfolio";
 
 interface IndexProps {
@@ -24,13 +25,55 @@ const Index = ({ language, setLanguage }: IndexProps) => {
       
       <main>
         {sections.hero && <HeroSection language={language} />}
-        {sections.about && <AboutSection language={language} />}
-        {sections.experience && <ExperienceSection language={language} />}
-        {sections.education && <EducationSection language={language} />}
-        {sections.projects && <ProjectsSection language={language} />}
-        {sections.awards && <AwardsSection language={language} />}
-        {sections.testimonials && <TestimonialsSection language={language} />}
-        {sections.contact && <ContactSection language={language} />}
+        
+        {sections.about && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <AboutSection language={language} />
+          </>
+        )}
+        
+        {sections.experience && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <ExperienceSection language={language} />
+          </>
+        )}
+        
+        {sections.education && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <EducationSection language={language} />
+          </>
+        )}
+        
+        {sections.projects && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <ProjectsSection language={language} />
+          </>
+        )}
+        
+        {sections.awards && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <AwardsSection language={language} />
+          </>
+        )}
+        
+        {sections.testimonials && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <TestimonialsSection language={language} />
+          </>
+        )}
+        
+        {sections.contact && (
+          <>
+            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <ContactSection language={language} />
+          </>
+        )}
       </main>
       
       <Footer language={language} />
