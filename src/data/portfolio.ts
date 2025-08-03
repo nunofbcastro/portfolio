@@ -3,8 +3,7 @@ export const portfolioData = {
   sections: {
     hero: true,
     about: true,
-    experience: true,
-    education: true,
+    timeline: true,
     projects: true,
     awards: true,
     testimonials: false, // Hidden as requested
@@ -61,11 +60,13 @@ export const portfolioData = {
     }
   },
 
-  experience: {
+  timeline: {
     pt: {
-      title: "Experiência",
-      experiences: [
+      title: "Percurso Profissional e Académico",
+      items: [
         {
+          type: "experience",
+          icon: "Briefcase",
           company: "B2F - Business To Future",
           role: "Software Developer",
           location: "Presencial",
@@ -78,6 +79,8 @@ export const portfolioData = {
           technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
         },
         {
+          type: "experience",
+          icon: "Briefcase",
           company: "B2F - Business To Future",
           role: "Software Developer (Estágio)",
           location: "Presencial",
@@ -90,6 +93,17 @@ export const portfolioData = {
           technologies: [".NET Framework", "Razor ASP.NET", "ETL", "Web Development"]
         },
         {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "ESTG - Politécnico do Porto",
+          degree: "Licenciatura em Engenharia Informática",
+          location: "Felgueiras, Portugal",
+          period: "out 2020 – jul 2023",
+          description: "European Scale of Comparability of Classifications: A. Projetos: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
+        },
+        {
+          type: "experience",
+          icon: "Briefcase",
           company: "Agrupamento de Escolas Dr. Serafim Leite",
           role: "Programador Informático",
           location: "São João da Madeira, Aveiro",
@@ -102,6 +116,17 @@ export const portfolioData = {
           technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
         },
         {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "Ensino Secundário Profissional - Técnico de Gestão e Programação de Sistemas Informáticos",
+          location: "São João da Madeira, Portugal",
+          period: "set 2017 – ago 2020",
+          description: "Curso profissional com foco em desenvolvimento de software e sistemas informáticos"
+        },
+        {
+          type: "experience",
+          icon: "Briefcase",
           company: "Etn Experience",
           role: "Computer Programming",
           location: "Portsmouth, Inglaterra",
@@ -112,13 +137,33 @@ export const portfolioData = {
             "Experiência internacional em programação"
           ],
           technologies: ["HTML", "CSS", "JavaScript", "Web Development"]
+        },
+        {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "Academia De Música De Arouca",
+          degree: "Ensino articulado - 5º grau",
+          location: "Arouca, Portugal",
+          period: "set 2012 – jul 2017",
+          description: "Formação em clarinete até ao 5º grau"
+        },
+        {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "ISEP - Instituto Superior de Engenharia do Porto",
+          degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
+          location: "Porto, Portugal",
+          period: "set 2024 – jul 2026",
+          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         }
       ]
     },
     en: {
-      title: "Experience",
-      experiences: [
+      title: "Professional and Academic Journey",
+      items: [
         {
+          type: "experience",
+          icon: "Briefcase",
           company: "B2F - Business To Future",
           role: "Software Developer",
           location: "On-site",
@@ -131,6 +176,8 @@ export const portfolioData = {
           technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
         },
         {
+          type: "experience",
+          icon: "Briefcase",
           company: "B2F - Business To Future",
           role: "Software Developer (Internship)",
           location: "On-site",
@@ -143,6 +190,17 @@ export const portfolioData = {
           technologies: [".NET Framework", "Razor ASP.NET", "ETL", "Web Development"]
         },
         {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "ESTG - Polytechnic of Porto",
+          degree: "Bachelor's in Computer Engineering",
+          location: "Felgueiras, Portugal",
+          period: "Oct 2020 – Jul 2023",
+          description: "European Scale of Comparability of Classifications: A. Projects: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
+        },
+        {
+          type: "experience",
+          icon: "Briefcase",
           company: "Agrupamento de Escolas Dr. Serafim Leite",
           role: "Computer Programmer",
           location: "São João da Madeira, Aveiro",
@@ -155,6 +213,17 @@ export const portfolioData = {
           technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
         },
         {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "Professional Secondary Education - IT Systems Management and Programming Technician",
+          location: "São João da Madeira, Portugal",
+          period: "Sep 2017 – Aug 2020",
+          description: "Professional course focused on software development and information systems"
+        },
+        {
+          type: "experience",
+          icon: "Briefcase",
           company: "Etn Experience",
           role: "Computer Programming",
           location: "Portsmouth, England",
@@ -165,78 +234,27 @@ export const portfolioData = {
             "International programming experience"
           ],
           technologies: ["HTML", "CSS", "JavaScript", "Web Development"]
-        }
-      ]
-    }
-  },
-
-  education: {
-    pt: {
-      title: "Educação",
-      educations: [
-        {
-          institution: "ISEP - Instituto Superior de Engenharia do Porto",
-          degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
-          location: "Porto, Portugal",
-          period: "set 2024 – jul 2026",
-          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         },
         {
-          institution: "ESTG - Politécnico do Porto",
-          degree: "Licenciatura em Engenharia Informática",
-          location: "Felgueiras, Portugal",
-          period: "out 2020 – jul 2023",
-          description: "European Scale of Comparability of Classifications: A. Projetos: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
-        },
-        {
-          institution: "Agrupamento de Escolas Dr. Serafim Leite",
-          degree: "Ensino Secundário Profissional - Técnico de Gestão e Programação de Sistemas Informáticos",
-          location: "São João da Madeira, Portugal",
-          period: "set 2017 – ago 2020",
-          description: "Curso profissional com foco em desenvolvimento de software e sistemas informáticos"
-        },
-        {
-          institution: "Academia De Música De Arouca",
-          degree: "Ensino articulado - 5º grau",
-          location: "Arouca, Portugal",
-          period: "set 2012 – jul 2017",
-          description: "Formação em clarinete até ao 5º grau"
-        }
-      ]
-    },
-    en: {
-      title: "Education",
-      educations: [
-        {
-          institution: "ISEP - Instituto Superior de Engenharia do Porto",
-          degree: "Master's in Critical Computational Systems Engineering",
-          location: "Porto, Portugal",
-          period: "Sep 2024 – Jul 2026",
-          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
-        },
-        {
-          institution: "ESTG - Polytechnic of Porto",
-          degree: "Bachelor's in Computer Engineering",
-          location: "Felgueiras, Portugal",
-          period: "Oct 2020 – Jul 2023",
-          description: "European Scale of Comparability of Classifications: A. Projects: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
-        },
-        {
-          institution: "Agrupamento de Escolas Dr. Serafim Leite",
-          degree: "Professional Secondary Education - IT Systems Management and Programming Technician",
-          location: "São João da Madeira, Portugal",
-          period: "Sep 2017 – Aug 2020",
-          description: "Professional course focused on software development and information systems"
-        },
-        {
+          type: "education",
+          icon: "GraduationCap",
           institution: "Academia De Música De Arouca",
           degree: "Articulated education - 5th grade",
           location: "Arouca, Portugal",
           period: "Sep 2012 – Jul 2017",
           description: "Clarinet training up to 5th grade"
+        },
+        {
+          type: "education",
+          icon: "GraduationCap",
+          institution: "ISEP - Instituto Superior de Engenharia do Porto",
+          degree: "Master's in Critical Computational Systems Engineering",
+          location: "Porto, Portugal",
+          period: "Sep 2024 – Jul 2026",
+          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         }
       ]
-    }    
+    }
   },
 
   projects: {
