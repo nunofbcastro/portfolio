@@ -1,3 +1,5 @@
+import { sortTimelineItems } from "../lib/utils";
+
 export const portfolioData = {
   // Configuration for which sections are active
   sections: {
@@ -5,7 +7,7 @@ export const portfolioData = {
     about: true,
     timeline: true,
     projects: true,
-    awards: true,
+    awards: false,
     testimonials: false, // Hidden as requested
     contact: true
   },
@@ -155,8 +157,80 @@ export const portfolioData = {
           location: "Porto, Portugal",
           period: "set 2024 – jul 2026",
           description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "Entrevista Portugal Digital Summit",
+          issuer: "Portugal Digital Summit 2020",
+          period: "Nov 2020",
+          description: "Entrevista sobre a app PoluMap.",
+          category: "Reconhecimento Mediático"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "Prémio Proteger a vida marítima",
+          issuer: "AppStartUp",
+          period: "Nov 2020",
+          description: "3ª edição do AppStartUp - Proteger a vida marítima com a app PoluMap.",
+          category: "Sustentabilidade"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3º Lugar",
+          issuer: "World Skills Portugal",
+          period: "Fev 2020",
+          description: "Campeonato Nacional das Profissões 2020. 3º lugar em Mobile Application Development.",
+          category: "Competição Nacional"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "2º Lugar",
+          issuer: "PAPTICE",
+          period: "Jan 2020",
+          description: "2º lugar na categoria PAPTICE Artefacts com o projeto SmartHouse.",
+          category: "Inovação Tecnológica"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "2º Lugar Jovens Empreendedores",
+          issuer: "Fundação da Juventude",
+          period: "Jan 2020",
+          description: "3ª Mostra Nacional Virtual de Jovens Empreendedores - 2º lugar com a app SandSpace.",
+          category: "Empreendedorismo"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3º Lugar Jovens Cientistas",
+          issuer: "Fundação da Juventude",
+          period: "Jan 2020",
+          description: "3º lugar com a app SandSpace.",
+          category: "Ciência"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "People's Choice Award",
+          issuer: "Apps For Good UK",
+          period: "Jan 2020",
+          description: "People's Choice Award para a app SandSpace.",
+          category: "Reconhecimento Internacional"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3º Lugar",
+          issuer: "Apps for Good Portugal",
+          period: "Set 2019",
+          description: "3º lugar com a app PoluMap.",
+          category: "Inovação Social"
         }
-      ]
+      ].sort(sortTimelineItems)
     },
     en: {
       title: "Professional and Academic Journey",
@@ -253,7 +327,7 @@ export const portfolioData = {
           period: "Sep 2024 – Jul 2026",
           description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
         }
-      ]
+      ].sort(sortTimelineItems)
     }
   },
 
@@ -400,7 +474,7 @@ export const portfolioData = {
         },
         {
           title: "BLAZORWASMDEPLOY",
-          description: "Blazor WebAssembly deployment example.",
+          description: "Example of deploying a Blazor WebAssembly application.",
           technologies: ["Blazor", "C#", "CSS"],
           image: "/placeholder.svg",
           link: "https://nunofbcastro.github.io/BlazorWASMDeploy/",
@@ -413,145 +487,6 @@ export const portfolioData = {
           image: "/placeholder.svg",
           link: "https://nunofbcastro.github.io/pep-it-portugal/",
           github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
-        }
-      ]
-    }
-  },
-
-  awards: {
-    pt: {
-      title: "Prémios e Reconhecimentos",
-      awards: [
-        {
-          title: "Participante INTEL ISEF",
-          issuer: "INTEL ISEF",
-          date: "Jan 2021",
-          description: "Participante no INTEL ISEF com a aplicação SandSpace.",
-          category: "Ciência e Tecnologia"
-        },
-        {
-          title: "Entrevista Portugal Digital Summit",
-          issuer: "Portugal Digital Summit 2020",
-          date: "Nov 2020",
-          description: "Entrevista sobre a app PoluMap.",
-          category: "Reconhecimento Mediático"
-        },
-        {
-          title: "Prémio Proteger a vida marítima",
-          issuer: "AppStartUp",
-          date: "Nov 2020",
-          description: "3ª edição do AppStartUp - Proteger a vida marítima com a app PoluMap.",
-          category: "Sustentabilidade"
-        },
-        {
-          title: "3º Lugar",
-          issuer: "World Skills Portugal",
-          date: "Fev 2020",
-          description: "Campeonato Nacional das Profissões 2020. 3º lugar em Mobile Application Development.",
-          category: "Competição Nacional"
-        },
-        {
-          title: "2º Lugar",
-          issuer: "PAPTICE",
-          date: "Jan 2020",
-          description: "2º lugar na categoria PAPTICE Artefacts com o projeto SmartHouse.",
-          category: "Inovação Tecnológica"
-        },
-        {
-          title: "2º Lugar Jovens Empreendedores",
-          issuer: "Fundação da Juventude",
-          date: "Jan 2020",
-          description: "3ª Mostra Nacional Virtual de Jovens Empreendedores - 2º lugar com a app SandSpace.",
-          category: "Empreendedorismo"
-        },
-        {
-          title: "3º Lugar Jovens Cientistas",
-          issuer: "Fundação da Juventude",
-          date: "Jan 2020",
-          description: "3º lugar com a app SandSpace.",
-          category: "Ciência"
-        },
-        {
-          title: "People's Choice Award",
-          issuer: "Apps For Good UK",
-          date: "Jan 2020",
-          description: "People's Choice Award para a app SandSpace.",
-          category: "Reconhecimento Internacional"
-        },
-        {
-          title: "3º Lugar",
-          issuer: "Apps for Good Portugal",
-          date: "Set 2019",
-          description: "3º lugar com a app PoluMap.",
-          category: "Inovação Social"
-        }
-      ]
-    },
-    en: {
-      title: "Awards and Recognition",
-      awards: [
-        {
-          title: "INTEL ISEF Participant",
-          issuer: "INTEL ISEF",
-          date: "Jan 2021",
-          description: "Participant in INTEL ISEF with the SandSpace application.",
-          category: "Science and Technology"
-        },
-        {
-          title: "Portugal Digital Summit Interview",
-          issuer: "Portugal Digital Summit 2020",
-          date: "Nov 2020",
-          description: "Interview about the PoluMap app.",
-          category: "Media Recognition"
-        },
-        {
-          title: "Protecting Marine Life Award",
-          issuer: "AppStartUp",
-          date: "Nov 2020",
-          description: "3rd edition of AppStartUp - Protecting marine life with the PoluMap app.",
-          category: "Sustainability"
-        },
-        {
-          title: "3rd Place",
-          issuer: "World Skills Portugal",
-          date: "Feb 2020",
-          description: "National Championship of Professions 2020. 3rd place in Mobile Application Development.",
-          category: "National Competition"
-        },
-        {
-          title: "2nd Place",
-          issuer: "PAPTICE",
-          date: "Jan 2020",
-          description: "2nd place in the PAPTICE Artifacts category with the SmartHouse project.",
-          category: "Technological Innovation"
-        },
-        {
-          title: "2nd Place Young Entrepreneurs",
-          issuer: "Fundação da Juventude",
-          date: "Jan 2020",
-          description: "3rd Virtual National Exhibition of Young Entrepreneurs - 2nd place with the SandSpace app.",
-          category: "Entrepreneurship"
-        },
-        {
-          title: "3rd Place Young Scientists",
-          issuer: "Fundação da Juventude",
-          date: "Jan 2020",
-          description: "3rd place with the SandSpace app.",
-          category: "Science"
-        },
-        {
-          title: "People's Choice Award",
-          issuer: "Apps For Good UK",
-          date: "Jan 2020",
-          description: "People's Choice Award for the SandSpace app.",
-          category: "International Recognition"
-        },
-        {
-          title: "3rd Place",
-          issuer: "Apps for Good Portugal",
-          date: "Set 2019",
-          description: "3rd place with the PoluMap app.",
-          category: "Social Innovation"
         }
       ]
     }
@@ -638,7 +573,7 @@ export const portfolioData = {
         { icon: "Mail", label: "Email", href: "mailto:nunofbcastro@gmail.com" },
         { icon: "Linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nunofbcastro/" },
         { icon: "Github", label: "GitHub", href: "https://github.com/nunofbcastro" },
-        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.com" }
+        { icon: "Globe", label: "Portfolio", href: "https://nunofbcastro.github.io/portfolio/" }
       ],
       faq: [
         {

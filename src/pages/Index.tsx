@@ -1,8 +1,10 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Timeline } from "@/components/Timeline";
-import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, MapPin, Trophy } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { AwardsSection } from "@/components/AwardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -40,11 +42,11 @@ const Index = ({ language, setLanguage }: IndexProps) => {
               title={portfolioData.timeline[language].title}
               items={portfolioData.timeline[language].items}
               renderItem={(item, index, isMobile) => {
-                const Icon = item.icon === "Briefcase" ? Briefcase : GraduationCap;
+                const Icon = item.icon === "Briefcase" ? Briefcase : (item.icon === "Award" ? Trophy : GraduationCap);
                 return (
                   <Card className="hover:shadow-xl hover:scale-105">
                     <CardContent className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-start gap-4 mb-6">
+                      <div className="flex flex-col md:flex-row md:items-start gap-4 mb-4">
                         <div className="flex items-start gap-3 flex-1">
                           <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
                             <Icon className="h-6 w-6 text-primary" />
@@ -55,24 +57,31 @@ const Index = ({ language, setLanguage }: IndexProps) => {
                                 <h3 className="font-bold text-xl text-foreground mb-1">{item.role}</h3>
                                 <p className="font-semibold text-primary text-lg">{item.company}</p>
                               </>
-                            ) : (
+                            ) : item.type === "education" ? (
                               <>
                                 <h3 className="font-bold text-xl text-foreground mb-1">{item.degree}</h3>
                                 <p className="font-semibold text-primary text-lg">{item.institution}</p>
+                              </>
+                            ) : (
+                              <>
+                                <h3 className="font-bold text-xl text-foreground mb-1">{item.title}</h3>
+                                <p className="font-semibold text-primary text-lg">{item.issuer}</p>
                               </>
                             )}
                           </div>
                         </div>
                         
-                        <div className="flex flex-col gap-3 md:items-end">
+                        <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex items-center gap-2 text-muted-foreground">
-                            <MapPin className="h-5 w-5 text-primary" />
+                            <Calendar className="h-4 w-4 text-primary" />
                             <span className="font-medium">{item.period}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-muted-foreground">
-                            <MapPin className="h-5 w-5 text-primary" />
-                            <span className="font-medium">{item.location}</span>
-                          </div>
+                          {item.location && (
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <MapPin className="h-4 w-4 text-primary" />
+                              <span className="font-medium">{item.location}</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                       
