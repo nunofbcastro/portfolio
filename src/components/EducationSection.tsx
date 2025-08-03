@@ -12,7 +12,6 @@ export const EducationSection = ({ language }: EducationSectionProps) => {
     <Timeline
       title={portfolioData.education[language].title}
       items={portfolioData.education[language].educations}
-      className="bg-muted"
       renderItem={(edu, index, isMobile) => (
         <Card className="hover:shadow-xl hover:scale-105 transition-all duration-300">
           <CardHeader>

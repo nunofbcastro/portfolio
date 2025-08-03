@@ -15,7 +15,6 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
     <Timeline
       title={data.title}
       items={data.experiences}
-      className="bg-gradient-to-b from-background to-muted"
       renderItem={(exp, index, isMobile) => (
         <Card className="hover:shadow-xl hover:scale-105">
           <CardContent className="p-6">

@@ -15,7 +15,6 @@ export const AwardsSection = ({ language }: AwardsSectionProps) => {
     <Timeline
       title={data.title}
       items={data.awards}
-      className="bg-background"
       renderItem={(award, index, isMobile) => (
         <Card className="hover:shadow-xl hover:scale-105">
           <CardHeader>
