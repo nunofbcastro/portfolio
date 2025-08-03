@@ -28,43 +28,43 @@ const Index = ({ language, setLanguage }: IndexProps) => {
         )}
         
         {sections.about && (
-          <div className="py-20 bg-muted/30">
+          <div className="bg-muted/30">
             <AboutSection language={language} />
           </div>
         )}
         
         {sections.experience && (
-          <div className="py-20">
+          <div>
             <ExperienceSection language={language} />
           </div>
         )}
         
         {sections.education && (
-          <div className="py-20 bg-muted/20">
+          <div className="bg-muted/20">
             <EducationSection language={language} />
           </div>
         )}
         
         {sections.projects && (
-          <div className="py-20">
+          <div>
             <ProjectsSection language={language} />
           </div>
         )}
         
         {sections.awards && (
-          <div className="py-20 bg-muted/30">
+          <div className="bg-muted/30">
             <AwardsSection language={language} />
           </div>
         )}
         
         {sections.testimonials && (
-          <div className="py-20">
+          <div>
             <TestimonialsSection language={language} />
           </div>
         )}
         
         {sections.contact && (
-          <div className="py-20 bg-muted/20">
+          <div className="bg-muted/20">
             <ContactSection language={language} />
           </div>
         )}

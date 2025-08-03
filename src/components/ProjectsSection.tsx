@@ -16,7 +16,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const text = portfolioData.projects[language];
 
   return (
-    <section id="projetos" className="py-20 bg-gradient-to-b from-muted to-background">
+    <section id="projetos" className="bg-gradient-to-b from-muted to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div 
