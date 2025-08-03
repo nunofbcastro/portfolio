@@ -326,6 +326,78 @@ export const portfolioData = {
           location: "Porto, Portugal",
           period: "Sep 2024 – Jul 2026",
           description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "Portugal Digital Summit Interview",
+          issuer: "Portugal Digital Summit 2020",
+          period: "Nov 2020",
+          description: "Interview about the PoluMap app.",
+          category: "Media Recognition"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "Protect Marine Life Award",
+          issuer: "AppStartUp",
+          period: "Nov 2020",
+          description: "3rd edition of AppStartUp - Protecting marine life with the PoluMap app.",
+          category: "Sustainability"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3rd Place",
+          issuer: "World Skills Portugal",
+          period: "Feb 2020",
+          description: "National Skills Competition 2020. 3rd place in Mobile Application Development.",
+          category: "National Competition"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "2nd Place",
+          issuer: "PAPTICE",
+          period: "Jan 2020",
+          description: "2nd place in the PAPTICE Artefacts category with the SmartHouse project.",
+          category: "Technological Innovation"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "2nd Place Young Entrepreneurs",
+          issuer: "Fundação da Juventude",
+          period: "Jan 2020",
+          description: "3rd National Virtual Exhibition of Young Entrepreneurs - 2nd place with the SandSpace app.",
+          category: "Entrepreneurship"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3rd Place Young Scientists",
+          issuer: "Fundação da Juventude",
+          period: "Jan 2020",
+          description: "3rd place with the SandSpace app.",
+          category: "Science"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "People's Choice Award",
+          issuer: "Apps For Good UK",
+          period: "Jan 2020",
+          description: "People's Choice Award for the SandSpace app.",
+          category: "International Recognition"
+        },
+        {
+          type: "award",
+          icon: "Award",
+          title: "3rd Place",
+          issuer: "Apps for Good Portugal",
+          period: "Set 2019",
+          description: "3rd place with the PoluMap app.",
+          category: "Social Innovation"
         }
       ].sort(sortTimelineItems)
     }
