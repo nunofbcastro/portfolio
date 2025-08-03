@@ -35,7 +35,7 @@ export const ExperienceSection = ({ language }: ExperienceSectionProps) => {
                   <span className="font-medium">{exp.period}</span>
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <Calendar className="h-5 w-5 text-primary" />
                   <span className="font-medium">{exp.location}</span>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { AwardsSection } from "@/components/AwardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { portfolioData } from "@/data/portfolio";
 

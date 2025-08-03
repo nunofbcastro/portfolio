@@ -592,12 +592,24 @@ export const portfolioData = {
       ],
       faq: [
         {
-          question: "Trabalhas remotamente?",
-          answer: "Sim, disponível para trabalho remoto."
+          question: "Quais são as tuas principais áreas de especialização?",
+          answer: "Sou especialista em desenvolvimento web e mobile, com foco em .NET Framework, Razor ASP.NET, Blazor, React, React Native e Ionic. Também tenho experiência em UI/UX design, integrações de API (REST, XML, RPA) e gestão de dados (SQL Server, MongoDB)."
         },
         {
-          question: "Forneces documentação?",
-          answer: "Sim, sempre com documentação e suporte técnico."
+          question: "Estás disponível para novos projetos ou colaborações?",
+          answer: "Sim, estou sempre aberto a novas oportunidades e desafios. Se tiveres um projeto em mente ou procuras colaboração, não hesites em contactar-me!"
+        },
+        {
+          question: "Trabalhas remotamente?",
+          answer: "Sim, estou totalmente disponível para trabalho remoto, o que me permite colaborar com equipas e projetos em qualquer parte do mundo."
+        },
+        {
+          question: "Como é que garantes a qualidade do código e a manutenção?",
+          answer: "Prezo pela escrita de código limpo, modular e bem documentado. Utilizo as melhores práticas de desenvolvimento, como testes unitários e integração contínua, para garantir a robustez e a fácil manutenção das soluções que entrego."
+        },
+        {
+          question: "Podes dar exemplos de projetos em que trabalhaste?",
+          answer: "Claro! No meu portfólio, podes encontrar projetos como o SandSpace (aplicação móvel para análise de ocupação de praias), PoluMap (aplicação para identificação de poluição) e SmartHouse (sistema de segurança residencial). Tenho também vários projetos pessoais e contribuições open-source."
         }
       ]
     },
@@ -612,12 +624,24 @@ export const portfolioData = {
       ],
       faq: [
         {
-          question: "Do you work remotely?",
-          answer: "Yes, available for remote work."
+          question: "What are your main areas of expertise?",
+          answer: "I specialize in web and mobile development, with a focus on .NET Framework, Razor ASP.NET, Blazor, React, React Native, and Ionic. I also have experience in UI/UX design, API integrations (REST, XML, RPA), and data management (SQL Server, MongoDB)."
         },
         {
-          question: "Do you provide documentation?",
-          answer: "Yes, always with technical documentation and support."
+          question: "Are you available for new projects or collaborations?",
+          answer: "Yes, I am always open to new opportunities and challenges. If you have a project in mind or are looking for collaboration, don't hesitate to contact me!"
+        },
+        {
+          question: "Do you work remotely?",
+          answer: "Yes, I am fully available for remote work, which allows me to collaborate with teams and projects anywhere in the world."
+        },
+        {
+          question: "How do you ensure code quality and maintainability?",
+          answer: "I prioritize writing clean, modular, and well-documented code. I use best development practices, such as unit testing and continuous integration, to ensure the robustness and easy maintainability of the solutions I deliver."
+        },
+        {
+          question: "Can you provide examples of projects you've worked on?",
+          answer: "Of course! In my portfolio, you can find projects like SandSpace (mobile application for beach occupancy analysis), PoluMap (application for pollution identification), and SmartHouse (home security system). I also have several personal projects and open-source contributions."
         }
       ]
     }

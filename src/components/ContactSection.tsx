@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { FAQSection } from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Github, Globe } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
@@ -30,10 +31,10 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto mb-8">
             <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-4 text-foreground">
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-base mb-4 text-foreground text-center">
                   {language === 'pt' ? 'Ligações Sociais' : 'Social Links'}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -54,22 +55,15 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 </div>
               </CardContent>
             </Card>
+          </div>
 
+          <div className="max-w-2xl mx-auto mt-8">
             <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-4 text-foreground">FAQ</h3>
-                <div className="space-y-4 text-sm">
-                  {data.faq.map((item, index) => (
-                    <div key={index}>
-                      <p className="font-medium text-foreground">
-                        {item.question}
-                      </p>
-                      <p className="text-muted-foreground">
-                        {item.answer}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-base mb-4 text-foreground text-center">
+                  {language === 'pt' ? 'Perguntas Frequentes' : 'Frequently Asked Questions'}
+                </h3>
+                <FAQSection faq={data.faq} language={language} className="mt-4" />
               </CardContent>
             </Card>
           </div>
