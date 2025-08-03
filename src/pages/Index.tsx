@@ -8,7 +8,6 @@ import { AwardsSection } from "@/components/AwardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { Separator } from "@/components/ui/separator";
 import { portfolioData } from "@/data/portfolio";
 
 interface IndexProps {
@@ -23,56 +22,59 @@ const Index = ({ language, setLanguage }: IndexProps) => {
     <div className="min-h-screen bg-background">
       <Header language={language} setLanguage={setLanguage} />
       
-      <main>
-        {sections.hero && <HeroSection language={language} />}
+      <main className="relative">
+        {sections.hero && (
+          <div className="relative">
+            <HeroSection language={language} />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background/80" />
+          </div>
+        )}
         
         {sections.about && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative -mt-16 pt-16">
             <AboutSection language={language} />
-          </>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/30" />
+          </div>
         )}
         
         {sections.experience && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative">
             <ExperienceSection language={language} />
-          </>
+          </div>
         )}
         
         {sections.education && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative">
             <EducationSection language={language} />
-          </>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-background/50" />
+          </div>
         )}
         
         {sections.projects && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative -mt-10 pt-10">
             <ProjectsSection language={language} />
-          </>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/20" />
+          </div>
         )}
         
         {sections.awards && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative -mt-10 pt-10">
             <AwardsSection language={language} />
-          </>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-background/30" />
+          </div>
         )}
         
         {sections.testimonials && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative -mt-10 pt-10">
             <TestimonialsSection language={language} />
-          </>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/40" />
+          </div>
         )}
         
         {sections.contact && (
-          <>
-            <Separator className="my-16 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="relative -mt-10 pt-10">
             <ContactSection language={language} />
-          </>
+          </div>
         )}
       </main>
       
