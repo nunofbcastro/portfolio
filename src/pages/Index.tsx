@@ -22,57 +22,49 @@ const Index = ({ language, setLanguage }: IndexProps) => {
     <div className="min-h-screen bg-background">
       <Header language={language} setLanguage={setLanguage} />
       
-      <main className="relative">
+      <main>
         {sections.hero && (
-          <div className="relative">
-            <HeroSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background/80" />
-          </div>
+          <HeroSection language={language} />
         )}
         
         {sections.about && (
-          <div className="relative -mt-16 pt-16">
+          <div className="py-20 bg-muted/30">
             <AboutSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/30" />
           </div>
         )}
         
         {sections.experience && (
-          <div className="relative">
+          <div className="py-20">
             <ExperienceSection language={language} />
           </div>
         )}
         
         {sections.education && (
-          <div className="relative">
+          <div className="py-20 bg-muted/20">
             <EducationSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-background/50" />
           </div>
         )}
         
         {sections.projects && (
-          <div className="relative -mt-10 pt-10">
+          <div className="py-20">
             <ProjectsSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/20" />
           </div>
         )}
         
         {sections.awards && (
-          <div className="relative -mt-10 pt-10">
+          <div className="py-20 bg-muted/30">
             <AwardsSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-background/30" />
           </div>
         )}
         
         {sections.testimonials && (
-          <div className="relative -mt-10 pt-10">
+          <div className="py-20">
             <TestimonialsSection language={language} />
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-transparent to-muted/40" />
           </div>
         )}
         
         {sections.contact && (
-          <div className="relative -mt-10 pt-10">
+          <div className="py-20 bg-muted/20">
             <ContactSection language={language} />
           </div>
         )}
