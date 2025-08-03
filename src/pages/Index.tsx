@@ -51,7 +51,7 @@ const Index = ({ language, setLanguage }: IndexProps) => {
                           <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
                             <Icon className="h-6 w-6 text-primary" />
                           </div>
-                          <div className="flex-1 min-w-0">
+                          <div className={`flex-1 ${!isMobile ? 'max-w-[calc(100%-70px)]' : 'min-w-0'}`}>
                             {item.type === "experience" ? (
                               <>
                                 <h3 className="font-bold text-xl text-foreground mb-1">{item.role}</h3>

@@ -35,7 +35,7 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
           <div ref={timelineRef} className="relative">
             {/* Timeline - Only on desktop (1024px+) */}
             {!isMobile && (
-              <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-all duration-1000 ${
+              <div className={`absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2 transition-all duration-1000 ${
                 timelineVisible ? 'bg-gradient-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
               }`} />
             )}
@@ -50,7 +50,7 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
                     {/* Timeline Dot - Only on desktop */}
                     {!isMobile && (
                       <div
-                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-6 h-6 rounded-full transition-all duration-1000 ${
+                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-12 h-12 rounded-full transition-all duration-1000 ${
                           timelineVisible
                             ? 'bg-primary scale-100 shadow-lg shadow-primary/50'
                             : 'bg-muted scale-0'
