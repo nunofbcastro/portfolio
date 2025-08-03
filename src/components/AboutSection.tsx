@@ -22,7 +22,7 @@ export const AboutSection = ({ language }: AboutSectionProps) => {
   const text = portfolioData.about[language];
 
   return (
-    <section id="sobre" className="bg-gradient-to-b from-background to-muted">
+    <section id="sobre" className="py-20 md:py-32 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4">
         <div 
           ref={titleRef}

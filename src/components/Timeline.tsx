@@ -17,7 +17,7 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
   const isMobile = width < 1160;
 
   return (
-    <section className={className}>
+    <section className={`${className} py-20 md:py-32`}>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div
