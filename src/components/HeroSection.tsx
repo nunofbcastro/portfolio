@@ -25,7 +25,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-foreground">{data.greeting[language]} </span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
               {data.name}
             </span>
           </h1>
