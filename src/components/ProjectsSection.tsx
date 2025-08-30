@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 interface ProjectsSectionProps {
   language: 'pt' | 'en';
@@ -14,12 +15,20 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
   const [showAll, setShowAll] = useState(false);
+  const [width] = useWindowSize();
   
   const text = portfolioData.projects[language];
   
-  // Determine which projects to show
-  const displayProjects = showAll ? text.projects : text.projects.slice(0, 1);
-  const hasMoreProjects = text.projects.length > 1;
+  // Determine how many projects to show in first row based on screen size
+  const getFirstRowCount = () => {
+    if (width >= 1024) return 3; // lg: 3 columns
+    if (width >= 768) return 2;  // md: 2 columns
+    return 1; // mobile: 1 column
+  };
+  
+  const firstRowCount = getFirstRowCount();
+  const displayProjects = showAll ? text.projects : text.projects.slice(0, firstRowCount);
+  const hasMoreProjects = text.projects.length > firstRowCount;
 
   return (
     <section id="projetos" className="py-20 md:py-32 bg-linear-to-b from-muted to-background">
