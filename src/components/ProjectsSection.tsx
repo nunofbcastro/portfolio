@@ -18,8 +18,8 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const text = portfolioData.projects[language];
   
   // Determine which projects to show
-  const displayProjects = showAll ? text.projects : text.projects.slice(0, 3);
-  const hasMoreProjects = text.projects.length > 3;
+  const displayProjects = showAll ? text.projects : text.projects.slice(0, 1);
+  const hasMoreProjects = text.projects.length > 1;
 
   return (
     <section id="projetos" className="py-20 md:py-32 bg-linear-to-b from-muted to-background">
