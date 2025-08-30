@@ -48,7 +48,7 @@ const Index = ({ language, setLanguage }: IndexProps) => {
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 mb-4">
                         <div className="flex items-start gap-3 flex-1">
-                          <div className={`p-3 bg-primary/10 rounded-lg flex-shrink-0 ${!isMobile ? 'hidden' : ''}`}>
+                          <div className={`p-3 bg-primary/10 rounded-lg shrink-0 ${!isMobile ? 'hidden' : ''}`}>
                             <Icon className="h-6 w-6 text-primary" />
                           </div>
                           <div className="flex-1">

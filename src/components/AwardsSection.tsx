@@ -19,7 +19,7 @@ export const AwardsSection = ({ language }: AwardsSectionProps) => {
         <Card className="hover:shadow-xl hover:scale-105">
           <CardHeader>
             <div className="flex items-start gap-4">
-              <div className="p-2 bg-primary/10 rounded-full flex-shrink-0">
+              <div className="p-2 bg-primary/10 rounded-full shrink-0">
                 <Trophy className="h-6 w-6 text-primary" />
               </div>
               <div className="flex-1">
