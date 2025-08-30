@@ -80,6 +80,15 @@ export const Timeline = <T,>({
                         <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
                           timelineVisible ? 'scale-100' : 'scale-0'
                         }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
+                        <div className="absolute inset-0 flex items-center justify-center z-20">
+                          {(item as any).icon === "Briefcase" ? (
+                            <Briefcase className="h-6 w-6 text-primary" />
+                          ) : (item as any).icon === "Award" ? (
+                            <Trophy className="h-6 w-6 text-primary" />
+                          ) : (
+                            <GraduationCap className="h-6 w-6 text-primary" />
+                          )}
+                        </div>
                       </div>
                     )}
 
