@@ -1,21 +1,39 @@
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface TimelineProps<T> {
   title: string;
   items: T[];
   renderItem: (item: T, index: number, isMobile: boolean) => ReactNode;
   className?: string;
+  showLimitButton?: boolean;
+  limitButtonText?: string;
+  showMoreText?: string;
+  showLessText?: string;
 }
 
-export const Timeline = <T,>({ title, items, renderItem, className }: TimelineProps<T>) => {
+export const Timeline = <T,>({ 
+  title, 
+  items, 
+  renderItem, 
+  className,
+  showLimitButton = false,
+  showMoreText = "Ver mais",
+  showLessText = "Ver menos"
+}: TimelineProps<T>) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
   const [width] = useWindowSize();
+  const [showAll, setShowAll] = useState(false);
   const isMobile = width < 1160;
+
+  // Determine which items to show
+  const displayItems = showLimitButton && !showAll ? items.slice(0, 3) : items;
+  const hasMoreItems = showLimitButton && items.length > 3;
 
   return (
     <section className={`${className} py-20 md:py-32`}>
@@ -41,7 +59,7 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
             )}
 
             <div className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
-              {items.map((item, index) => {
+              {displayItems.map((item, index) => {
                 const delay = index * 200;
                 const isLeft = index % 2 === 0;
 
@@ -62,15 +80,6 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
                         <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
                           timelineVisible ? 'scale-100' : 'scale-0'
                         }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
-                        <div className="absolute inset-0 flex items-center justify-center z-20">
-                          {item.icon === "Briefcase" ? (
-                            <Briefcase className="h-6 w-6 text-primary" />
-                          ) : item.icon === "Award" ? (
-                            <Trophy className="h-6 w-6 text-primary" />
-                          ) : (
-                            <GraduationCap className="h-6 w-6 text-primary" />
-                          )}
-                        </div>
                       </div>
                     )}
 
@@ -108,6 +117,19 @@ export const Timeline = <T,>({ title, items, renderItem, className }: TimelinePr
                 );
               })}
             </div>
+
+            {/* Show More/Less Button */}
+            {hasMoreItems && (
+              <div className="flex justify-center mt-12">
+                <Button
+                  variant="outline"
+                  onClick={() => setShowAll(!showAll)}
+                  className="px-8 py-3"
+                >
+                  {showAll ? showLessText : showMoreText}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
