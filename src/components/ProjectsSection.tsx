@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
+import { useState } from "react";
 
 interface ProjectsSectionProps {
   language: 'pt' | 'en';
@@ -12,8 +13,13 @@ interface ProjectsSectionProps {
 export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
+  const [showAll, setShowAll] = useState(false);
   
   const text = portfolioData.projects[language];
+  
+  // Determine which projects to show
+  const displayProjects = showAll ? text.projects : text.projects.slice(0, 3);
+  const hasMoreProjects = text.projects.length > 3;
 
   return (
     <section id="projetos" className="py-20 md:py-32 bg-linear-to-b from-muted to-background">
@@ -31,7 +37,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
           </div>
 
           <div ref={projectsRef} className="columns-1 md:columns-2 lg:columns-3 gap-8">
-            {text.projects.map((project, index) => {
+            {displayProjects.map((project, index) => {
               const delay = 200 + (index * 200);
               return (
                 <div
@@ -85,6 +91,22 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
               );
             })}
           </div>
+
+          {/* Show More/Less Button */}
+          {hasMoreProjects && (
+            <div className="flex justify-center mt-12">
+              <Button
+                variant="outline"
+                onClick={() => setShowAll(!showAll)}
+                className="px-8 py-3 hover-scale transition-all duration-300 hover:shadow-lg"
+              >
+                {showAll 
+                  ? (language === 'pt' ? 'Ver menos' : 'Show less')
+                  : (language === 'pt' ? 'Ver mais' : 'See more')
+                }
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
