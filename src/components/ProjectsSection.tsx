@@ -104,9 +104,9 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
 
             {/* Overlay "Ver mais" effect */}
             {hasMoreProjects && !showAll && (
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-auto z-10">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-background/90 backdrop-blur-sm rounded-full scale-150 -z-10"></div>
+              <div className="absolute bottom-20 left-0 right-0 pointer-events-none z-10">
+                <div className="absolute inset-0 bg-background/30 backdrop-blur-sm h-24 -my-12"></div>
+                <div className="flex justify-center pointer-events-auto">
                   <Button
                     variant="outline"
                     onClick={() => setShowAll(true)}
