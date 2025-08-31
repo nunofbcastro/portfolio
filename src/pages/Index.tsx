@@ -41,6 +41,9 @@ const Index = ({ language, setLanguage }: IndexProps) => {
             <Timeline
               title={portfolioData.timeline[language].title}
               items={portfolioData.timeline[language].items}
+              showLimitButton={true}
+              showMoreText={language === 'pt' ? 'Ver mais' : 'Read more'}
+              showLessText={language === 'pt' ? 'Ver menos' : 'Show less'}
               renderItem={(item, index, isMobile) => {
                 const Icon = item.icon === "Briefcase" ? Briefcase : (item.icon === "Award" ? Trophy : GraduationCap);
                 return (
