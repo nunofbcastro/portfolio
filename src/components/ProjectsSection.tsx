@@ -44,82 +44,73 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
             </h2>
           </div>
 
-          <div ref={projectsRef} className="relative">
+           <div ref={projectsRef} className="relative overflow-hidden" style={{ maxHeight: showAll ? 'none' : '800px' }}>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
-              {text.projects.map((project, index) => {
-                const delay = 200 + (index * 200);
-                const isInFirstRow = index < firstRowCount;
-                const shouldShow = showAll || isInFirstRow;
-                
-                return (
-                  <div
-                    key={index}
-                    className={`transition-all duration-700 mb-8 inline-block w-full ${
-                      !shouldShow ? 'opacity-50 scale-95' : ''
-                    }`}
-                    style={{ 
-                      transitionDelay: projectsVisible ? `${delay}ms` : '0ms',
-                      opacity: projectsVisible ? (shouldShow ? 1 : 0.3) : 0,
-                      transform: projectsVisible ? 
-                        (shouldShow ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)') : 
-                        'translateY(50px) scale(0.9)'
-                    }}
-                  >
-                    <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <CardHeader>
-                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {project.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
-                          {project.description}
-                        </p>
-                        
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.technologies.map((tech, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+               {text.projects.map((project, index) => {
+                 const delay = 200 + (index * 200);
+                 
+                 return (
+                   <div
+                     key={index}
+                     className="transition-all duration-700 mb-8 inline-block w-full"
+                     style={{ 
+                       transitionDelay: projectsVisible ? `${delay}ms` : '0ms',
+                       opacity: projectsVisible ? 1 : 0,
+                       transform: projectsVisible ? 'translateY(0)' : 'translateY(50px)'
+                     }}
+                   >
+                     <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105">
+                       <CardHeader>
+                         <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                           {project.title}
+                         </CardTitle>
+                       </CardHeader>
+                       <CardContent>
+                         <p className="text-muted-foreground mb-4 leading-relaxed">
+                           {project.description}
+                         </p>
+                         
+                         <div className="flex flex-wrap gap-2 mb-6">
+                           {project.technologies.map((tech, i) => (
+                             <Badge key={i} variant="secondary" className="text-xs">
+                               {tech}
+                             </Badge>
+                           ))}
+                         </div>
 
-                        <div className="flex gap-2">
-                          <Button 
-                            size="sm" 
-                            className="flex-1"
-                            onClick={() => window.open(project.link, '_blank')}
-                          >
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            {text.viewProject}
-                          </Button>
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => window.open(project.github, '_blank')}
-                          >
-                            <Github className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
+                         <div className="flex gap-2">
+                           <Button 
+                             size="sm" 
+                             className="flex-1"
+                             onClick={() => window.open(project.link, '_blank')}
+                           >
+                             <ExternalLink className="h-4 w-4 mr-2" />
+                             {text.viewProject}
+                           </Button>
+                           <Button 
+                             variant="outline" 
+                             size="sm"
+                             onClick={() => window.open(project.github, '_blank')}
+                           >
+                             <Github className="h-4 w-4" />
+                           </Button>
+                         </div>
+                       </CardContent>
+                     </Card>
+                   </div>
+                 );
+               })}
+             </div>
 
             {/* Overlay "Ver mais" effect */}
             {hasMoreProjects && !showAll && (
-              <div className="absolute inset-0 pointer-events-none">
-                <div 
-                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent"
-                  style={{ height: '40%' }}
-                />
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 pointer-events-auto">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 pointer-events-auto z-10">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-background/90 backdrop-blur-sm rounded-full scale-150 -z-10"></div>
                   <Button
                     variant="outline"
                     onClick={() => setShowAll(true)}
-                    className="px-8 py-3 hover-scale transition-all duration-300 hover:shadow-lg bg-background/90 backdrop-blur-sm"
+                    className="px-8 py-3 hover-scale transition-all duration-300 hover:shadow-lg"
                   >
                     {language === 'pt' ? 'Ver mais' : 'See more'}
                   </Button>
