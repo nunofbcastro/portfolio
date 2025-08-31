@@ -44,7 +44,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
             </h2>
           </div>
 
-           <div ref={projectsRef} className="relative overflow-hidden" style={{ maxHeight: showAll ? 'none' : '800px' }}>
+          <div ref={projectsRef} className="relative overflow-hidden" style={{ maxHeight: showAll ? 'none' : '600px' }}>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
                {text.projects.map((project, index) => {
                  const delay = 200 + (index * 200);
@@ -104,9 +104,9 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
 
             {/* Overlay "Ver mais" effect */}
             {hasMoreProjects && !showAll && (
-              <div className="absolute bottom-16 left-0 right-0 pointer-events-none z-10">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent h-32 -my-16"></div>
-                <div className="flex justify-center pointer-events-auto relative z-20">
+              <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-10 h-40">
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                <div className="flex justify-center items-center h-full pointer-events-auto relative z-20">
                   <Button
                     variant="outline"
                     onClick={() => setShowAll(true)}
