@@ -59,14 +59,14 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                        transform: projectsVisible ? 'translateY(0)' : 'translateY(50px)'
                      }}
                    >
-                     <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 origin-center">
-                       <CardHeader>
+                     <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 origin-center h-full flex flex-col">
+                       <CardHeader className="flex-shrink-0">
                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                            {project.title}
                          </CardTitle>
                        </CardHeader>
-                       <CardContent>
-                         <p className="text-muted-foreground mb-4 leading-relaxed">
+                       <CardContent className="flex-grow flex flex-col">
+                         <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">
                            {project.description}
                          </p>
                          
@@ -78,7 +78,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                            ))}
                          </div>
 
-                         <div className="flex gap-2">
+                         <div className="flex gap-2 mt-auto">
                            <Button 
                              size="sm" 
                              className="flex-1"
