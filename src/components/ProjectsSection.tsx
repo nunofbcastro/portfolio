@@ -44,7 +44,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
             </h2>
           </div>
 
-          <div ref={projectsRef} className="relative overflow-hidden" style={{ maxHeight: showAll ? 'none' : '600px' }}>
+          <div ref={projectsRef} className="relative overflow-hidden p-2" style={{ maxHeight: showAll ? 'none' : '620px' }}>
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
                {text.projects.map((project, index) => {
                  const delay = 200 + (index * 200);
@@ -52,14 +52,14 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                  return (
                    <div
                      key={index}
-                     className="transition-all duration-700 mb-8 inline-block w-full"
+                     className="transition-all duration-700 mb-8 inline-block w-full p-1"
                      style={{ 
                        transitionDelay: projectsVisible ? `${delay}ms` : '0ms',
                        opacity: projectsVisible ? 1 : 0,
                        transform: projectsVisible ? 'translateY(0)' : 'translateY(50px)'
                      }}
                    >
-                     <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105">
+                     <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 origin-center">
                        <CardHeader>
                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                            {project.title}
