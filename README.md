@@ -27,10 +27,13 @@ git clone https://github.com/nunofbcastro/portfolio.git
 # Step 2: Navigate to the project directory.
 cd portfolio
 
-# Step 3: Install the necessary dependencies.
+# Step 3 (optional): If you're using nvm, switch to the correct Node.js version.
+nvm use
+
+# Step 4: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
