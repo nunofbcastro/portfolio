@@ -38,13 +38,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: nunofbcastro.github.io
-
+    
       - name: Create tag
         if: success() && github.ref == 'refs/heads/main'
         run: |
-          TAG="v$(date +'%Y.%m.%d-%H%M')"
+          TAG="v$(date +'%Y.%m.%d-%H%M%S')-$(git rev-parse --short HEAD)"
           echo "Creating tag $TAG"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag $TAG
           git push origin $TAG
+
