@@ -36,7 +36,7 @@ export const Timeline = <T,>({
   const hasMoreItems = showLimitButton && items.length > 3;
 
   return (
-    <section className={`${className} py-20 md:py-32`}>
+    <section id="experiencia" className={`${className} py-20 md:py-32`}>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div
