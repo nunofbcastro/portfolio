@@ -1,7 +1,11 @@
 import Index from "./Index";
 import { useState, useEffect } from "react";
 
-const App = () => {
+interface AppProps {
+  currentYear: number;
+}
+
+const App = ({ currentYear }: AppProps) => {
   const [language, setLanguage] = useState<'pt' | 'en'>('en');
 
   useEffect(() => {
@@ -27,7 +31,7 @@ const App = () => {
     localStorage.setItem("language", nextLanguage);
   };
 
-  return <Index language={language} setLanguage={handleSetLanguage} />;
+  return <Index language={language} setLanguage={handleSetLanguage} currentYear={currentYear} />;
 };
 
 export default App;

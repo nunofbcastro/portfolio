@@ -16,9 +16,10 @@ import { portfolioData } from "@/data/portfolio";
 interface IndexProps {
   language: 'pt' | 'en';
   setLanguage: (language: 'pt' | 'en') => void;
+  currentYear: number;
 }
 
-const Index = ({ language, setLanguage }: IndexProps) => {
+const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
   const { sections } = portfolioData;
 
   return (
@@ -145,7 +146,7 @@ const Index = ({ language, setLanguage }: IndexProps) => {
         )}
       </main>
       
-      <Footer language={language} />
+      <Footer language={language} currentYear={currentYear} />
     </div>
   );
 };

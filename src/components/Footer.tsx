@@ -1,8 +1,9 @@
 interface FooterProps {
   language: 'pt' | 'en';
+  currentYear: number;
 }
 
-export const Footer = ({ language }: FooterProps) => {
+export const Footer = ({ language, currentYear }: FooterProps) => {
   const content = {
     pt: {
       rights: "Todos os direitos reservados",
@@ -15,8 +16,6 @@ export const Footer = ({ language }: FooterProps) => {
   };
 
   const text = content[language];
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-muted py-8 border-t">
       <div className="container mx-auto px-4">
