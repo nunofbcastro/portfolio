@@ -1,26 +1,20 @@
 ---
-import "../index.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const siteUrl = Astro.site ?? new URL("https://nunofbcastro.github.io");
 const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="portfolio/favicon.ico" />
-    <title id="page-title">404 | Nuno Castro Portfolio</title>
-    <meta id="page-description" name="description" content="The page you are looking for does not exist." />
-    <meta name="robots" content="noindex,follow" />
-    <link rel="canonical" href={pageUrl} />
-    <script is:inline>
-      const storedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
-      document.documentElement.classList.toggle("dark", isDark);
-    </script>
-    <script is:inline>
+<BaseLayout
+  title="404 | Nuno Castro Portfolio"
+  titleId="page-title"
+  description="The page you are looking for does not exist."
+  descriptionId="page-description"
+  robots="noindex,follow"
+  canonicalUrl={pageUrl}
+  bodyClass="min-h-screen bg-background text-foreground"
+>
+  <script slot="head" is:inline>
       const i18n = {
         en: {
           pageTitle: "404 | Nuno Castro Portfolio",
@@ -66,40 +60,37 @@ const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
       if (message) message.textContent = t.message;
       if (goHome) goHome.textContent = t.goHome;
       if (contact) contact.textContent = t.contact;
-    </script>
-  </head>
-  <body class="min-h-screen bg-background text-foreground">
-    <main class="relative min-h-screen overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.2),transparent_35%),radial-gradient(circle_at_85%_80%,hsl(var(--accent)/0.15),transparent_35%)]"></div>
+  </script>
+  <main class="relative min-h-screen overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.2),transparent_35%),radial-gradient(circle_at_85%_80%,hsl(var(--accent)/0.15),transparent_35%)]"></div>
 
-      <section class="container relative z-10 mx-auto flex min-h-screen items-center justify-center px-4 py-16">
-        <div class="w-full max-w-2xl rounded-2xl border border-border/60 bg-card/70 p-8 text-center shadow-xl backdrop-blur-md md:p-12">
-          <p class="mb-3 text-sm font-semibold tracking-[0.2em] text-primary">ERROR 404</p>
-          <h1 data-i18n="heading" class="mb-4 text-4xl font-extrabold leading-tight md:text-6xl">
-            Page Not Found
-          </h1>
-          <p data-i18n="message" class="mx-auto mb-8 max-w-xl text-base text-muted-foreground md:text-lg">
-            The page may have been moved, renamed, or does not exist. Use one of the links below to continue browsing.
-          </p>
+    <section class="container relative z-10 mx-auto flex min-h-screen items-center justify-center px-4 py-16">
+      <div class="w-full max-w-2xl rounded-2xl border border-border/60 bg-card/70 p-8 text-center shadow-xl backdrop-blur-md md:p-12">
+        <p class="mb-3 text-sm font-semibold tracking-[0.2em] text-primary">ERROR 404</p>
+        <h1 data-i18n="heading" class="mb-4 text-4xl font-extrabold leading-tight md:text-6xl">
+          Page Not Found
+        </h1>
+        <p data-i18n="message" class="mx-auto mb-8 max-w-xl text-base text-muted-foreground md:text-lg">
+          The page may have been moved, renamed, or does not exist. Use one of the links below to continue browsing.
+        </p>
 
-          <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="/portfolio/"
-              data-i18n="goHome"
-              class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Go to Homepage
-            </a>
-            <a
-              href="mailto:nunofbcastro@gmail.com"
-              data-i18n="contact"
-              class="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-semibold transition-colors hover:bg-muted"
-            >
-              Contact Me
-            </a>
-          </div>
+        <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href="/portfolio/"
+            data-i18n="goHome"
+            class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Go to Homepage
+          </a>
+          <a
+            href="mailto:nunofbcastro@gmail.com"
+            data-i18n="contact"
+            class="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-semibold transition-colors hover:bg-muted"
+          >
+            Contact Me
+          </a>
         </div>
-      </section>
-    </main>
-  </body>
-</html>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

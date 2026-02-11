@@ -1,0 +1,98 @@
+---
+import "../index.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  robots?: string;
+  author?: string;
+  keywords?: string;
+  canonicalUrl: string;
+  preloadImage?: string;
+  imageUrl?: string;
+  imageType?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  siteName?: string;
+  locale?: string;
+  alternateLocale?: string;
+  twitterCard?: string;
+  twitterImageAlt?: string;
+  lang?: string;
+  bodyClass?: string;
+  jsonLd?: unknown;
+  titleId?: string;
+  descriptionId?: string;
+}
+
+const {
+  title,
+  description = "",
+  robots = "index,follow,max-image-preview:large",
+  author,
+  keywords,
+  canonicalUrl,
+  preloadImage,
+  imageUrl,
+  imageType = "image/png",
+  imageWidth = 1200,
+  imageHeight = 630,
+  siteName = title,
+  locale = "en_US",
+  alternateLocale,
+  twitterCard = "summary_large_image",
+  twitterImageAlt,
+  lang = "en",
+  bodyClass,
+  jsonLd,
+  titleId,
+  descriptionId
+} = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.ico" />
+    <title id={titleId}>{title}</title>
+    <meta id={descriptionId} name="description" content={description} />
+    <meta name="robots" content={robots} />
+    {author && <meta name="author" content={author} />}
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="canonical" href={canonicalUrl} />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+
+    {imageUrl && <meta property="og:type" content="website" />}
+    {imageUrl && <meta property="og:site_name" content={siteName} />}
+    {imageUrl && <meta property="og:title" content={title} />}
+    {imageUrl && <meta property="og:description" content={description} />}
+    {imageUrl && <meta property="og:url" content={canonicalUrl} />}
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {imageUrl && <meta property="og:image:type" content={imageType} />}
+    {imageUrl && <meta property="og:image:width" content={String(imageWidth)} />}
+    {imageUrl && <meta property="og:image:height" content={String(imageHeight)} />}
+    {imageUrl && <meta property="og:locale" content={locale} />}
+    {imageUrl && alternateLocale && <meta property="og:locale:alternate" content={alternateLocale} />}
+
+    {imageUrl && <meta property="twitter:card" content={twitterCard} />}
+    {imageUrl && <meta property="twitter:title" content={title} />}
+    {imageUrl && <meta property="twitter:description" content={description} />}
+    {imageUrl && <meta property="twitter:image" content={imageUrl} />}
+    {imageUrl && twitterImageAlt && <meta property="twitter:image:alt" content={twitterImageAlt} />}
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
+      document.documentElement.classList.toggle("dark", isDark);
+    </script>
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

@@ -1,5 +1,5 @@
 ---
-import "../index.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import App from "../react/App";
 import { portfolioData } from "../data/portfolio";
 import heroImage from "../assets/hero-image.jpg";
@@ -41,47 +41,21 @@ const jsonLd = {
 };
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="portfolio/favicon.ico" />
-    <title>{title}</title>
-    <meta name="description" content={descriptionEn} />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="author" content={person.name} />
-    <meta name="keywords" content="Nuno Castro, Software Engineer, Portfolio, React, Astro, TypeScript, .NET" />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="canonical" href={pageUrl} />
-    <link rel="preload" as="image" href={heroImage.src} />
-    <link rel="alternate" hrefLang="en" href={pageUrl} />
-    <link rel="alternate" hrefLang="pt-PT" href={pageUrl} />
-    <link rel="alternate" hrefLang="x-default" href={pageUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={title} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={descriptionEn} />
-    <meta property="og:url" content={pageUrl} />
-    <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="pt_PT" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={descriptionEn} />
-    <meta property="twitter:image" content={imageUrl} />
-    <meta property="twitter:image:alt" content="Nuno Castro portfolio social preview" />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    <script is:inline>
-      const storedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
-      document.documentElement.classList.toggle("dark", isDark);
-    </script>
-  </head>
-  <body>
-    <App client:load currentYear={currentYear} />
-  </body>
-</html>
+<BaseLayout
+  title={title}
+  description={descriptionEn}
+  author={person.name}
+  keywords="Nuno Castro, Software Engineer, Portfolio, React, Astro, TypeScript, .NET"
+  canonicalUrl={pageUrl}
+  preloadImage={heroImage.src}
+  imageUrl={imageUrl}
+  locale="en_US"
+  alternateLocale="pt_PT"
+  twitterImageAlt="Nuno Castro portfolio social preview"
+  jsonLd={jsonLd}
+>
+  <link slot="head" rel="alternate" hrefLang="en" href={pageUrl} />
+  <link slot="head" rel="alternate" hrefLang="pt-PT" href={pageUrl} />
+  <link slot="head" rel="alternate" hrefLang="x-default" href={pageUrl} />
+  <App client:load currentYear={currentYear} />
+</BaseLayout>
