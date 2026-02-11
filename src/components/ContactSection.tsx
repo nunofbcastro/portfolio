@@ -3,13 +3,15 @@ import { FAQSection } from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Github, Globe } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { uiText, type Language } from "@/data/i18n";
 
 interface ContactSectionProps {
-  language: 'pt' | 'en';
+  language: Language;
 }
 
 export const ContactSection = ({ language }: ContactSectionProps) => {
   const data = portfolioData.contact[language];
+  const text = uiText[language];
   
   const iconMap = {
     Mail,
@@ -35,15 +37,16 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
             <Card>
               <CardContent className="p-4">
                 <h3 className="font-semibold text-base mb-4 text-foreground text-center">
-                  {language === 'pt' ? 'Ligações Sociais' : 'Social Links'}
+                  {text.contact.socialLinks}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {data.socialLinks.map((link, index) => {
                     const Icon = iconMap[link.icon as keyof typeof iconMap];
+                    const externalLabel = `${link.label} (${text.accessibility.opensInNewTabSuffix})`;
                     return (
                       <Button key={index} asChild variant="outline" className="flex items-center gap-2 justify-start">
-                        <a href={link.href} target="_blank" rel="noreferrer">
-                          <Icon className="h-4 w-4" />
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={externalLabel}>
+                          <Icon className="h-4 w-4" aria-hidden="true" />
                           {link.label}
                         </a>
                       </Button>
@@ -58,7 +61,7 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
             <Card>
               <CardContent className="p-4">
                 <h3 className="font-semibold text-base mb-4 text-foreground text-center">
-                  {language === 'pt' ? 'Perguntas Frequentes' : 'Frequently Asked Questions'}
+                  {text.contact.faq}
                 </h3>
                 <FAQSection faq={data.faq} language={language} className="mt-4" />
               </CardContent>

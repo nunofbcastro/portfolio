@@ -2,13 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Mail, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import { portfolioData } from "@/data/portfolio";
+import { uiText, type Language } from "@/data/i18n";
 
 interface HeroSectionProps {
-  language: 'pt' | 'en';
+  language: Language;
 }
 
 export const HeroSection = ({ language }: HeroSectionProps) => {
   const data = portfolioData.personal;
+  const text = uiText[language];
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -40,12 +42,14 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-sm">
             <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-primary" />
+              <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
               <span>{data.location[language]}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-primary" />
-              <span>{data.email}</span>
+              <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
+              <a href={`mailto:${data.email}`} className="hover:underline focus-visible:rounded-sm">
+                {data.email}
+              </a>
             </div>
             <div className="text-primary font-medium">
               {data.availability[language]}
@@ -54,10 +58,10 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href="#projetos">{language === 'pt' ? 'Ver Projetos' : 'View Projects'}</a>
+              <a href="#projetos">{text.hero.viewProjects}</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#contacto">{language === 'pt' ? 'Contactar' : 'Contact'}</a>
+              <a href="#contacto">{text.hero.contact}</a>
             </Button>
           </div>
         </div>

@@ -12,21 +12,29 @@ import { ContactSection } from "@/components/ContactSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { portfolioData } from "@/data/portfolio";
+import { uiText, type Language } from "@/data/i18n";
 
 interface IndexProps {
-  language: 'pt' | 'en';
-  setLanguage: (language: 'pt' | 'en') => void;
+  language: Language;
+  setLanguage: (language: Language) => void;
   currentYear: number;
 }
 
 const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
   const { sections } = portfolioData;
+  const text = uiText[language];
 
   return (
     <div className="min-h-screen bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:shadow-lg"
+      >
+        {text.accessibility.skipToMainContent}
+      </a>
       <Header language={language} setLanguage={setLanguage} />
       
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {sections.hero && (
           <HeroSection language={language} />
         )}
@@ -43,8 +51,8 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
               title={portfolioData.timeline[language].title}
               items={portfolioData.timeline[language].items}
               showLimitButton={true}
-              showMoreText={language === 'pt' ? 'Ver mais' : 'Read more'}
-              showLessText={language === 'pt' ? 'Ver menos' : 'Show less'}
+              showMoreText={text.projects.readMore}
+              showLessText={text.projects.showLess}
               renderItem={(item, index, isMobile) => {
                 const Icon = item.icon === "Briefcase" ? Briefcase : (item.icon === "Award" ? Trophy : GraduationCap);
                 return (
@@ -77,12 +85,12 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
                         
                         <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex items-center gap-2 text-muted-foreground">
-                            <Calendar className="h-4 w-4 text-primary" />
+                            <Calendar className="h-4 w-4 text-primary" aria-hidden="true" />
                             <span className="font-medium">{item.period}</span>
                           </div>
                           {item.location && (
                             <div className="flex items-center gap-2 text-muted-foreground">
-                              <MapPin className="h-4 w-4 text-primary" />
+                              <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
                               <span className="font-medium">{item.location}</span>
                             </div>
                           )}

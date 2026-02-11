@@ -1,21 +1,12 @@
+import { uiText, type Language } from "@/data/i18n";
+
 interface FooterProps {
-  language: 'pt' | 'en';
+  language: Language;
   currentYear: number;
 }
 
 export const Footer = ({ language, currentYear }: FooterProps) => {
-  const content = {
-    pt: {
-      rights: "Todos os direitos reservados",
-      contact: "Contacto"
-    },
-    en: {
-      rights: "All rights reserved",
-      contact: "Contact"
-    }
-  };
-
-  const text = content[language];
+  const text = uiText[language].footer;
   return (
     <footer className="bg-muted py-8 border-t">
       <div className="container mx-auto px-4">

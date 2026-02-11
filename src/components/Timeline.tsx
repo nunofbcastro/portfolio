@@ -30,6 +30,7 @@ export const Timeline = <T,>({
   const [width] = useWindowSize();
   const [showAll, setShowAll] = useState(false);
   const isMobile = width < 1160;
+  const timelineListId = "timeline-list";
 
   // Determine which items to show
   const displayItems = showLimitButton && !showAll ? items.slice(0, 3) : items;
@@ -58,7 +59,7 @@ export const Timeline = <T,>({
               }`} />
             )}
 
-            <div className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
+            <div id={timelineListId} className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
               {displayItems.map((item, index) => {
                 const delay = index * 200;
                 const isLeft = index % 2 === 0;
@@ -82,11 +83,11 @@ export const Timeline = <T,>({
                         }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
                         <div className="absolute inset-0 flex items-center justify-center z-20">
                           {(item as any).icon === "Briefcase" ? (
-                            <Briefcase className="h-6 w-6 text-primary" />
+                            <Briefcase className="h-6 w-6 text-primary" aria-hidden="true" />
                           ) : (item as any).icon === "Award" ? (
-                            <Trophy className="h-6 w-6 text-primary" />
+                            <Trophy className="h-6 w-6 text-primary" aria-hidden="true" />
                           ) : (
-                            <GraduationCap className="h-6 w-6 text-primary" />
+                            <GraduationCap className="h-6 w-6 text-primary" aria-hidden="true" />
                           )}
                         </div>
                       </div>
@@ -133,6 +134,8 @@ export const Timeline = <T,>({
                 <Button
                   variant="outline"
                   onClick={() => setShowAll(!showAll)}
+                  aria-expanded={showAll}
+                  aria-controls={timelineListId}
                   className="px-8 py-3"
                 >
                   {showAll ? showLessText : showMoreText}

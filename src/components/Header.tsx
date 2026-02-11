@@ -1,41 +1,40 @@
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
+import { uiText, type Language } from "@/data/i18n";
 
 interface HeaderProps {
-  language: 'pt' | 'en';
-  setLanguage: (language: 'pt' | 'en') => void;
+  language: Language;
+  setLanguage: (language: Language) => void;
 }
 
 export const Header = ({ language, setLanguage }: HeaderProps) => {
-  const navigation = [
-    { id: 'sobre', pt: 'Sobre', en: 'About' },
-    { id: 'experiencia', pt: 'Experiência', en: 'Experience' },
-    { id: 'projetos', pt: 'Projetos', en: 'Projects' },
-    { id: 'contacto', pt: 'Contacto', en: 'Contact' },
-  ];
+  const text = uiText[language];
 
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-xs border-b z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="font-bold text-xl">
-          {language === 'pt' ? 'Portfólio' : 'Portfolio'}
-        </div>
+        <a href="#main-content" className="font-bold text-xl focus-visible:rounded-sm">
+          {text.header.brand}
+        </a>
         
-        <nav className="hidden md:flex items-center space-x-6">
-          {navigation.map((item) => (
+        <nav
+          aria-label={text.accessibility.primaryNavigation}
+          className="hidden md:flex items-center space-x-6"
+        >
+          {text.header.nav.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-primary transition-colors focus-visible:rounded-sm"
             >
-              {language === 'pt' ? item.pt : item.en}
+              {item.label}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
           <LanguageToggle language={language} setLanguage={setLanguage} />
-          <ThemeToggle />
+          <ThemeToggle language={language} />
         </div>
       </div>
     </header>

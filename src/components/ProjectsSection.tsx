@@ -6,9 +6,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
 import { useState } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import { uiText, type Language } from "@/data/i18n";
 
 interface ProjectsSectionProps {
-  language: 'pt' | 'en';
+  language: Language;
 }
 
 export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
@@ -18,6 +19,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const [width] = useWindowSize();
   
   const text = portfolioData.projects[language];
+  const i18n = uiText[language];
   
   // Determine how many projects to show in first row based on screen size
   const getFirstRowCount = () => {
@@ -28,6 +30,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   
   const firstRowCount = getFirstRowCount();
   const hasMoreProjects = text.projects.length > firstRowCount;
+  const projectsListId = "projects-list";
 
   return (
     <section id="projetos" className="py-20 md:py-32 bg-linear-to-b from-muted to-background">
@@ -45,9 +48,13 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
           </div>
 
           <div ref={projectsRef} className="relative overflow-hidden p-2" style={{ maxHeight: showAll ? 'none' : '620px' }}>
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
+            <div id={projectsListId} className="columns-1 md:columns-2 lg:columns-3 gap-8">
                {text.projects.map((project, index) => {
                  const delay = 200 + (index * 200);
+                 const viewProjectAriaLabel =
+                   `${text.viewProject}: ${project.title} (${i18n.accessibility.opensInNewTabSuffix})`;
+                 const githubAriaLabel =
+                   `${i18n.projects.githubLabel}: ${project.title} (${i18n.accessibility.opensInNewTabSuffix})`;
                  
                  return (
                    <div
@@ -80,14 +87,14 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
 
                          <div className="flex gap-2 mt-auto">
                            <Button asChild size="sm" className="flex-1">
-                             <a href={project.link} target="_blank" rel="noreferrer">
-                               <ExternalLink className="h-4 w-4 mr-2" />
+                             <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={viewProjectAriaLabel}>
+                               <ExternalLink className="h-4 w-4 mr-2" aria-hidden="true" />
                                {text.viewProject}
                              </a>
                            </Button>
                            <Button asChild variant="outline" size="sm">
-                             <a href={project.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-                               <Github className="h-4 w-4" />
+                             <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={githubAriaLabel}>
+                               <Github className="h-4 w-4" aria-hidden="true" />
                              </a>
                            </Button>
                          </div>
@@ -106,9 +113,11 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                   <Button
                     variant="outline"
                     onClick={() => setShowAll(true)}
+                    aria-expanded={showAll}
+                    aria-controls={projectsListId}
                     className="px-8 py-3 hover-scale transition-all duration-300 hover:shadow-lg bg-background border-2 shadow-lg"
                   >
-                    {language === 'pt' ? 'Ver mais' : 'See more'}
+                    {i18n.projects.seeMore}
                   </Button>
                 </div>
               </div>
@@ -122,9 +131,11 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
               <Button
                 variant="outline"
                 onClick={() => setShowAll(false)}
+                aria-expanded={showAll}
+                aria-controls={projectsListId}
                 className="px-8 py-3 hover-scale transition-all duration-300 hover:shadow-lg"
               >
-                {language === 'pt' ? 'Ver menos' : 'Show less'}
+                {i18n.projects.showLess}
               </Button>
             </div>
           )}
