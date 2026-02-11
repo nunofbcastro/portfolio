@@ -1,6 +1,6 @@
-
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
+import type { ReactNode } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Briefcase, GraduationCap, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";

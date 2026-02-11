@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, ArrowDown } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import { portfolioData } from "@/data/portfolio";
 
@@ -15,7 +15,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${heroImage.src})` }}
       >
         <div className="absolute inset-0 bg-background/70 dark:bg-background/80" />
       </div>
@@ -53,19 +53,11 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {language === 'pt' ? 'Ver Projetos' : 'View Projects'}
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <a href="#projetos">{language === 'pt' ? 'Ver Projetos' : 'View Projects'}</a>
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              {language === 'pt' ? 'Contactar' : 'Contact'}
+            <Button asChild variant="outline" size="lg">
+              <a href="#contacto">{language === 'pt' ? 'Contactar' : 'Contact'}</a>
             </Button>
           </div>
         </div>

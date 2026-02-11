@@ -79,20 +79,16 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                          </div>
 
                          <div className="flex gap-2 mt-auto">
-                           <Button 
-                             size="sm" 
-                             className="flex-1"
-                             onClick={() => window.open(project.link, '_blank')}
-                           >
-                             <ExternalLink className="h-4 w-4 mr-2" />
-                             {text.viewProject}
+                           <Button asChild size="sm" className="flex-1">
+                             <a href={project.link} target="_blank" rel="noreferrer">
+                               <ExternalLink className="h-4 w-4 mr-2" />
+                               {text.viewProject}
+                             </a>
                            </Button>
-                           <Button 
-                             variant="outline" 
-                             size="sm"
-                             onClick={() => window.open(project.github, '_blank')}
-                           >
-                             <Github className="h-4 w-4" />
+                           <Button asChild variant="outline" size="sm">
+                             <a href={project.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                               <Github className="h-4 w-4" />
+                             </a>
                            </Button>
                          </div>
                        </CardContent>

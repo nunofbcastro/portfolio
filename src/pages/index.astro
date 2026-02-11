@@ -1,0 +1,86 @@
+---
+import "../index.css";
+import App from "../react/App";
+import { portfolioData } from "../data/portfolio";
+import heroImage from "../assets/hero-image.jpg";
+
+const siteUrl = Astro.site ?? new URL("https://nunofbcastro.github.io");
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const imageUrl = new URL("/portfolio/og-image.png", siteUrl).toString();
+const person = portfolioData.personal;
+const descriptionEn = `${person.name} - ${person.title.en}. ${person.subtitle.en}.`;
+const title = `${person.name} | Portfolio`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: person.name,
+      url: pageUrl,
+      image: imageUrl,
+      jobTitle: person.title.en,
+      email: person.email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: person.location.en,
+        addressCountry: "PT"
+      },
+      sameAs: [
+        "https://github.com/nunofbcastro",
+        "https://www.linkedin.com/in/nunofbcastro/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      name: title,
+      url: pageUrl,
+      inLanguage: ["en", "pt-PT"]
+    }
+  ]
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={descriptionEn} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content={person.name} />
+    <meta name="keywords" content="Nuno Castro, Software Engineer, Portfolio, React, Astro, TypeScript, .NET" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="preload" as="image" href={heroImage.src} />
+    <link rel="alternate" hrefLang="en" href={pageUrl} />
+    <link rel="alternate" hrefLang="pt-PT" href={pageUrl} />
+    <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={descriptionEn} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={descriptionEn} />
+    <meta property="twitter:image" content={imageUrl} />
+    <meta property="twitter:image:alt" content="Nuno Castro portfolio social preview" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
+      document.documentElement.classList.toggle("dark", isDark);
+    </script>
+  </head>
+  <body>
+    <App client:load />
+  </body>
+</html>

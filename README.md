@@ -8,6 +8,31 @@ You can view the live version of the portfolio here: [https://nunofbcastro.githu
 
 ## Project Info
 
+This project uses Astro with static generation for deployment on GitHub Pages.
+
+- No server runtime is required.
+- The site is built at deploy time and served as static files.
+- Interactive parts are hydrated on the client.
+
+## Project Structure
+
+Main folders and files:
+
+- `src/pages/index.astro`: Astro page entrypoint
+- `src/react/App.tsx`: React app shell used by the page
+- `src/components/`: reusable UI and section components
+- `src/data/portfolio.ts`: portfolio content (texts, projects, timeline, contact, etc.)
+- `src/hooks/`: custom React hooks
+- `src/lib/`: shared utilities
+- `src/index.css`: global styles
+- `src/assets/`: local assets imported in code
+- `public/`: static files copied as-is (favicon, robots, etc.)
+- `.agent/rules/`: always-on agent constraints
+- `.agent/workflows/`: user-triggered automation flows
+- `.agent/skills/`: agent-selectable capabilities
+- `astro.config.mjs`: Astro configuration
+- `package.json`: scripts and dependencies
+
 ## How to Edit This Code
 
 You can edit this code using your preferred IDE or GitHub Codespaces.
@@ -49,8 +74,9 @@ npm run dev
 
 This project is built with:
 
-- Vite
+- Astro (static build / GitHub Pages friendly)
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
+- Vite

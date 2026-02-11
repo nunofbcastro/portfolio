@@ -14,17 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # necessário para criar tags
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+        run: npm ci
 
       - name: Build
         run: npm run build
@@ -38,7 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: nunofbcastro.github.io
-    
+
       - name: Create tag
         if: success() && github.ref == 'refs/heads/main'
         run: |
@@ -48,4 +46,3 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag $TAG
           git push origin $TAG
-

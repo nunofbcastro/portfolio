@@ -41,14 +41,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   {data.socialLinks.map((link, index) => {
                     const Icon = iconMap[link.icon as keyof typeof iconMap];
                     return (
-                      <Button
-                        key={index}
-                        variant="outline"
-                        className="flex items-center gap-2 justify-start"
-                        onClick={() => window.open(link.href, '_blank')}
-                      >
-                        <Icon className="h-4 w-4" />
-                        {link.label}
+                      <Button key={index} asChild variant="outline" className="flex items-center gap-2 justify-start">
+                        <a href={link.href} target="_blank" rel="noreferrer">
+                          <Icon className="h-4 w-4" />
+                          {link.label}
+                        </a>
                       </Button>
                     );
                   })}
