@@ -84,6 +84,15 @@ const {
 
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYHDHF3JVP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MYHDHF3JVP');
+    </script>
+
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
