@@ -18,9 +18,10 @@ interface IndexProps {
   language: Language;
   setLanguage: (language: Language) => void;
   currentYear: number;
+  heroImageUrl: string;
 }
 
-const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
+const Index = ({ language, setLanguage, currentYear, heroImageUrl }: IndexProps) => {
   const { sections } = portfolioData;
   const text = uiText[language];
 
@@ -33,18 +34,18 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
         {text.accessibility.skipToMainContent}
       </a>
       <Header language={language} setLanguage={setLanguage} />
-      
+
       <main id="main-content" tabIndex={-1}>
         {sections.hero && (
-          <HeroSection language={language} />
+          <HeroSection language={language} heroImageUrl={heroImageUrl} />
         )}
-        
+
         {sections.about && (
           <div className="bg-muted/30">
             <AboutSection language={language} />
           </div>
         )}
-        
+
         {sections.timeline && (
           <div className="bg-muted/20">
             <Timeline
@@ -82,7 +83,7 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
                             )}
                           </div>
                         </div>
-                        
+
                         <div className="flex flex-col gap-1 md:items-end text-sm">
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <Calendar className="h-4 w-4 text-primary" aria-hidden="true" />
@@ -96,7 +97,7 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
                           )}
                         </div>
                       </div>
-                      
+
                       {item.description && (
                         Array.isArray(item.description) ? (
                           <ul className="space-y-2 mb-4">
@@ -128,32 +129,32 @@ const Index = ({ language, setLanguage, currentYear }: IndexProps) => {
             />
           </div>
         )}
-        
+
         {sections.projects && (
           <div>
             <ProjectsSection language={language} />
           </div>
         )}
-        
+
         {sections.awards && (
           <div className="bg-muted/30">
             <AwardsSection language={language} />
           </div>
         )}
-        
+
         {sections.testimonials && (
           <div>
             <TestimonialsSection language={language} />
           </div>
         )}
-        
+
         {sections.contact && (
           <div className="bg-muted/20">
             <ContactSection language={language} />
           </div>
         )}
       </main>
-      
+
       <Footer language={language} currentYear={currentYear} />
     </div>
   );

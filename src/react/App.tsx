@@ -4,9 +4,10 @@ import type { Language } from "@/data/i18n";
 
 interface AppProps {
   currentYear: number;
+  heroImageUrl: string;
 }
 
-const App = ({ currentYear }: AppProps) => {
+const App = ({ currentYear, heroImageUrl }: AppProps) => {
   const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const App = ({ currentYear }: AppProps) => {
     document.documentElement.lang = language === "pt" ? "pt-PT" : "en";
   }, [language]);
 
-  return <Index language={language} setLanguage={handleSetLanguage} currentYear={currentYear} />;
+  return <Index language={language} setLanguage={handleSetLanguage} currentYear={currentYear} heroImageUrl={heroImageUrl} />;
 };
 
 export default App;

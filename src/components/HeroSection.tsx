@@ -1,23 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
 import { portfolioData } from "@/data/portfolio";
 import { uiText, type Language } from "@/data/i18n";
 
 interface HeroSectionProps {
   language: Language;
+  heroImageUrl: string;
 }
 
-export const HeroSection = ({ language }: HeroSectionProps) => {
+export const HeroSection = ({ language, heroImageUrl }: HeroSectionProps) => {
   const data = portfolioData.personal;
   const text = uiText[language];
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage.src})` }}
+        style={{ backgroundImage: `url(${heroImageUrl})` }}
       >
         <div className="absolute inset-0 bg-background/70 dark:bg-background/80" />
       </div>
@@ -31,11 +31,11 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
               {data.name}
             </span>
           </h1>
-          
+
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
             {data.title[language]}
           </h2>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             {data.subtitle[language]}
           </p>

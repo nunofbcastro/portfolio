@@ -62,72 +62,87 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
   }
+
   @keyframes fade-in {
     0% {
       opacity: 0;
       transform: translateY(30px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
   @keyframes fade-in-left {
     0% {
       opacity: 0;
       transform: translateX(-30px);
     }
+
     100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
+
   @keyframes fade-in-right {
     0% {
       opacity: 0;
       transform: translateX(30px);
     }
+
     100% {
       opacity: 1;
       transform: translateX(0);
     }
   }
+
   @keyframes scale-in {
     0% {
       transform: scale(0.8);
       opacity: 0;
     }
+
     100% {
       transform: scale(1);
       opacity: 1;
     }
   }
+
   @keyframes slide-up {
     0% {
       transform: translateY(50px);
       opacity: 0;
     }
+
     100% {
       transform: translateY(0);
       opacity: 1;
     }
   }
+
   @keyframes draw-line {
     0% {
       width: 0%;
     }
+
     100% {
       width: 100%;
     }
@@ -137,10 +152,12 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)) {
+
+  @media (width >=--theme(--breakpoint-sm)) {
     max-width: none;
   }
-  @media (width >= 1400px) {
+
+  @media (width >=1400px) {
     max-width: 1400px;
   }
 }
@@ -154,6 +171,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -178,16 +196,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 7%;
 
-    --primary: 140 100% 39%;
+    --primary: 140 100% 27%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 95%;
     --secondary-foreground: 0 0% 7%;
 
     --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 41%;
 
-    --accent: 140 100% 39%;
+    --accent: 140 100% 27%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -195,21 +213,21 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 140 100% 39%;
+    --ring: 140 100% 27%;
 
     /* Portfolio-specific colors */
-    --portfolio-green: 140 100% 39%;
+    --portfolio-green: 140 100% 27%;
     --portfolio-dark: 0 0% 7%;
     --portfolio-light: 0 0% 98%;
-    
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--portfolio-green)), hsl(140 100% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--portfolio-green)), hsl(140 100% 32%));
     --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    
+
     /* Shadows */
     --shadow-card: 0 4px 6px -1px hsl(var(--portfolio-dark) / 0.1);
     --shadow-glow: 0 0 20px hsl(var(--portfolio-green) / 0.3);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -264,11 +282,11 @@ All colors MUST be HSL.
     /* Dark mode portfolio colors */
     --portfolio-light: 0 0% 7%;
     --portfolio-dark: 0 0% 95%;
-    
+
     /* Dark mode gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--portfolio-green)), hsl(140 100% 35%));
     --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    
+
     /* Dark mode shadows */
     --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
     --shadow-glow: 0 0 20px hsl(var(--portfolio-green) / 0.4);
@@ -298,6 +316,7 @@ All colors MUST be HSL.
   }
 
   @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {

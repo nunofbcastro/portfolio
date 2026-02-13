@@ -17,7 +17,7 @@ export const LanguageToggle = ({ language, setLanguage }: LanguageToggleProps) =
       variant="outline"
       size="sm"
       onClick={() => setLanguage(nextLanguage)}
-      aria-label={label}
+      aria-label={`${nextLanguage.toUpperCase()} - ${label}`}
       title={label}
       className="flex items-center gap-2"
     >
