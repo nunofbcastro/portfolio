@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FAQSection } from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github, Globe } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
+import { LinkedInIcon, GitHubIcon } from "./icons/BrandIcons";
 import { portfolioData } from "@/data/portfolio";
 import { uiText, type Language } from "@/data/i18n";
 
@@ -12,11 +13,11 @@ interface ContactSectionProps {
 export const ContactSection = ({ language }: ContactSectionProps) => {
   const data = portfolioData.contact[language];
   const text = uiText[language];
-  
+
   const iconMap = {
     Mail,
-    Linkedin, 
-    Github,
+    Linkedin: LinkedInIcon,
+    Github: GitHubIcon,
     Globe
   };
 

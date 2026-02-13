@@ -34,6 +34,16 @@ export const portfolioData = {
     greeting: {
       pt: "Olá, eu sou",
       en: "Hello, I'm"
+    },
+    languages: {
+      pt: [
+        { name: "Português", level: "Nativo" },
+        { name: "Inglês", level: "Básico" }
+      ],
+      en: [
+        { name: "Portuguese", level: "Native" },
+        { name: "English", level: "Básico" }
+      ]
     }
   },
 
@@ -43,10 +53,16 @@ export const portfolioData = {
       description: "Sou Engenheiro Informático, com experiência em desenvolvimento de software, design de interfaces e automação de processos. Gosto de criar ferramentas úteis, intuitivas e com impacto real na vida das pessoas.",
       skillsTitle: "Principais Competências",
       skills: [
-        { icon: "Code", title: "Desenvolvimento Web / Mobile", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React", "React Native", "Ionic"] },
+        { icon: "Code", title: "Desenvolvimento Web", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React"] },
+        { icon: "Smartphone", title: "Desenvolvimento Mobile", description: ["React Native", "Ionic", "Jetpack Compose"] },
         { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
         { icon: "Cpu", title: "Integrações e APIs", description: ["REST", "XML", "RPA"] },
         { icon: "Database", title: "Gestão de dados", description: ["SQL Server", "MongoDB"] }
+      ],
+      strengths: [
+        { title: "Resolução de Problemas", description: "Capacidade de identificar e resolver problemas técnicos complexos de forma eficiente." },
+        { title: "Colaboração em Equipa", description: "Forte espírito de equipa e excelentes competências interpessoais." },
+        { title: "Aprendizagem Contínua", description: "Proativo na aprendizagem de novas tecnologias e metodologias." }
       ]
     },
     en: {
@@ -54,10 +70,16 @@ export const portfolioData = {
       description: "I'm a Software Engineer with experience in software development, UI design, and process automation. I enjoy building useful, intuitive tools that create real impact.",
       skillsTitle: "Key Skills",
       skills: [
-        { icon: "Code", title: "Web / Mobile Development", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React", "React Native", "Ionic"] },
+        { icon: "Code", title: "Web Development", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React"] },
+        { icon: "Smartphone", title: "Mobile Development", description: ["React Native", "Ionic", "Jetpack Compose"] },
         { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
         { icon: "Cpu", title: "API Integrations", description: ["REST", "XML", "RPA"] },
         { icon: "Database", title: "Data Management", description: ["SQL Server", "MongoDB"] }
+      ],
+      strengths: [
+        { title: "Problem Solving", description: "Ability to efficiently identify and resolve complex technical problems." },
+        { title: "Team Collaboration", description: "Strong team player with excellent communication and interpersonal skills." },
+        { title: "Continuous Learning", description: "Proactive in learning new technologies and methodologies." }
       ]
     }
   },

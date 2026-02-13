@@ -18,7 +18,8 @@ export const uiText = {
     },
     hero: {
       viewProjects: "Ver Projetos",
-      contact: "Contactar"
+      contact: "Contactar",
+      downloadCV: "Descarregar CV"
     },
     projects: {
       seeMore: "Ver mais",
@@ -46,6 +47,16 @@ export const uiText = {
       switchToDark: "Mudar para tema escuro",
       light: "Claro",
       dark: "Escuro"
+    },
+    cv: {
+      summary: "Resumo",
+      experience: "Experiência",
+      education: "Educação",
+      languages: "Idiomas",
+      keyAchievements: "Principais Conquistas",
+      skills: "Competências",
+      strengths: "Pontos Fortes",
+      awards: "Prémios"
     }
   },
   en: {
@@ -65,7 +76,8 @@ export const uiText = {
     },
     hero: {
       viewProjects: "View Projects",
-      contact: "Contact"
+      contact: "Contact",
+      downloadCV: "Download CV"
     },
     projects: {
       seeMore: "See more",
@@ -93,6 +105,16 @@ export const uiText = {
       switchToDark: "Switch to dark theme",
       light: "Light",
       dark: "Dark"
+    },
+    cv: {
+      summary: "Summary",
+      experience: "Experience",
+      education: "Education",
+      languages: "Languages",
+      keyAchievements: "Key Achievements",
+      skills: "Skills",
+      strengths: "Strengths",
+      awards: "Awards"
     }
   }
 } as const;
