@@ -55,7 +55,7 @@ const jsonLd = {
   author={person.name}
   keywords={keywords}
   canonicalUrl={pageUrl}
-  preloadImage={heroImage.src}
+  preloadImage={optimizedHero.src}
   imageUrl={imageUrl}
   locale="en_US"
   alternateLocale="pt_PT"
@@ -65,5 +65,5 @@ const jsonLd = {
   <link slot="head" rel="alternate" hrefLang="en" href={pageUrl} />
   <link slot="head" rel="alternate" hrefLang="pt-PT" href={pageUrl} />
   <link slot="head" rel="alternate" hrefLang="x-default" href={pageUrl} />
-  <App client:load currentYear={currentYear} heroImageUrl={optimizedHero.src} />
+  <App client:idle currentYear={currentYear} heroImageUrl={optimizedHero.src} />
 </BaseLayout>
