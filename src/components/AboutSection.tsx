@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Palette, Cpu, Database, Smartphone } from "lucide-react";
+import { Code, Palette, Cpu, Database, Smartphone, Layout, Cloud } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +13,9 @@ const iconMap = {
   Smartphone,
   Palette,
   Cpu,
-  Database
+  Database,
+  Layout,
+  Cloud
 };
 
 export const AboutSection = ({ language }: AboutSectionProps) => {
