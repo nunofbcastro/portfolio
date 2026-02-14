@@ -47,7 +47,7 @@ const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
       document.documentElement.lang = detectedLang === "pt" ? "pt-PT" : "en";
       document.title = t.pageTitle;
 
-      const metaDescription = document.getElementById("page-description");
+      const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute("content", t.pageDescription);
       }

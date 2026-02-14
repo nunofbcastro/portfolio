@@ -50,14 +50,14 @@ export const portfolioData = {
   about: {
     pt: {
       title: "Sobre Mim",
-      description: "Sou Engenheiro Informático, com experiência em desenvolvimento de software, design de interfaces e automação de processos. Gosto de criar ferramentas úteis, intuitivas e com impacto real na vida das pessoas.",
+      description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em agosto de 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, tenho dedicado o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
       skillsTitle: "Principais Competências",
       skills: [
-        { icon: "Code", title: "Desenvolvimento Web", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React"] },
-        { icon: "Smartphone", title: "Desenvolvimento Mobile", description: ["React Native", "Ionic", "Jetpack Compose"] },
-        { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
-        { icon: "Cpu", title: "Integrações e APIs", description: ["REST", "XML", "RPA"] },
-        { icon: "Database", title: "Gestão de dados", description: ["SQL Server", "MongoDB"] }
+        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
+        { icon: "Layout", title: "Frontend", description: ["Blazor / Razor", "React / Next.js", "Angular", "Tailwind CSS", "Bootstrap"] },
+        { icon: "Smartphone", title: "Mobile", description: ["Android Nativo (Java/Kotlin)", "Jetpack Compose", "React Native", "Ionic"] },
+        { icon: "Cloud", title: "Cloud e DevOps", description: ["Azure", "Docker", "GitLab CI/CD", "NGINX", "IIS", "Scrum"] },
+        { icon: "Database", title: "Dados e Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "Power Platform"] }
       ],
       strengths: [
         { title: "Resolução de Problemas", description: "Capacidade de identificar e resolver problemas técnicos complexos de forma eficiente." },
@@ -67,14 +67,14 @@ export const portfolioData = {
     },
     en: {
       title: "About Me",
-      description: "I'm a Software Engineer with experience in software development, UI design, and process automation. I enjoy building useful, intuitive tools that create real impact.",
+      description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in August 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
       skillsTitle: "Key Skills",
       skills: [
-        { icon: "Code", title: "Web Development", description: [".NET Framework", "Razor ASP.NET", "Blazor", "React"] },
-        { icon: "Smartphone", title: "Mobile Development", description: ["React Native", "Ionic", "Jetpack Compose"] },
-        { icon: "Palette", title: "UI/UX Design", description: ["CSS", "Tailwind CSS", "Bootstrap"] },
-        { icon: "Cpu", title: "API Integrations", description: ["REST", "XML", "RPA"] },
-        { icon: "Database", title: "Data Management", description: ["SQL Server", "MongoDB"] }
+        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
+        { icon: "Layout", title: "Frontend", description: ["Blazor / Razor", "React / Next.js", "Angular", "Tailwind CSS", "Bootstrap"] },
+        { icon: "Smartphone", title: "Mobile", description: ["Native Android (Java/Kotlin)", "Jetpack Compose", "React Native", "Ionic"] },
+        { icon: "Cloud", title: "Cloud & DevOps", description: ["Azure", "Docker", "GitLab CI/CD", "NGINX", "IIS", "Scrum"] },
+        { icon: "Database", title: "Data & Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "Power Platform"] }
       ],
       strengths: [
         { title: "Problem Solving", description: "Ability to efficiently identify and resolve complex technical problems." },
@@ -100,7 +100,8 @@ export const portfolioData = {
             "Criação de interfaces com Razor ASP.NET",
             "Manutenção e otimização de sistemas existentes"
           ],
-          technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
+          technologies: [".NET Framework", "Razor ASP.NET", "Docker", "Azure Functions", "Python", "Microsoft Power Automate", "JavaScript", "Git", "Azure DevOps", "Azure Logic", "Microsoft PowerApps", "ETL", "Microsoft SQL Server", "IIS", "FastAPI", "Blazor", "Arquitetura MVC", "Arquitetura limpa", "React.js", "React Native", "Azure"]
+
         },
         {
           type: "experience",
@@ -123,7 +124,9 @@ export const portfolioData = {
           degree: "Licenciatura em Engenharia Informática",
           location: "Felgueiras, Portugal",
           period: "out 2020 – jul 2023",
-          description: "European Scale of Comparability of Classifications: A. Projetos: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
+          description: "European Scale of Comparability of Classifications: A. Projetos: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories",
+          technologies: ["Microsoft SQL Server", "Nginx", "Java", "Tailwind CSS", "SQLite", "GitLab", "Node.js", "API", "Solidity", ".NET Framework", "Scrum", "R", "C", "NestJS", "Docker", "SQL", "HTML", "Android Jetpack", "TypeScript", "ERP", "React.js", "CSS", "Prolog", "JSON", "Servidor Apache", "Python", "MongoDB", "Express.js", "XML", "Aprendizado de máquina", "JavaScript", "Next.js", "Git", "Kotlin", "Linux", "DigitalOcean"]
+
         },
         {
           type: "experience",
@@ -177,8 +180,10 @@ export const portfolioData = {
           institution: "ISEP - Instituto Superior de Engenharia do Porto",
           degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
           location: "Porto, Portugal",
-          period: "set 2024 – jul 2026",
-          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories"
+          period: "set 2024 – set 2026",
+          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories",
+          technologies: ["C", "C++", "Programação Ada", "SPARK", "FreeRTOS", "Linux", "Kernel Linux", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "Scrum", "Arduino", "NuSMV", "Rust", "Cibersegurança", "ROS"]
+
         },
         {
           type: "award",
@@ -269,7 +274,8 @@ export const portfolioData = {
             "Interface creation with Razor ASP.NET",
             "Maintenance and optimization of existing systems"
           ],
-          technologies: [".NET Framework", "Razor ASP.NET", "C#", "SQL Server"]
+          technologies: [".NET Framework", "Razor ASP.NET", "Docker", "Azure Functions", "Python", "Microsoft Power Automate", "JavaScript", "Git", "Azure DevOps", "Azure Logic", "Microsoft PowerApps", "ETL", "Microsoft SQL Server", "IIS", "FastAPI", "Blazor", "MVC Architecture", "Clean Architecture", "React.js", "React Native", "Azure"]
+
         },
         {
           type: "experience",
@@ -280,7 +286,7 @@ export const portfolioData = {
           period: "Mar 2023 – Jul 2023",
           description: [
             "ETL automation for school data extraction",
-            "Website maintenance with data from sources like Eurostat and DGEEC",
+            "Website maintenance fueled by sources like Eurostat and DGEEC",
             "Development of scalable solutions"
           ],
           technologies: [".NET Framework", "Razor ASP.NET", "ETL", "Web Development"]
@@ -292,7 +298,9 @@ export const portfolioData = {
           degree: "Bachelor's in Computer Engineering",
           location: "Felgueiras, Portugal",
           period: "Oct 2020 – Jul 2023",
-          description: "European Scale of Comparability of Classifications: A. Projects: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories"
+          description: "European Scale of Comparability of Classifications: A. Projects: https://github.com/orgs/nunofbcastro-ESTG-IPP/repositories",
+          technologies: ["Microsoft SQL Server", "Nginx", "Java", "Tailwind CSS", "SQLite", "GitLab", "Node.js", "API", "Solidity", ".NET Framework", "Scrum", "R", "C", "NestJS", "Docker", "SQL", "HTML", "Android Jetpack", "TypeScript", "ERP", "React.js", "CSS", "Prolog", "JSON", "Apache Server", "Python", "MongoDB", "Express.js", "XML", "Machine Learning", "JavaScript", "Next.js", "Git", "Kotlin", "Linux", "DigitalOcean"]
+
         },
         {
           type: "experience",
@@ -346,8 +354,10 @@ export const portfolioData = {
           institution: "ISEP - Instituto Superior de Engenharia do Porto",
           degree: "Master's in Critical Computational Systems Engineering",
           location: "Porto, Portugal",
-          period: "Sep 2024 – Jul 2026",
-          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories"
+          period: "Sep 2024 – Sep 2026",
+          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories",
+          technologies: ["C", "C++", "Ada Programming", "SPARK", "FreeRTOS", "Linux", "Linux Kernel", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "Scrum", "Arduino", "NuSMV", "Rust", "Cybersecurity", "ROS"]
+
         },
         {
           type: "award",
