@@ -1,13 +1,27 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Image as ImageIcon } from "lucide-react";
 import { GitHubIcon } from "./icons/BrandIcons";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
 import { useState } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { uiText, type Language } from "@/data/i18n";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface ProjectsSectionProps {
   language: Language;
@@ -85,7 +99,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                           ))}
                         </div>
 
-                        <div className="flex gap-2 mt-auto">
+                        <div className="flex gap-2 mt-auto flex-wrap">
                           <Button asChild size="sm" className="flex-1">
                             <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={viewProjectAriaLabel}>
                               <ExternalLink className="h-4 w-4 mr-2" aria-hidden="true" />
@@ -97,6 +111,39 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                               <GitHubIcon className="h-4 w-4" aria-hidden="true" />
                             </a>
                           </Button>
+                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="outline" size="sm" className="flex-1">
+                                  <ImageIcon className="h-4 w-4 mr-2" aria-hidden="true" />
+                                  {i18n.projects.viewScreenshots}
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-5xl">
+                                <DialogHeader>
+                                  <DialogTitle>{project.title} - {i18n.projects.viewScreenshots}</DialogTitle>
+                                </DialogHeader>
+                                <Carousel className="w-full">
+                                  <CarouselContent>
+                                    {(project as any).screenshots.map((screenshot: string, idx: number) => (
+                                      <CarouselItem key={idx}>
+                                        <div className="p-1">
+                                          <img
+                                            src={screenshot}
+                                            alt={`${project.title} screenshot ${idx + 1}`}
+                                            className="w-full h-auto rounded-lg border shadow-lg object-contain max-h-[70vh]"
+                                            loading="lazy"
+                                          />
+                                        </div>
+                                      </CarouselItem>
+                                    ))}
+                                  </CarouselContent>
+                                  <CarouselPrevious className="left-2" />
+                                  <CarouselNext className="right-2" />
+                                </Carousel>
+                              </DialogContent>
+                            </Dialog>
+                          )}
                         </div>
                       </CardContent>
                     </Card>

@@ -25,7 +25,8 @@ export const uiText = {
       seeMore: "Ver mais",
       showLess: "Ver menos",
       readMore: "Ver mais",
-      githubLabel: "GitHub"
+      githubLabel: "GitHub",
+      viewScreenshots: "Ver Imagens"
     },
     contact: {
       socialLinks: "Ligações Sociais",
@@ -83,7 +84,8 @@ export const uiText = {
       seeMore: "See more",
       showLess: "Show less",
       readMore: "Read more",
-      githubLabel: "GitHub"
+      githubLabel: "GitHub",
+      viewScreenshots: "View Screenshots"
     },
     contact: {
       socialLinks: "Social Links",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Timeline } from "@/components/Timeline";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,35 @@ import { uiText } from "@/data/i18n";
 
 interface JourneySectionProps {
     language: Language;
+}
+
+const TechList = ({ technologies, language }: { technologies: string[], language: Language }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const text = uiText[language];
+    
+    const displayTechs = isExpanded ? technologies : technologies.slice(0, 3);
+    const hasMore = technologies.length > 3;
+
+    return (
+        <div className="flex flex-wrap gap-2.5 items-center">
+            {displayTechs.map((tech, techIdx) => (
+                <Badge key={techIdx} variant="secondary" className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/5 text-primary border-primary/10">
+                    {tech}
+                </Badge>
+            ))}
+            {hasMore && (
+                <button 
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setIsExpanded(!isExpanded);
+                    }}
+                    className="text-xs font-bold text-primary hover:text-primary/80 transition-colors ml-1 px-2 py-1 rounded-md hover:bg-primary/5 border border-transparent hover:border-primary/10"
+                >
+                    {isExpanded ? text.projects.showLess : `+${technologies.length - 3}`}
+                </button>
+            )}
+        </div>
+    );
 }
 
 export const JourneySection = ({ language }: JourneySectionProps) => {
@@ -82,13 +111,7 @@ export const JourneySection = ({ language }: JourneySectionProps) => {
                             )}
 
                             {item.technologies && item.technologies.length > 0 && (
-                                <div className="flex flex-wrap gap-2.5">
-                                    {item.technologies.map((tech: string, techIdx: number) => (
-                                        <Badge key={techIdx} variant="secondary" className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/5 text-primary border-primary/10">
-                                            {tech}
-                                        </Badge>
-                                    ))}
-                                </div>
+                                <TechList technologies={item.technologies} language={language} />
                             )}
                         </CardContent>
                     </Card>

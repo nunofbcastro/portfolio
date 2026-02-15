@@ -446,6 +446,10 @@ export const portfolioData = {
           description: "Este é o meu portfólio pessoal, construído com React, TypeScript e Tailwind CSS.",
           technologies: ["React", "TypeScript", "Tailwind CSS"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/portfolio_home_white.png",
+            "/portfolio/screenshots/portfolio_home_black.png"
+          ],
           link: "https://nunofbcastro.github.io/portfolio/",
           github: "https://github.com/nunofbcastro/portfolio"
         },
@@ -454,6 +458,14 @@ export const portfolioData = {
           description: "2020 foi um ano diferente para todos, proibindo a população mundial de muitas atividades e impondo restrições à maioria delas. Por isso, juntamente com alguns amigos, criei o projeto SandSpace, que consiste numa aplicação móvel que permite analisar a taxa de ocupação de 865 praias em Portugal. Cada praia é representada por um ponto que pode ter quatro cores: verde (baixo risco), amarelo (risco médio), laranja (alto risco) e vermelho (praia fechada). Este projeto foi mencionado em mais de 100 jornais e canais de televisão nacionais (RTP, SIC, CMTV, Porto Canal...) e participou na maior competição de engenharia do mundo organizada pela INTEL ISEF nos Estados Unidos.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/SandSpace_1.webp",
+            "/portfolio/screenshots/SandSpace_2.webp",
+            "/portfolio/screenshots/SandSpace_3.webp",
+            "/portfolio/screenshots/SandSpace_4.webp",
+            "/portfolio/screenshots/SandSpace_5.webp",
+            "/portfolio/screenshots/SandSpace_6.webp"
+          ],
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
         },
@@ -462,6 +474,16 @@ export const portfolioData = {
           description: "Esta aplicação móvel permite a TODOS identificar os locais onde existe poluição: desde a poluição de rios até lixeiras a céu aberto. Desta forma, será criado um novo tipo de cartografia ambiental pela comunidade, identificando pontos críticos de poluição. Para cada ponto selecionado, será enviado um email para a autoridade local e para a Agência Nacional do Ambiente para que sejam tomadas medidas.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/PoluMap1.webp",
+            "/portfolio/screenshots/PoluMap2.webp",
+            "/portfolio/screenshots/PoluMap3.webp",
+            "/portfolio/screenshots/PoluMap4.webp",
+            "/portfolio/screenshots/PoluMap5.webp",
+            "/portfolio/screenshots/PoluMap6.webp",
+            "/portfolio/screenshots/PoluMap7.webp",
+            "/portfolio/screenshots/PoluMap8.webp"
+          ],
           link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
         },
@@ -470,6 +492,58 @@ export const portfolioData = {
           description: "Projeto realizado no âmbito da prova de aptidão profissional (PAP) para o curso profissional TGPSI. Consistiu em conceber um sistema de segurança integrando vários tipos de sensores e câmaras. O proprietário deste sistema poderá também controlar todos os sensores e visualizar vídeo em tempo real da sua casa, tudo através de uma aplicação móvel. A gestão mais técnica do sistema de segurança será feita através de um website dedicado.",
           technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/smarthouse_1.png",
+            "/portfolio/screenshots/smarthouse_2.jpg",
+            "/portfolio/screenshots/smarthouse_5.png",
+            "/portfolio/screenshots/smarthouse_6.jpg",
+            "/portfolio/screenshots/smarthouse_8.jpg",
+            "/portfolio/screenshots/smarthouse_10.jpg",
+            "/portfolio/screenshots/smarthouse_11.png",
+            "/portfolio/screenshots/smarthouse_12.png",
+            "/portfolio/screenshots/smarthouse_12.jpg",
+            "/portfolio/screenshots/smarthouse_13.jpg",
+            "/portfolio/screenshots/smarthouse_14.png",
+            "/portfolio/screenshots/smarthouse_15.png",
+            "/portfolio/screenshots/smarthouse_16.png",
+            "/portfolio/screenshots/smarthouse_17.png",
+            "/portfolio/screenshots/smarthouse_17.jpg",
+            "/portfolio/screenshots/smarthouse_18.png",
+            "/portfolio/screenshots/smarthouse_19.jpg",
+            "/portfolio/screenshots/smarthouse_19.png",
+            "/portfolio/screenshots/smarthouse_20.png",
+            "/portfolio/screenshots/smarthouse_21.jpg",
+            "/portfolio/screenshots/smarthouse_22.png",
+            "/portfolio/screenshots/smarthouse_23.png",
+            "/portfolio/screenshots/smarthouse_24.jpg",
+            "/portfolio/screenshots/smarthouse_25.png",
+            "/portfolio/screenshots/smarthouse_26.png",
+            "/portfolio/screenshots/smarthouse_27.png",
+            "/portfolio/screenshots/smarthouse_28.png",
+            "/portfolio/screenshots/smarthouse_29.png",
+            "/portfolio/screenshots/smarthouse_30.png",
+            "/portfolio/screenshots/smarthouse_31.png",
+            "/portfolio/screenshots/smarthouse_32.png",
+            "/portfolio/screenshots/smarthouse_33.png",
+            "/portfolio/screenshots/smarthouse_34.jpg",
+            "/portfolio/screenshots/smarthouse_35.png",
+            "/portfolio/screenshots/smarthouse_36.png",
+            "/portfolio/screenshots/smarthouse_37.png",
+            "/portfolio/screenshots/smarthouse_38.png",
+            "/portfolio/screenshots/smarthouse_39.png",
+            "/portfolio/screenshots/smarthouse_40.png",
+            "/portfolio/screenshots/smarthouse_41.png",
+            "/portfolio/screenshots/smarthouse_42.png",
+            "/portfolio/screenshots/smarthouse_43.png",
+            "/portfolio/screenshots/smarthouse_44.png",
+            "/portfolio/screenshots/smarthouse_45.png",
+            "/portfolio/screenshots/smarthouse_45.jpg",
+            "/portfolio/screenshots/smarthouse_46.png",
+            "/portfolio/screenshots/smarthouse_47.png",
+            "/portfolio/screenshots/smarthouse_48.png",
+            "/portfolio/screenshots/smarthouse_49.png",
+            "/portfolio/screenshots/smarthouse_50.png"
+          ],
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
         },
@@ -478,6 +552,7 @@ export const portfolioData = {
           description: "Um leitor de código QR baseado em HTML.",
           technologies: ["HTML", "JavaScript"],
           image: "/placeholder.svg",
+          screenshots: ["/portfolio/screenshots/qr_code_reader.png"],
           link: "https://nunofbcastro.github.io/qr-code-reader/",
           github: "https://github.com/nunofbcastro/QR-CODE-READER"
         },
@@ -486,6 +561,11 @@ export const portfolioData = {
           description: "Uma página inteligente para gestão de dinheiro.",
           technologies: ["TypeScript", "React"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/smart_money_page_1.png",
+            "/portfolio/screenshots/smart_money_page_2.png",
+            "/portfolio/screenshots/smart_money_page_3.png"
+          ],
           link: "https://nunofbcastro.github.io/smart-money-page/",
           github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
         },
@@ -510,6 +590,10 @@ export const portfolioData = {
           description: "Projeto PEP-IT Portugal.",
           technologies: ["TypeScript", "Node.js"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/pep_it_portugal_1.png",
+            "/portfolio/screenshots/pep_it_portugal_2.png"
+          ],
           link: "https://nunofbcastro.github.io/pep-it-portugal/",
           github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
         }
@@ -525,6 +609,10 @@ export const portfolioData = {
           description: "This is my personal portfolio, built with React, TypeScript, and Tailwind CSS.",
           technologies: ["React", "TypeScript", "Tailwind CSS"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/portfolio_home_white.png",
+            "/portfolio/screenshots/portfolio_home_black.png"
+          ],
           link: "https://nunofbcastro.github.io/portfolio/",
           github: "https://github.com/nunofbcastro/portfolio"
         },
@@ -533,6 +621,14 @@ export const portfolioData = {
           description: "2020 was a different year for everyone, prohibiting the world's population from many activities and imposing restrictions on most of them. That's why, together with some friends, I created the SandSpace project, which consists of a mobile application that allows you to analyze the occupancy rate of 865 beaches in Portugal. Each beach is represented by a dot that can have four colors: green (low risk), yellow (medium risk), orange (high risk) and red (beach closed). This project has been mentioned in more than 100 national newspapers and television channels (RTP, SIC, CMTV, Porto Canal...) and took part in the world's largest engineering competition organized by INTEL ISEF in the United States.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/SandSpace_1.webp",
+            "/portfolio/screenshots/SandSpace_2.webp",
+            "/portfolio/screenshots/SandSpace_3.webp",
+            "/portfolio/screenshots/SandSpace_4.webp",
+            "/portfolio/screenshots/SandSpace_5.webp",
+            "/portfolio/screenshots/SandSpace_6.webp"
+          ],
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
         },
@@ -541,6 +637,16 @@ export const portfolioData = {
           description: "This mobile application allows EVERYONE to identify the places where there is pollution: from river pollution to open-air rubbish dumps. In this way, a new type of environmental cartography will be created by the community, identifying pollution hotspots. For each point selected, an email will be sent to the local authority and the National Environment Agency so that action can be taken.",
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/PoluMap1.webp",
+            "/portfolio/screenshots/PoluMap2.webp",
+            "/portfolio/screenshots/PoluMap3.webp",
+            "/portfolio/screenshots/PoluMap4.webp",
+            "/portfolio/screenshots/PoluMap5.webp",
+            "/portfolio/screenshots/PoluMap6.webp",
+            "/portfolio/screenshots/PoluMap7.webp",
+            "/portfolio/screenshots/PoluMap8.webp"
+          ],
           link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
         },
@@ -549,6 +655,58 @@ export const portfolioData = {
           description: "Project carried out as part of the professional aptitude test (PAP) for the TGPSI professional course. It consisted of designing a security system integrating various types of sensors and cameras. The owner of this system will also be able to control all the sensors and view real-time video of their home, all via a mobile application. The more technical management of the security system will be done via a dedicated website.",
           technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/smarthouse_1.png",
+            "/portfolio/screenshots/smarthouse_2.jpg",
+            "/portfolio/screenshots/smarthouse_5.png",
+            "/portfolio/screenshots/smarthouse_6.jpg",
+            "/portfolio/screenshots/smarthouse_8.jpg",
+            "/portfolio/screenshots/smarthouse_10.jpg",
+            "/portfolio/screenshots/smarthouse_11.png",
+            "/portfolio/screenshots/smarthouse_12.png",
+            "/portfolio/screenshots/smarthouse_12.jpg",
+            "/portfolio/screenshots/smarthouse_13.jpg",
+            "/portfolio/screenshots/smarthouse_14.png",
+            "/portfolio/screenshots/smarthouse_15.png",
+            "/portfolio/screenshots/smarthouse_16.png",
+            "/portfolio/screenshots/smarthouse_17.png",
+            "/portfolio/screenshots/smarthouse_17.jpg",
+            "/portfolio/screenshots/smarthouse_18.png",
+            "/portfolio/screenshots/smarthouse_19.jpg",
+            "/portfolio/screenshots/smarthouse_19.png",
+            "/portfolio/screenshots/smarthouse_20.png",
+            "/portfolio/screenshots/smarthouse_21.jpg",
+            "/portfolio/screenshots/smarthouse_22.png",
+            "/portfolio/screenshots/smarthouse_23.png",
+            "/portfolio/screenshots/smarthouse_24.jpg",
+            "/portfolio/screenshots/smarthouse_25.png",
+            "/portfolio/screenshots/smarthouse_26.png",
+            "/portfolio/screenshots/smarthouse_27.png",
+            "/portfolio/screenshots/smarthouse_28.png",
+            "/portfolio/screenshots/smarthouse_29.png",
+            "/portfolio/screenshots/smarthouse_30.png",
+            "/portfolio/screenshots/smarthouse_31.png",
+            "/portfolio/screenshots/smarthouse_32.png",
+            "/portfolio/screenshots/smarthouse_33.png",
+            "/portfolio/screenshots/smarthouse_34.jpg",
+            "/portfolio/screenshots/smarthouse_35.png",
+            "/portfolio/screenshots/smarthouse_36.png",
+            "/portfolio/screenshots/smarthouse_37.png",
+            "/portfolio/screenshots/smarthouse_38.png",
+            "/portfolio/screenshots/smarthouse_39.png",
+            "/portfolio/screenshots/smarthouse_40.png",
+            "/portfolio/screenshots/smarthouse_41.png",
+            "/portfolio/screenshots/smarthouse_42.png",
+            "/portfolio/screenshots/smarthouse_43.png",
+            "/portfolio/screenshots/smarthouse_44.png",
+            "/portfolio/screenshots/smarthouse_45.png",
+            "/portfolio/screenshots/smarthouse_45.jpg",
+            "/portfolio/screenshots/smarthouse_46.png",
+            "/portfolio/screenshots/smarthouse_47.png",
+            "/portfolio/screenshots/smarthouse_48.png",
+            "/portfolio/screenshots/smarthouse_49.png",
+            "/portfolio/screenshots/smarthouse_50.png"
+          ],
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
         },
@@ -557,6 +715,7 @@ export const portfolioData = {
           description: "An HTML-based QR code reader.",
           technologies: ["HTML", "JavaScript"],
           image: "/placeholder.svg",
+          screenshots: ["/portfolio/screenshots/qr_code_reader.png"],
           link: "https://nunofbcastro.github.io/qr-code-reader/",
           github: "https://github.com/nunofbcastro/QR-CODE-READER"
         },
@@ -565,6 +724,11 @@ export const portfolioData = {
           description: "A smart money management page.",
           technologies: ["TypeScript", "React"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/smart_money_page_1.png",
+            "/portfolio/screenshots/smart_money_page_2.png",
+            "/portfolio/screenshots/smart_money_page_3.png"
+          ],
           link: "https://nunofbcastro.github.io/smart-money-page/",
           github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
         },
@@ -589,6 +753,10 @@ export const portfolioData = {
           description: "PEP-IT Portugal project.",
           technologies: ["TypeScript", "Node.js"],
           image: "/placeholder.svg",
+          screenshots: [
+            "/portfolio/screenshots/pep_it_portugal_1.png",
+            "/portfolio/screenshots/pep_it_portugal_2.png"
+          ],
           link: "https://nunofbcastro.github.io/pep-it-portugal/",
           github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
         }
@@ -704,3 +872,4 @@ export const portfolioData = {
     }
   }
 };
+
