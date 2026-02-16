@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AutoFitText } from "@/components/AutoFitText";
 import { Timeline } from "@/components/Timeline";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +15,7 @@ interface JourneySectionProps {
 const TechList = ({ technologies, language }: { technologies: string[], language: Language }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const text = uiText[language];
-    
+
     const displayTechs = isExpanded ? technologies : technologies.slice(0, 3);
     const hasMore = technologies.length > 3;
 
@@ -26,7 +27,7 @@ const TechList = ({ technologies, language }: { technologies: string[], language
                 </Badge>
             ))}
             {hasMore && (
-                <button 
+                <button
                     onClick={(e) => {
                         e.preventDefault();
                         setIsExpanded(!isExpanded);
@@ -64,18 +65,18 @@ export const JourneySection = ({ language }: JourneySectionProps) => {
                                     <div className="flex-1">
                                         {item.type === "experience" ? (
                                             <>
-                                                <h3 className="font-bold text-2xl text-foreground mb-1 tracking-tight">{item.role}</h3>
-                                                <p className="font-semibold text-primary text-lg">{item.company}</p>
+                                                <AutoFitText as="h3" maxLines={3} className="font-bold text-2xl text-foreground mb-1 tracking-tight leading-tight" text={item.role} />
+                                                <AutoFitText as="p" maxLines={3} className="font-semibold text-primary text-lg leading-snug" text={item.company} />
                                             </>
                                         ) : item.type === "education" ? (
                                             <>
-                                                <h3 className="font-bold text-2xl text-foreground mb-1 tracking-tight">{item.degree}</h3>
-                                                <p className="font-semibold text-primary text-lg">{item.institution}</p>
+                                                <AutoFitText as="h3" maxLines={3} className="font-bold text-2xl text-foreground mb-1 tracking-tight leading-tight" text={item.degree} />
+                                                <AutoFitText as="p" maxLines={3} className="font-semibold text-primary text-lg leading-snug" text={item.institution} />
                                             </>
                                         ) : (
                                             <>
-                                                <h3 className="font-bold text-2xl text-foreground mb-1 tracking-tight">{item.title}</h3>
-                                                <p className="font-semibold text-primary text-lg">{item.issuer}</p>
+                                                <AutoFitText as="h3" maxLines={3} className="font-bold text-2xl text-foreground mb-1 tracking-tight leading-tight" text={item.title} />
+                                                <AutoFitText as="p" maxLines={3} className="font-semibold text-primary text-lg leading-snug" text={item.issuer} />
                                             </>
                                         )}
                                     </div>
@@ -87,9 +88,16 @@ export const JourneySection = ({ language }: JourneySectionProps) => {
                                         <span>{item.period}</span>
                                     </div>
                                     {item.location && (
-                                        <div className="flex items-center gap-2 text-muted-foreground px-3 py-1 bg-muted/50 rounded-full">
-                                            <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-                                            <span>{item.location}</span>
+                                        <div className="flex items-center gap-2 text-muted-foreground px-2 py-0.5 bg-muted/50 rounded-lg max-w-[180px] md:ml-auto">
+                                            <MapPin className="h-3.5 w-3.5 text-primary shrink-0" aria-hidden="true" />
+                                            <div className="min-w-0 flex-1">
+                                                <AutoFitText
+                                                    text={item.location}
+                                                    maxLines={2}
+                                                    minFontSize={8}
+                                                    className="leading-tight text-xs"
+                                                />
+                                            </div>
                                         </div>
                                     )}
                                 </div>

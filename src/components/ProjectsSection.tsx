@@ -8,6 +8,7 @@ import { portfolioData } from "@/data/portfolio";
 import { useState } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { uiText, type Language } from "@/data/i18n";
+import { AutoFitText } from "@/components/AutoFitText";
 import {
   Dialog,
   DialogContent,
@@ -26,6 +27,62 @@ import {
 interface ProjectsSectionProps {
   language: Language;
 }
+
+const TechList = ({ technologies, language }: { technologies: string[], language: Language }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const text = uiText[language];
+
+  const displayTechs = isExpanded ? technologies : technologies.slice(0, 3);
+  const hasMore = technologies.length > 3;
+
+  return (
+    <div className="flex flex-wrap gap-2.5 items-center mb-6">
+      {displayTechs.map((tech, techIdx) => (
+        <Badge key={techIdx} variant="secondary" className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/5 text-primary border-primary/10">
+          {tech}
+        </Badge>
+      ))}
+      {hasMore && (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setIsExpanded(!isExpanded);
+          }}
+          className="text-xs font-bold text-primary hover:text-primary/80 transition-colors ml-1 px-2 py-1 rounded-md hover:bg-primary/5 border border-transparent hover:border-primary/10"
+        >
+          {isExpanded ? text.projects.showLess : `+${technologies.length - 3}`}
+        </button>
+      )}
+    </div>
+  );
+}
+
+const ExpandableDescription = ({ text, readMoreText, showLessText }: { text: string, readMoreText: string, showLessText: string }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const shouldTruncate = text.length > 150;
+
+  if (!shouldTruncate) {
+    return <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">{text}</p>;
+  }
+
+  return (
+    <div className="mb-4 flex-grow">
+      <p className={`text-muted-foreground leading-relaxed ${isExpanded ? '' : 'line-clamp-3'}`}>
+        {text}
+      </p>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setIsExpanded(!isExpanded);
+        }}
+        className="text-xs font-bold text-primary hover:text-primary/80 mt-2 hover:underline"
+      >
+        {isExpanded ? showLessText : readMoreText}
+      </button>
+    </div>
+  );
+};
 
 export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -82,22 +139,22 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                   >
                     <Card className="glass-card group hover:scale-[1.02] origin-center h-full flex flex-col transition-premium border-none">
                       <CardHeader className="flex-shrink-0">
-                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {project.title}
+                        <CardTitle className="block">
+                          <AutoFitText
+                            text={project.title}
+                            maxLines={2}
+                            className="text-xl font-bold text-foreground group-hover:text-primary transition-colors block"
+                          />
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="flex-grow flex flex-col">
-                        <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">
-                          {project.description}
-                        </p>
+                        <ExpandableDescription
+                          text={project.description}
+                          readMoreText={i18n.projects.readMore}
+                          showLessText={i18n.projects.showLess}
+                        />
 
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.technologies.map((tech, i) => (
-                            <Badge key={i} variant="secondary" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+                        <TechList technologies={project.technologies} language={language} />
 
                         <div className="flex gap-2 mt-auto flex-wrap">
                           <Button asChild size="sm" className="flex-1">

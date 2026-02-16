@@ -129,27 +129,19 @@ export const portfolioData = {
 
         },
         {
-          type: "experience",
-          icon: "Briefcase",
-          company: "Agrupamento de Escolas Dr. Serafim Leite",
-          role: "Programador Informático",
-          location: "São João da Madeira, Aveiro",
-          period: "abr 2020 – jul 2020",
+          type: "education",
+          icon: "GraduationCap",
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "Técnico de Gestão e Programação de Sistemas Informáticos",
+          location: "São João da Madeira, Portugal",
+          period: "set 2017 – ago 2020",
           description: [
+            "Curso profissional com foco em desenvolvimento de software e sistemas informáticos",
             "Desenvolvimento de website para angariação de fundos",
             "Criação de aplicação mobile Android",
             "Remodelação de campos desportivos da escola"
           ],
           technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
-        },
-        {
-          type: "education",
-          icon: "GraduationCap",
-          institution: "Agrupamento de Escolas Dr. Serafim Leite",
-          degree: "Ensino Secundário Profissional - Técnico de Gestão e Programação de Sistemas Informáticos",
-          location: "São João da Madeira, Portugal",
-          period: "set 2017 – ago 2020",
-          description: "Curso profissional com foco em desenvolvimento de software e sistemas informáticos"
         },
         {
           type: "experience",
@@ -303,27 +295,19 @@ export const portfolioData = {
 
         },
         {
-          type: "experience",
-          icon: "Briefcase",
-          company: "Agrupamento de Escolas Dr. Serafim Leite",
-          role: "Computer Programmer",
-          location: "São João da Madeira, Aveiro",
-          period: "Apr 2020 – Jul 2020",
+          type: "education",
+          icon: "GraduationCap",
+          institution: "Agrupamento de Escolas Dr. Serafim Leite",
+          degree: "IT Systems Management and Programming Technician",
+          location: "São João da Madeira, Portugal",
+          period: "Sep 2017 – Aug 2020",
           description: [
+            "Professional course focused on software development and information systems",
             "Website development for fundraising",
             "Android mobile application creation",
             "School sports fields remodeling"
           ],
           technologies: ["HTML", "Android Studio", "Java", "Mobile Development"]
-        },
-        {
-          type: "education",
-          icon: "GraduationCap",
-          institution: "Agrupamento de Escolas Dr. Serafim Leite",
-          degree: "Professional Secondary Education - IT Systems Management and Programming Technician",
-          location: "São João da Madeira, Portugal",
-          period: "Sep 2017 – Aug 2020",
-          description: "Professional course focused on software development and information systems"
         },
         {
           type: "experience",
@@ -447,8 +431,8 @@ export const portfolioData = {
           technologies: ["React", "TypeScript", "Tailwind CSS"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/portfolio_home_white.png",
-            "/portfolio/screenshots/portfolio_home_black.png"
+            "/portfolio/screenshots/home_screen/portfolio_home_white.png",
+            "/portfolio/screenshots/home_screen/portfolio_home_black.png"
           ],
           link: "https://nunofbcastro.github.io/portfolio/",
           github: "https://github.com/nunofbcastro/portfolio"
@@ -459,12 +443,12 @@ export const portfolioData = {
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/SandSpace_1.webp",
-            "/portfolio/screenshots/SandSpace_2.webp",
-            "/portfolio/screenshots/SandSpace_3.webp",
-            "/portfolio/screenshots/SandSpace_4.webp",
-            "/portfolio/screenshots/SandSpace_5.webp",
-            "/portfolio/screenshots/SandSpace_6.webp"
+            "/portfolio/screenshots/sandspace/SandSpace_1.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_2.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_3.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_4.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_5.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_6.webp"
           ],
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
@@ -475,14 +459,14 @@ export const portfolioData = {
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/PoluMap1.webp",
-            "/portfolio/screenshots/PoluMap2.webp",
-            "/portfolio/screenshots/PoluMap3.webp",
-            "/portfolio/screenshots/PoluMap4.webp",
-            "/portfolio/screenshots/PoluMap5.webp",
-            "/portfolio/screenshots/PoluMap6.webp",
-            "/portfolio/screenshots/PoluMap7.webp",
-            "/portfolio/screenshots/PoluMap8.webp"
+            "/portfolio/screenshots/polumap/PoluMap1.webp",
+            "/portfolio/screenshots/polumap/PoluMap2.webp",
+            "/portfolio/screenshots/polumap/PoluMap3.webp",
+            "/portfolio/screenshots/polumap/PoluMap4.webp",
+            "/portfolio/screenshots/polumap/PoluMap5.webp",
+            "/portfolio/screenshots/polumap/PoluMap6.webp",
+            "/portfolio/screenshots/polumap/PoluMap7.webp",
+            "/portfolio/screenshots/polumap/PoluMap8.webp"
           ],
           link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
@@ -493,56 +477,20 @@ export const portfolioData = {
           technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/smarthouse_1.png",
-            "/portfolio/screenshots/smarthouse_2.jpg",
-            "/portfolio/screenshots/smarthouse_5.png",
-            "/portfolio/screenshots/smarthouse_6.jpg",
-            "/portfolio/screenshots/smarthouse_8.jpg",
-            "/portfolio/screenshots/smarthouse_10.jpg",
-            "/portfolio/screenshots/smarthouse_11.png",
-            "/portfolio/screenshots/smarthouse_12.png",
-            "/portfolio/screenshots/smarthouse_12.jpg",
-            "/portfolio/screenshots/smarthouse_13.jpg",
-            "/portfolio/screenshots/smarthouse_14.png",
-            "/portfolio/screenshots/smarthouse_15.png",
-            "/portfolio/screenshots/smarthouse_16.png",
-            "/portfolio/screenshots/smarthouse_17.png",
-            "/portfolio/screenshots/smarthouse_17.jpg",
-            "/portfolio/screenshots/smarthouse_18.png",
-            "/portfolio/screenshots/smarthouse_19.jpg",
-            "/portfolio/screenshots/smarthouse_19.png",
-            "/portfolio/screenshots/smarthouse_20.png",
-            "/portfolio/screenshots/smarthouse_21.jpg",
-            "/portfolio/screenshots/smarthouse_22.png",
-            "/portfolio/screenshots/smarthouse_23.png",
-            "/portfolio/screenshots/smarthouse_24.jpg",
-            "/portfolio/screenshots/smarthouse_25.png",
-            "/portfolio/screenshots/smarthouse_26.png",
-            "/portfolio/screenshots/smarthouse_27.png",
-            "/portfolio/screenshots/smarthouse_28.png",
-            "/portfolio/screenshots/smarthouse_29.png",
-            "/portfolio/screenshots/smarthouse_30.png",
-            "/portfolio/screenshots/smarthouse_31.png",
-            "/portfolio/screenshots/smarthouse_32.png",
-            "/portfolio/screenshots/smarthouse_33.png",
-            "/portfolio/screenshots/smarthouse_34.jpg",
-            "/portfolio/screenshots/smarthouse_35.png",
-            "/portfolio/screenshots/smarthouse_36.png",
-            "/portfolio/screenshots/smarthouse_37.png",
-            "/portfolio/screenshots/smarthouse_38.png",
-            "/portfolio/screenshots/smarthouse_39.png",
-            "/portfolio/screenshots/smarthouse_40.png",
-            "/portfolio/screenshots/smarthouse_41.png",
-            "/portfolio/screenshots/smarthouse_42.png",
-            "/portfolio/screenshots/smarthouse_43.png",
-            "/portfolio/screenshots/smarthouse_44.png",
-            "/portfolio/screenshots/smarthouse_45.png",
-            "/portfolio/screenshots/smarthouse_45.jpg",
-            "/portfolio/screenshots/smarthouse_46.png",
-            "/portfolio/screenshots/smarthouse_47.png",
-            "/portfolio/screenshots/smarthouse_48.png",
-            "/portfolio/screenshots/smarthouse_49.png",
-            "/portfolio/screenshots/smarthouse_50.png"
+            "/portfolio/screenshots/smarthouse/smarthouse_2.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_1.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_20.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_16.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_17.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_5.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_15.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_23.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_35.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_45.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_42.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_49.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_33.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_14.png"
           ],
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
@@ -552,7 +500,7 @@ export const portfolioData = {
           description: "Um leitor de código QR baseado em HTML.",
           technologies: ["HTML", "JavaScript"],
           image: "/placeholder.svg",
-          screenshots: ["/portfolio/screenshots/qr_code_reader.png"],
+          screenshots: ["/portfolio/screenshots/qr_code_reader/qr_code_reader.png"],
           link: "https://nunofbcastro.github.io/qr-code-reader/",
           github: "https://github.com/nunofbcastro/QR-CODE-READER"
         },
@@ -562,9 +510,9 @@ export const portfolioData = {
           technologies: ["TypeScript", "React"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/smart_money_page_1.png",
-            "/portfolio/screenshots/smart_money_page_2.png",
-            "/portfolio/screenshots/smart_money_page_3.png"
+            "/portfolio/screenshots/smart_money/smart_money_page_1.png",
+            "/portfolio/screenshots/smart_money/smart_money_page_2.png",
+            "/portfolio/screenshots/smart_money/smart_money_page_3.png"
           ],
           link: "https://nunofbcastro.github.io/smart-money-page/",
           github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
@@ -591,8 +539,8 @@ export const portfolioData = {
           technologies: ["TypeScript", "Node.js"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/pep_it_portugal_1.png",
-            "/portfolio/screenshots/pep_it_portugal_2.png"
+            "/portfolio/screenshots/pep_it_portugal/pep_it_portugal_1.png",
+            "/portfolio/screenshots/pep_it_portugal/pep_it_portugal_2.png"
           ],
           link: "https://nunofbcastro.github.io/pep-it-portugal/",
           github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
@@ -610,8 +558,8 @@ export const portfolioData = {
           technologies: ["React", "TypeScript", "Tailwind CSS"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/portfolio_home_white.png",
-            "/portfolio/screenshots/portfolio_home_black.png"
+            "/portfolio/screenshots/home_screen/portfolio_home_white.png",
+            "/portfolio/screenshots/home_screen/portfolio_home_black.png"
           ],
           link: "https://nunofbcastro.github.io/portfolio/",
           github: "https://github.com/nunofbcastro/portfolio"
@@ -622,12 +570,12 @@ export const portfolioData = {
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/SandSpace_1.webp",
-            "/portfolio/screenshots/SandSpace_2.webp",
-            "/portfolio/screenshots/SandSpace_3.webp",
-            "/portfolio/screenshots/SandSpace_4.webp",
-            "/portfolio/screenshots/SandSpace_5.webp",
-            "/portfolio/screenshots/SandSpace_6.webp"
+            "/portfolio/screenshots/sandspace/SandSpace_1.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_2.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_3.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_4.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_5.webp",
+            "/portfolio/screenshots/sandspace/SandSpace_6.webp"
           ],
           link: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
           github: "https://github.com/nunofbcastro"
@@ -638,14 +586,14 @@ export const portfolioData = {
           technologies: ["Java", "Android Studio", "PHP", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/PoluMap1.webp",
-            "/portfolio/screenshots/PoluMap2.webp",
-            "/portfolio/screenshots/PoluMap3.webp",
-            "/portfolio/screenshots/PoluMap4.webp",
-            "/portfolio/screenshots/PoluMap5.webp",
-            "/portfolio/screenshots/PoluMap6.webp",
-            "/portfolio/screenshots/PoluMap7.webp",
-            "/portfolio/screenshots/PoluMap8.webp"
+            "/portfolio/screenshots/polumap/PoluMap1.webp",
+            "/portfolio/screenshots/polumap/PoluMap2.webp",
+            "/portfolio/screenshots/polumap/PoluMap3.webp",
+            "/portfolio/screenshots/polumap/PoluMap4.webp",
+            "/portfolio/screenshots/polumap/PoluMap5.webp",
+            "/portfolio/screenshots/polumap/PoluMap6.webp",
+            "/portfolio/screenshots/polumap/PoluMap7.webp",
+            "/portfolio/screenshots/polumap/PoluMap8.webp"
           ],
           link: "https://play.google.com/store/apps/details?id=appinventor.ai_fatima_pais.PoluMap_V15&hl=en&gl=US",
           github: "https://github.com/nunofbcastro"
@@ -656,56 +604,20 @@ export const portfolioData = {
           technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "API", "JSON"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/smarthouse_1.png",
-            "/portfolio/screenshots/smarthouse_2.jpg",
-            "/portfolio/screenshots/smarthouse_5.png",
-            "/portfolio/screenshots/smarthouse_6.jpg",
-            "/portfolio/screenshots/smarthouse_8.jpg",
-            "/portfolio/screenshots/smarthouse_10.jpg",
-            "/portfolio/screenshots/smarthouse_11.png",
-            "/portfolio/screenshots/smarthouse_12.png",
-            "/portfolio/screenshots/smarthouse_12.jpg",
-            "/portfolio/screenshots/smarthouse_13.jpg",
-            "/portfolio/screenshots/smarthouse_14.png",
-            "/portfolio/screenshots/smarthouse_15.png",
-            "/portfolio/screenshots/smarthouse_16.png",
-            "/portfolio/screenshots/smarthouse_17.png",
-            "/portfolio/screenshots/smarthouse_17.jpg",
-            "/portfolio/screenshots/smarthouse_18.png",
-            "/portfolio/screenshots/smarthouse_19.jpg",
-            "/portfolio/screenshots/smarthouse_19.png",
-            "/portfolio/screenshots/smarthouse_20.png",
-            "/portfolio/screenshots/smarthouse_21.jpg",
-            "/portfolio/screenshots/smarthouse_22.png",
-            "/portfolio/screenshots/smarthouse_23.png",
-            "/portfolio/screenshots/smarthouse_24.jpg",
-            "/portfolio/screenshots/smarthouse_25.png",
-            "/portfolio/screenshots/smarthouse_26.png",
-            "/portfolio/screenshots/smarthouse_27.png",
-            "/portfolio/screenshots/smarthouse_28.png",
-            "/portfolio/screenshots/smarthouse_29.png",
-            "/portfolio/screenshots/smarthouse_30.png",
-            "/portfolio/screenshots/smarthouse_31.png",
-            "/portfolio/screenshots/smarthouse_32.png",
-            "/portfolio/screenshots/smarthouse_33.png",
-            "/portfolio/screenshots/smarthouse_34.jpg",
-            "/portfolio/screenshots/smarthouse_35.png",
-            "/portfolio/screenshots/smarthouse_36.png",
-            "/portfolio/screenshots/smarthouse_37.png",
-            "/portfolio/screenshots/smarthouse_38.png",
-            "/portfolio/screenshots/smarthouse_39.png",
-            "/portfolio/screenshots/smarthouse_40.png",
-            "/portfolio/screenshots/smarthouse_41.png",
-            "/portfolio/screenshots/smarthouse_42.png",
-            "/portfolio/screenshots/smarthouse_43.png",
-            "/portfolio/screenshots/smarthouse_44.png",
-            "/portfolio/screenshots/smarthouse_45.png",
-            "/portfolio/screenshots/smarthouse_45.jpg",
-            "/portfolio/screenshots/smarthouse_46.png",
-            "/portfolio/screenshots/smarthouse_47.png",
-            "/portfolio/screenshots/smarthouse_48.png",
-            "/portfolio/screenshots/smarthouse_49.png",
-            "/portfolio/screenshots/smarthouse_50.png"
+            "/portfolio/screenshots/smarthouse/smarthouse_2.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_1.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_20.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_16.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_17.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_5.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_15.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_23.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_35.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_45.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_42.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_49.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_33.png",
+            "/portfolio/screenshots/smarthouse/smarthouse_14.png"
           ],
           link: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
           github: "https://github.com/nunofbcastro"
@@ -715,7 +627,7 @@ export const portfolioData = {
           description: "An HTML-based QR code reader.",
           technologies: ["HTML", "JavaScript"],
           image: "/placeholder.svg",
-          screenshots: ["/portfolio/screenshots/qr_code_reader.png"],
+          screenshots: ["/portfolio/screenshots/qr_code_reader/qr_code_reader.png"],
           link: "https://nunofbcastro.github.io/qr-code-reader/",
           github: "https://github.com/nunofbcastro/QR-CODE-READER"
         },
@@ -725,9 +637,9 @@ export const portfolioData = {
           technologies: ["TypeScript", "React"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/smart_money_page_1.png",
-            "/portfolio/screenshots/smart_money_page_2.png",
-            "/portfolio/screenshots/smart_money_page_3.png"
+            "/portfolio/screenshots/smart_money/smart_money_page_1.png",
+            "/portfolio/screenshots/smart_money/smart_money_page_2.png",
+            "/portfolio/screenshots/smart_money/smart_money_page_3.png"
           ],
           link: "https://nunofbcastro.github.io/smart-money-page/",
           github: "https://github.com/nunofbcastro/SMART-MONEY-PAGE"
@@ -754,8 +666,8 @@ export const portfolioData = {
           technologies: ["TypeScript", "Node.js"],
           image: "/placeholder.svg",
           screenshots: [
-            "/portfolio/screenshots/pep_it_portugal_1.png",
-            "/portfolio/screenshots/pep_it_portugal_2.png"
+            "/portfolio/screenshots/pep_it_portugal/pep_it_portugal_1.png",
+            "/portfolio/screenshots/pep_it_portugal/pep_it_portugal_2.png"
           ],
           link: "https://nunofbcastro.github.io/pep-it-portugal/",
           github: "https://github.com/nunofbcastro/PEP-IT-PORTUGAL"
