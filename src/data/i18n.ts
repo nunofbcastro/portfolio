@@ -58,6 +58,39 @@ export const uiText = {
       skills: "Competências",
       strengths: "Pontos Fortes",
       awards: "Prémios"
+    },
+    cookieConsent: {
+      consentModal: {
+        title: "Este site usa cookies",
+        description: "Uso cookies essenciais e, com a tua permissao, cookies de analise para melhorar o site.",
+        acceptAllBtn: "Aceitar todos",
+        acceptNecessaryBtn: "Rejeitar opcionais",
+        showPreferencesBtn: "Gerir preferencias",
+      },
+      preferencesModal: {
+        title: "Preferencias de cookies",
+        acceptAllBtn: "Aceitar todos",
+        acceptNecessaryBtn: "Rejeitar opcionais",
+        savePreferencesBtn: "Guardar preferencias",
+        closeIconLabel: "Fechar",
+        serviceCounterLabel: "Servico|Servicos",
+        sections: [
+          {
+            title: "Escolhe que cookies queres permitir",
+            description: "Podes atualizar estas escolhas a qualquer momento.",
+          },
+          {
+            title: "Cookies estritamente necessarios",
+            description: "Obrigatorios para funcionalidades basicas e seguranca.",
+            linkedCategory: "necessary",
+          },
+          {
+            title: "Cookies de analise",
+            description: "Ajudam-me a perceber como o site e utilizado para o melhorar.",
+            linkedCategory: "analytics",
+          },
+        ],
+      },
     }
   },
   en: {
@@ -117,6 +150,39 @@ export const uiText = {
       skills: "Skills",
       strengths: "Strengths",
       awards: "Awards"
+    },
+    cookieConsent: {
+      consentModal: {
+        title: "This website uses cookies",
+        description: "I use essential cookies and, with your permission, analytics cookies to improve the website.",
+        acceptAllBtn: "Accept all",
+        acceptNecessaryBtn: "Reject optional",
+        showPreferencesBtn: "Manage preferences",
+      },
+      preferencesModal: {
+        title: "Cookie preferences",
+        acceptAllBtn: "Accept all",
+        acceptNecessaryBtn: "Reject optional",
+        savePreferencesBtn: "Save preferences",
+        closeIconLabel: "Close",
+        serviceCounterLabel: "Service|Services",
+        sections: [
+          {
+            title: "Choose which cookies to allow",
+            description: "You can update these choices at any time.",
+          },
+          {
+            title: "Strictly necessary cookies",
+            description: "Required for basic functionality and security.",
+            linkedCategory: "necessary",
+          },
+          {
+            title: "Analytics cookies",
+            description: "Help me understand site usage and improve the experience.",
+            linkedCategory: "analytics",
+          },
+        ],
+      },
     }
   }
 } as const;

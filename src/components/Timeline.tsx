@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { Briefcase, GraduationCap, Trophy } from "lucide-react";
@@ -29,7 +29,14 @@ export const Timeline = <T,>({
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
   const [width] = useWindowSize();
   const [showAll, setShowAll] = useState(false);
-  const isMobile = width < 1160;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // On server and first client render, use a default that matches server (width 1024 < 1160)
+  const isMobile = !mounted ? true : width < 1160;
   const timelineListId = "timeline-list";
 
   // Determine which items to show
