@@ -23,9 +23,10 @@ const translations = {
 <script>
   import * as CookieConsent from "vanilla-cookieconsent";
   import "vanilla-cookieconsent/dist/cookieconsent.css";
+  import { GTM_ID, GA_ID } from "../data/config";
 
-  const GA_MEASUREMENT_ID = "G-MYHDHF3JVP";
-  const GTM_CONTAINER_ID = "GTM-KJ4R4DQ6";
+  const GA_MEASUREMENT_ID = GA_ID;
+  const GTM_CONTAINER_ID = GTM_ID;
   let analyticsLoaded = false;
 
   const setDeniedGoogleConsent = () => {
