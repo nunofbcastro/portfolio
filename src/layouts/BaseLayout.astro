@@ -160,7 +160,7 @@ const {
 
     <CookieConsent lang={lang as any} />
     <!-- Google Tag Manager -->
-    <script>
+    <script define:vars={{ GTM_ID }}>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -170,7 +170,11 @@ const {
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KJ4R4DQ6");
+      })(window, document, "script", "dataLayer", GTM_ID);
+    </script>
+    <script>
+      import { initSessionTracking } from "../lib/tracking";
+      initSessionTracking();
     </script>
     <!-- End Google Tag Manager -->
 
@@ -186,13 +190,13 @@ const {
   </head>
   <body class={bodyClass}>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4R4DQ6"
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
         height="0"
         width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
