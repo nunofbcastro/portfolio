@@ -49,7 +49,7 @@ const {
   bodyClass,
   jsonLd,
   titleId,
-  descriptionId
+  descriptionId,
 } = Astro.props;
 ---
 
@@ -58,8 +58,9 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
-    <link rel="icon" type="image/png" href="/portfolio/favicon.svg" /> <!-- Fallback for some browsers -->
-    
+    <link rel="icon" type="image/png" href="/portfolio/favicon.svg" />
+    <!-- Fallback for some browsers -->
+
     <SEO
       title={title}
       description={description}
@@ -78,13 +79,15 @@ const {
           siteName: siteName,
           locale: locale,
         },
-        image: imageUrl ? {
-            url: imageUrl,
-            alt: twitterImageAlt,
-            width: imageWidth,
-            height: imageHeight,
-            type: imageType,
-        } : undefined
+        image: imageUrl
+          ? {
+              url: imageUrl,
+              alt: twitterImageAlt,
+              width: imageWidth,
+              height: imageHeight,
+              type: imageType,
+            }
+          : undefined,
       }}
       twitter={{
         card: twitterCard as any,
@@ -102,33 +105,80 @@ const {
           { name: "keywords", content: keywords },
           // Force the full robots string to ensure max-image-preview is preserved if not handled by standard boolean props
           // Note: SEO component might generate its own robots tag. If strictly needed, we can rely on standard index/follow
-          // or check if we should suppress the default one if possible. 
+          // or check if we should suppress the default one if possible.
           // For now, let's trust astro-seo handling of noindex/nofollow and if the user needs advanced robots, they might need to use extend exclusively.
           // However, to keep it simple and safe:
-          ...(robots && !robots.includes("noindex") && !robots.includes("nofollow") && robots !== "index,follow" ? [{ name: "robots", content: robots }] : [])
-        ].filter(meta => meta.content),
+          ...(robots &&
+          !robots.includes("noindex") &&
+          !robots.includes("nofollow") &&
+          robots !== "index,follow"
+            ? [{ name: "robots", content: robots }]
+            : []),
+        ].filter((meta) => meta.content),
         link: [
-           ...(preloadImage ? [{ rel: "preload", as: "image", href: preloadImage }] : []),
-           ...(alternateLocale ? [{ rel: "alternate", href: canonicalUrl, hreflang: alternateLocale }] : [])
-        ]
+          ...(preloadImage
+            ? [{ rel: "preload", as: "image", href: preloadImage }]
+            : []),
+          ...(alternateLocale
+            ? [
+                {
+                  rel: "alternate",
+                  href: canonicalUrl,
+                  hreflang: alternateLocale,
+                },
+              ]
+            : []),
+        ],
       }}
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet"
+      />
     </noscript>
 
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {
+      jsonLd && (
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      )
+    }
 
     <CookieConsent lang={lang as any} />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KJ4R4DQ6");
+    </script>
+    <!-- End Google Tag Manager -->
 
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
       const isDark = storedTheme === "dark" || (!storedTheme && prefersDark);
       document.documentElement.classList.toggle("dark", isDark);
     </script>
@@ -136,14 +186,13 @@ const {
   </head>
   <body class={bodyClass}>
     <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KJ4R4DQ6"
         height="0"
         width="0"
-        style="display:none;visibility:hidden"
-      ></iframe>
-    </noscript>
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
