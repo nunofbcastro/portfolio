@@ -1,1 +1,0 @@
-import{r as e,t}from"./react.C1VktWof.js";var n=e(t(),1),r=(e=.1)=>{let[t,r]=(0,n.useState)(!1),i=(0,n.useRef)(null);return(0,n.useEffect)(()=>{let t=new IntersectionObserver(([e])=>{e.isIntersecting&&r(!0)},{threshold:e}),n=i.current;return n&&t.observe(n),()=>{n&&t.unobserve(n)}},[e]),{ref:i,isVisible:t}};export{r as t};
