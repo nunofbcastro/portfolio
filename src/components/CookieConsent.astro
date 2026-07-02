@@ -42,33 +42,32 @@ const translations = {
   const loadAnalytics = () => {
     if (analyticsLoaded) return;
     analyticsLoaded = true;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() { window.dataLayer.push(arguments); };
-    window.gtag("consent", "default", {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "denied",
-    });
-    window.gtag("js", new Date());
 
+    // Load Google Analytics (gtag.js) dynamically
     const gaScript = document.createElement("script");
     gaScript.async = true;
     gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     document.head.appendChild(gaScript);
 
-    const gtmScript = document.createElement("script");
-    gtmScript.async = true;
-    gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-    document.head.appendChild(gtmScript);
+    // Load Google Tag Manager dynamically only if GTM ID is set
+    if (GTM_CONTAINER_ID) {
+      const gtmScript = document.createElement("script");
+      gtmScript.async = true;
+      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+      document.head.appendChild(gtmScript);
+    }
 
-    window.gtag("consent", "update", {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "granted",
-    });
-    window.gtag("config", GA_MEASUREMENT_ID);
+    // Update Google Consent Mode state to granted for analytics
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "granted",
+      });
+      window.gtag("config", GA_MEASUREMENT_ID);
+      document.dispatchEvent(new CustomEvent("analytics-loaded"));
+    }
   };
 
   const disableAnalytics = () => {

@@ -5,32 +5,39 @@ import type { Language } from "@/data/i18n";
 interface AppProps {
   currentYear: number;
   heroImageUrl: string;
+  initialLanguage: Language;
 }
 
-const App = ({ currentYear, heroImageUrl }: AppProps) => {
-  const [language, setLanguage] = useState<Language>("en");
+const App = ({ currentYear, heroImageUrl, initialLanguage }: AppProps) => {
+  const [language, setLanguage] = useState<Language>(initialLanguage);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Retrieve stored language or fallback to browser language
+    let preferredLanguage: Language = initialLanguage;
     const storedLanguage = localStorage.getItem("language");
     if (storedLanguage === "pt" || storedLanguage === "en") {
-      setLanguage(storedLanguage);
-      return;
+      preferredLanguage = storedLanguage;
+    } else {
+      const userLang = navigator.language.split("-")[0];
+      if (userLang === "pt" || userLang === "en") {
+        preferredLanguage = userLang;
+        localStorage.setItem("language", userLang);
+      }
     }
 
-    const userLang = navigator.language.split("-")[0];
-    if (userLang === "pt" || userLang === "en") {
-      setLanguage(userLang);
-      localStorage.setItem("language", userLang);
-      return;
+    // Redirect to the correct localized route if preferredLanguage doesn't match the URL language
+    if (preferredLanguage !== initialLanguage) {
+      const newPath = preferredLanguage === "pt" ? "/portfolio/pt/" : "/portfolio/";
+      window.location.replace(newPath);
     }
-
-    setLanguage("en");
-    localStorage.setItem("language", "en");
-  }, []);
+  }, [initialLanguage]);
 
   const handleSetLanguage = (nextLanguage: Language) => {
-    setLanguage(nextLanguage);
     localStorage.setItem("language", nextLanguage);
+    const newPath = nextLanguage === "pt" ? "/portfolio/pt/" : "/portfolio/";
+    window.location.href = newPath;
   };
 
   useEffect(() => {
@@ -41,4 +48,3 @@ const App = ({ currentYear, heroImageUrl }: AppProps) => {
 };
 
 export default App;
-

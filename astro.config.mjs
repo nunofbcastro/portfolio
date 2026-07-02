@@ -9,6 +9,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: "https://nunofbcastro.github.io",
   base: "/portfolio",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "pt"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

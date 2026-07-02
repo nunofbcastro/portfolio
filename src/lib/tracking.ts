@@ -82,18 +82,21 @@ const getGASessionInfo = () => {
  * Tries to read from GTM's google_tag_data if available.
  */
 const isTrackingAllowed = (): boolean => {
-  if (typeof window === "undefined" || !window.google_tag_data) return true; // Default to true if not explicitly denied by GTM
+  if (typeof window === "undefined") return false;
   
-  const gtd = window.google_tag_data;
-  
-  // Direct consent check
-  if (gtd.consent?.analytics_storage === "denied") return false;
-  
-  // ICS (Initial Consent State) check
-  if (gtd.ics?.entries?.analytics_storage) {
-    const entry = gtd.ics.entries.analytics_storage;
-    const usedUpdate = !!gtd.ics.usedUpdate;
-    return usedUpdate ? entry.update === true : false;
+  // Check if Google Analytics is explicitly disabled (e.g. user opted out)
+  if (window[`ga-disable-${GA_ID}`] === true) return false;
+
+  // If google_tag_data is available (from GTM/Gtag), respect the consent settings
+  if (window.google_tag_data) {
+    const gtd = window.google_tag_data;
+    if (gtd.consent?.analytics_storage === "denied") return false;
+    
+    if (gtd.ics?.entries?.analytics_storage) {
+      const entry = gtd.ics.entries.analytics_storage;
+      const usedUpdate = !!gtd.ics.usedUpdate;
+      return usedUpdate ? entry.update === true : false;
+    }
   }
 
   return true;
@@ -151,10 +154,11 @@ export const initSessionTracking = (maxRetries = 8, retryInterval = 250) => {
     }
   };
 
-  // Run on load and pageshow
+  // Run on load, pageshow, and custom event when consent is accepted
   window.addEventListener("load", () => attemptTrack(0));
   window.addEventListener("pageshow", () => attemptTrack(0));
   window.addEventListener("popstate", () => attemptTrack(0));
+  document.addEventListener("analytics-loaded", () => attemptTrack(0));
 
   // Intercept history changes for SPA routing
   const wrap = (fnName: "pushState" | "replaceState") => {

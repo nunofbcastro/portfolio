@@ -5,6 +5,8 @@ import App from "../react/App";
 import { portfolioData } from "../data/portfolio";
 import heroImage from "../assets/hero-image.jpg";
 
+const currentLocale = (Astro.currentLocale || "en") as "en" | "pt";
+
 const siteUrl = Astro.site ?? new URL("https://nunofbcastro.github.io");
 const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
 
@@ -15,7 +17,7 @@ const imageUrl = new URL("/portfolio/og-image.png", siteUrl).toString();
 const person = portfolioData.personal;
 const currentYear = new Date().getFullYear();
 
-const descriptionEn = `${person.name} - ${person.title.en}. ${person.subtitle.en}.`;
+const description = `${person.name} - ${person.title[currentLocale]}. ${person.subtitle[currentLocale]}.`;
 const keywords = "Nuno Castro, Software Engineer, Portfolio, React, React Native, TypeScript, .NET, Web Development, Mobile Development, Porto, ESTG, ISEP, Instituto Politécnico do Porto, B2F - BUSINESSTOFUTURE";
 const title = `${person.name} | Portfolio`;
 
@@ -27,11 +29,11 @@ const jsonLd = {
       name: person.name,
       url: pageUrl,
       image: imageUrl,
-      jobTitle: person.title.en,
+      jobTitle: person.title[currentLocale],
       email: person.email,
       address: {
         "@type": "PostalAddress",
-        addressLocality: person.location.en,
+        addressLocality: person.location[currentLocale],
         addressCountry: "PT"
       },
       sameAs: [
@@ -51,19 +53,20 @@ const jsonLd = {
 
 <BaseLayout
   title={title}
-  description={descriptionEn}
+  description={description}
   author={person.name}
   keywords={keywords}
   canonicalUrl={pageUrl}
   preloadImage={optimizedHero.src}
   imageUrl={imageUrl}
-  locale="en_US"
-  alternateLocale="pt_PT"
+  locale={currentLocale === "pt" ? "pt_PT" : "en_US"}
+  alternateLocale={currentLocale === "pt" ? "en_US" : "pt_PT"}
   twitterImageAlt="Nuno Castro portfolio social preview"
   jsonLd={jsonLd}
+  lang={currentLocale}
 >
-  <link slot="head" rel="alternate" hrefLang="en" href={pageUrl} />
-  <link slot="head" rel="alternate" hrefLang="pt-PT" href={pageUrl} />
-  <link slot="head" rel="alternate" hrefLang="x-default" href={pageUrl} />
-  <App client:idle currentYear={currentYear} heroImageUrl={optimizedHero.src} />
+  <link slot="head" rel="alternate" hrefLang="en" href={new URL("/portfolio/", siteUrl).toString()} />
+  <link slot="head" rel="alternate" hrefLang="pt-PT" href={new URL("/portfolio/pt/", siteUrl).toString()} />
+  <link slot="head" rel="alternate" hrefLang="x-default" href={new URL("/portfolio/", siteUrl).toString()} />
+  <App client:load currentYear={currentYear} heroImageUrl={optimizedHero.src} initialLanguage={currentLocale} />
 </BaseLayout>
