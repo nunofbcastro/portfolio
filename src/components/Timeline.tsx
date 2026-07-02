@@ -76,7 +76,7 @@ export const Timeline = <T,>({
                     {/* Timeline Dot - Only on desktop */}
                     {!isMobile && (
                       <div
-                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-12 h-12 rounded-full transition-all duration-1000 ${
+                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-12 h-12 rounded-full transition-[transform,background-color,box-shadow] duration-1000 ${
                           timelineVisible
                             ? 'bg-primary scale-100 shadow-lg shadow-primary/50'
                             : 'bg-muted scale-0'
@@ -85,7 +85,7 @@ export const Timeline = <T,>({
                           transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
                         }}
                       >
-                        <div className={`absolute inset-2 bg-background rounded-full transition-all duration-1000 ${
+                        <div className={`absolute inset-2 bg-background rounded-full transition-transform duration-1000 ${
                           timelineVisible ? 'scale-100' : 'scale-0'
                         }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
                         <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -103,14 +103,14 @@ export const Timeline = <T,>({
                     {/* Connecting Line - Only on desktop */}
                     {!isMobile && (
                       <div
-                        className={`absolute top-1/2 z-5 h-0.5 transition-all duration-1000 ${
+                        className={`absolute top-1/2 z-5 h-0.5 w-[60px] transition-transform duration-1000 ${
                           isLeft
-                            ? 'left-1/2 ml-4 bg-linear-to-r from-primary to-transparent'
-                            : 'right-1/2 mr-4 bg-linear-to-l from-primary to-transparent'
+                            ? 'left-1/2 ml-4 bg-linear-to-r from-primary to-transparent origin-left'
+                            : 'right-1/2 mr-4 bg-linear-to-l from-primary to-transparent origin-right'
                         }`}
                         style={{
                           transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
-                          width: timelineVisible ? '60px' : '0px'
+                          transform: timelineVisible ? 'scaleX(1)' : 'scaleX(0)'
                         }}
                       />
                     )}
@@ -118,7 +118,7 @@ export const Timeline = <T,>({
                     {/* Item Content */}
                     <div className={`flex-1 ${isMobile ? '' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
                       <div
-                        className={`transition-all duration-1000 ${
+                        className={`transition-[transform,opacity] duration-1000 ${
                           timelineVisible
                             ? 'opacity-100 translate-y-0'
                             : 'opacity-0 translate-y-8'
