@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 
 export const useScrollAnimation = (threshold = 0.1) => {
-  const [isVisible, setIsVisible] = useState(false);
+  // Start as true so that elements are visible by default in static HTML and during hydration
+  const [isVisible, setIsVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -9,6 +10,9 @@ export const useScrollAnimation = (threshold = 0.1) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          // Hide elements that are off-screen so they can animate in when scrolled
+          setIsVisible(false);
         }
       },
       { threshold }

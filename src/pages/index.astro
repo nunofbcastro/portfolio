@@ -82,8 +82,14 @@ const jsonLd = {
 
   <main id="main-content">
     {portfolioData.sections.hero && (
-      <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} client:load />
+      <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} />
     )}
+    
+    <script>
+      document.getElementById("download-cv-button")?.addEventListener("click", () => {
+        window.print();
+      });
+    </script>
 
     {portfolioData.sections.about && (
       <>

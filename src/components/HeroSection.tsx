@@ -13,10 +13,6 @@ export const HeroSection = ({ language, heroImageUrl }: HeroSectionProps) => {
   const data = portfolioData.personal;
   const text = uiText[language];
 
-  const handleDownloadCV = () => {
-    window.print();
-  };
-
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image */}
@@ -69,9 +65,9 @@ export const HeroSection = ({ language, heroImageUrl }: HeroSectionProps) => {
               <a href="#contacto">{text.hero.contact}</a>
             </Button>
             <Button
+              id="download-cv-button"
               variant="secondary"
               size="lg"
-              onClick={handleDownloadCV}
               className="h-14 px-8 rounded-full transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <FileText className="h-4 w-4 mr-2" aria-hidden="true" />
