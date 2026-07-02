@@ -55,6 +55,18 @@ const {
 
 <html lang={lang}>
   <head>
+    <script is:inline define:vars={{ lang }}>
+      // Retrieve stored language or fallback to browser language
+      const stored = localStorage.getItem("language");
+      const userLang = stored || navigator.language.split("-")[0];
+      const preferred = (userLang === "pt" || userLang === "en") ? userLang : "en";
+      
+      // Redirect if preferred language doesn't match the current page language
+      if (preferred !== lang) {
+        const newPath = preferred === "pt" ? "/portfolio/pt/" : "/portfolio/";
+        window.location.replace(newPath);
+      }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />

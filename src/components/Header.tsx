@@ -4,11 +4,19 @@ import { uiText, type Language } from "@/data/i18n";
 
 interface HeaderProps {
   language: Language;
-  setLanguage: (language: Language) => void;
+  setLanguage?: (language: Language) => void;
 }
 
 export const Header = ({ language, setLanguage }: HeaderProps) => {
   const text = uiText[language];
+
+  const defaultSetLanguage = (nextLanguage: Language) => {
+    localStorage.setItem("language", nextLanguage);
+    const newPath = nextLanguage === "pt" ? "/portfolio/pt/" : "/portfolio/";
+    window.location.href = newPath;
+  };
+
+  const onSetLanguage = setLanguage || defaultSetLanguage;
 
   return (
     <header className="fixed top-0 w-full glass border-b z-50 transition-all duration-300">
@@ -34,7 +42,7 @@ export const Header = ({ language, setLanguage }: HeaderProps) => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageToggle language={language} setLanguage={setLanguage} />
+          <LanguageToggle language={language} setLanguage={onSetLanguage} />
           <ThemeToggle language={language} />
         </div>
       </div>
