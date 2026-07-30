@@ -1,11 +1,10 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Code, Palette, Cpu, Database, Smartphone, Layout, Cloud } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 
 interface AboutSectionProps {
-  language: 'pt' | 'en';
+  language: "pt" | "en";
 }
 
 const iconMap = {
@@ -15,7 +14,7 @@ const iconMap = {
   Cpu,
   Database,
   Layout,
-  Cloud
+  Cloud,
 };
 
 export const AboutSection = ({ language }: AboutSectionProps) => {
@@ -25,54 +24,52 @@ export const AboutSection = ({ language }: AboutSectionProps) => {
   const text = portfolioData.about[language];
 
   return (
-    <section id="sobre" className="py-24 md:py-40 relative">
+    <section id="sobre" className="relative py-24 md:py-36">
       <div className="container mx-auto px-4">
         <div
           ref={titleRef}
-          className={`max-w-4xl mx-auto text-center mb-20 transition-all duration-1000 ${titleVisible ? 'animate-fade-in' : 'opacity-0 translate-y-12'
-            }`}
+          className={`mx-auto mb-16 max-w-4xl transition-all duration-1000 ${
+            titleVisible ? "animate-fade-in" : "translate-y-12 opacity-0"
+          }`}
         >
-          <h2 className="text-4xl md:text-6xl font-black mb-8 text-foreground tracking-tight">
+          <p className="mb-3 font-mono-meta text-[11px] text-muted-foreground">01 / {text.title}</p>
+          <h2 className="mb-8 text-4xl font-black tracking-tight text-foreground md:text-6xl">
             {text.title}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             {text.description}
           </p>
         </div>
 
-        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div ref={skillsRef} className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {text.skills.map((skill, index) => {
             const Icon = iconMap[skill.icon as keyof typeof iconMap];
-            const delay = 100 + (index * 100);
+            const delay = 100 + index * 80;
             return (
               <div
                 key={index}
-                className="transition-all duration-1000"
+                className="border-t border-border/70 pt-5 transition-all duration-1000"
                 style={{
-                  transitionDelay: skillsVisible ? `${delay}ms` : '0ms',
+                  transitionDelay: skillsVisible ? `${delay}ms` : "0ms",
                   opacity: skillsVisible ? 1 : 0,
-                  transform: skillsVisible ? 'translateY(0)' : 'translateY(40px)'
+                  transform: skillsVisible ? "translateY(0)" : "translateY(28px)",
                 }}
               >
-                <Card className="glass-card group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-primary/5 h-full">
-                  <CardContent className="p-6 text-center h-full flex flex-col">
-                    <div className="mb-4 flex justify-center flex-shrink-0">
-                      <div className="p-3 bg-primary/10 rounded-2xl group-hover:bg-primary/20 transition-all duration-500 group-hover:rotate-6">
-                        <Icon className="h-8 w-8 text-primary" />
-                      </div>
-                    </div>
-                    <h3 className="font-bold text-xl mb-4 text-foreground tracking-tight">
-                      {skill.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {skill.description.map((desc, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/5 text-primary border-primary/10 group-hover:bg-primary/10 transition-colors">
-                          {desc}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="mb-4 flex items-center gap-3">
+                  <Icon className="h-5 w-5 text-primary" />
+                  <h3 className="text-lg font-bold tracking-tight text-foreground">{skill.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {skill.description.map((desc, i) => (
+                    <Badge
+                      key={i}
+                      variant="secondary"
+                      className="rounded-full border-border/50 bg-transparent px-2.5 py-0.5 font-mono-meta text-[10px] text-muted-foreground"
+                    >
+                      {desc}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             );
           })}

@@ -55,7 +55,7 @@ export const JourneySection = ({ language }: JourneySectionProps) => {
             renderItem={(item: any, index, isMobile) => {
                 const Icon = item.icon === "Briefcase" ? Briefcase : (item.icon === "Award" ? Trophy : GraduationCap);
                 return (
-                    <Card className="glass-card hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                    <Card className="border-border/60 bg-transparent shadow-none transition-all duration-500 hover:border-primary/30">
                         <CardContent className="p-8">
                             <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
                                 <div className="flex items-start gap-4 flex-1">

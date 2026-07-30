@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Globe } from "lucide-react";
 import { uiText, type Language } from "@/data/i18n";
 
 interface LanguageToggleProps {
@@ -10,19 +8,20 @@ interface LanguageToggleProps {
 export const LanguageToggle = ({ language, setLanguage }: LanguageToggleProps) => {
   const nextLanguage = language === "pt" ? "en" : "pt";
   const text = uiText[language];
-  const label = nextLanguage === "en" ? text.languageToggle.switchToEnglish : text.languageToggle.switchToPortuguese;
+  const label =
+    nextLanguage === "en"
+      ? text.languageToggle.switchToEnglish
+      : text.languageToggle.switchToPortuguese;
 
   return (
-    <Button
-      variant="outline"
-      size="sm"
+    <button
+      type="button"
       onClick={() => setLanguage(nextLanguage)}
       aria-label={`${nextLanguage.toUpperCase()} - ${label}`}
       title={label}
-      className="flex items-center gap-2"
+      className="inline-flex h-11 min-w-11 items-center justify-center rounded-full border border-border/70 px-3 font-mono-meta text-[10px] transition-colors hover:border-foreground/40"
     >
-      <Globe className="h-4 w-4" aria-hidden="true" />
-      <span className="text-sm font-medium">{nextLanguage.toUpperCase()}</span>
-    </Button>
+      {nextLanguage.toUpperCase()}
+    </button>
   );
 };

@@ -49,11 +49,12 @@ export const Timeline = <T,>({
         <div className="max-w-6xl mx-auto">
           <div
             ref={titleRef}
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`mb-16 transition-all duration-1000 ${
               titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <p className="mb-3 font-mono-meta text-[11px] text-muted-foreground">02 / {title}</p>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-foreground">
               {title}
             </h2>
           </div>

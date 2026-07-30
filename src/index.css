@@ -45,6 +45,10 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
+  --font-sans: 'Syne', ui-sans-serif, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Syne', ui-sans-serif, sans-serif;
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -57,6 +61,8 @@
   --animate-scale-in: scale-in 0.5s ease-out;
   --animate-slide-up: slide-up 0.6s ease-out;
   --animate-draw-line: draw-line 1.5s ease-out;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -146,6 +152,26 @@
       width: 100%;
     }
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 
 @utility container {
@@ -161,14 +187,6 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
 
   *,
@@ -180,66 +198,58 @@
   }
 }
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 40 12% 96%;
+    --foreground: 220 18% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 18% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 18% 10%;
 
-    --primary: 162 100% 24%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 162 88% 28%;
+    --primary-foreground: 40 12% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11.2%;
+    --secondary: 220 10% 92%;
+    --secondary-foreground: 220 18% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 10% 93%;
+    --muted-foreground: 220 8% 38%;
 
-    --accent: 162 100% 24%;
-    --accent-foreground: 222 47% 11.2%;
+    --accent: 162 88% 28%;
+    --accent-foreground: 220 18% 12%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 12% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 162 100% 24%;
+    --border: 220 12% 86%;
+    --input: 220 12% 86%;
+    --ring: 162 88% 28%;
 
-    /* Portfolio-specific colors */
-    --portfolio-green: 162 100% 24%;
-    --portfolio-teal: 174 100% 29%;
-    --portfolio-dark: 222 47% 11%;
-    --portfolio-light: 210 40% 98%;
+    --portfolio-green: 162 88% 28%;
+    --portfolio-teal: 174 72% 32%;
+    --portfolio-dark: 220 18% 10%;
+    --portfolio-light: 40 12% 96%;
 
-    /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--portfolio-green)), hsl(var(--portfolio-teal)));
-    --gradient-mesh: radial-gradient(at 0% 0%, hsla(162, 100%, 24%, 0.15) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(174, 100%, 29%, 0.1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(222, 47%, 11%, 0.05) 0, transparent 50%);
+    --gradient-mesh:
+      radial-gradient(at 8% 0%, hsla(162, 88%, 28%, 0.12) 0, transparent 42%),
+      radial-gradient(at 92% 8%, hsla(220, 18%, 10%, 0.06) 0, transparent 40%),
+      linear-gradient(180deg, hsl(40 14% 97%) 0%, hsl(40 10% 94%) 100%);
 
-    /* Shadows */
     --shadow-card: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-glow: 0 0 25px hsla(162, 100%, 24%, 0.25);
+    --shadow-glow: 0 0 25px hsla(162, 88%, 28%, 0.2);
     --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-    /* Glassmorphism */
-    --glass-bg: hsla(0, 0%, 100%, 0.7);
-    --glass-border: hsla(0, 0%, 100%, 0.5);
-    --glass-blur: 12px;
+    --glass-bg: hsla(40, 14%, 98%, 0.72);
+    --glass-border: hsla(220, 12%, 80%, 0.45);
+    --glass-blur: 14px;
 
-    /* Animations */
     --transition-premium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -252,47 +262,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 224 45% 6%;
-    --foreground: 210 40% 98%;
+    --background: 220 16% 5%;
+    --foreground: 40 10% 96%;
 
-    --card: 224 45% 9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 14% 8%;
+    --card-foreground: 40 10% 96%;
 
-    --popover: 224 45% 9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 14% 8%;
+    --popover-foreground: 40 10% 96%;
 
-    --primary: 162 100% 42%;
-    --primary-foreground: 224 45% 4%;
+    --primary: 162 72% 48%;
+    --primary-foreground: 220 16% 4%;
 
-    --secondary: 222 47% 14%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 12% 12%;
+    --secondary-foreground: 40 10% 96%;
 
-    --muted: 222 47% 14%;
-    --muted-foreground: 215 20.2% 75%;
+    --muted: 220 12% 12%;
+    --muted-foreground: 220 8% 68%;
 
-    --accent: 162 100% 42%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 162 72% 48%;
+    --accent-foreground: 40 10% 96%;
 
     --destructive: 0 62.8% 35%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 10% 96%;
 
-    --border: 222 47% 18%;
-    --input: 222 47% 18%;
-    --ring: 162 100% 42%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 162 72% 48%;
 
-    /* Dark mode portfolio colors */
-    --portfolio-light: 224 45% 6%;
-    --portfolio-dark: 210 40% 98%;
+    --portfolio-light: 220 16% 5%;
+    --portfolio-dark: 40 10% 96%;
 
-    /* Glassmorphism Dark */
-    --glass-bg: hsla(224, 45%, 8%, 0.8);
-    --glass-border: hsla(222, 47%, 20%, 0.4);
+    --glass-bg: hsla(220, 16%, 7%, 0.78);
+    --glass-border: hsla(220, 10%, 22%, 0.5);
 
-    /* Dark mode gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--portfolio-green)), hsl(var(--portfolio-teal)));
-    --gradient-mesh: radial-gradient(at 0% 0%, hsla(162, 100%, 42%, 0.2) 0, transparent 60%),
-      radial-gradient(at 50% 0%, hsla(174, 100%, 35%, 0.15) 0, transparent 60%),
-      radial-gradient(at 100% 0%, hsla(210, 40%, 98%, 0.05) 0, transparent 60%);
+    --gradient-mesh:
+      radial-gradient(at 12% 0%, hsla(162, 72%, 48%, 0.14) 0, transparent 45%),
+      radial-gradient(at 88% 10%, hsla(220, 20%, 40%, 0.12) 0, transparent 42%),
+      linear-gradient(180deg, hsl(220 16% 5%) 0%, hsl(220 14% 7%) 100%);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -333,6 +341,18 @@ All colors MUST be HSL.
     display: inline-block;
     vertical-align: middle;
   }
+
+  .font-mono-meta {
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .noise-overlay {
+    background-image:
+      radial-gradient(circle at 20% 20%, hsla(0, 0%, 100%, 0.03) 0, transparent 40%),
+      radial-gradient(circle at 80% 0%, hsla(162, 70%, 40%, 0.05) 0, transparent 35%);
+  }
 }
 
 @layer base {
@@ -341,10 +361,10 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground min-h-screen;
+    @apply bg-background text-foreground min-h-screen antialiased;
     background-image: var(--gradient-mesh);
     text-wrap: pretty;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-sans);
   }
 
   h1,
@@ -353,7 +373,7 @@ All colors MUST be HSL.
   h4,
   h5,
   h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-display);
     @apply tracking-tight font-bold;
   }
 
@@ -375,15 +395,84 @@ All colors MUST be HSL.
   }
 }
 
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: none;
+  }
+}
+
+/* Cookie consent: compact on mobile */
+@media (max-width: 767px) {
+  #cc-main .cm {
+    max-width: calc(100vw - 1.5rem) !important;
+    margin: 0.75rem !important;
+  }
+
+  #cc-main .cm__body {
+    padding: 1rem !important;
+  }
+
+  #cc-main .cm__title {
+    font-size: 1rem !important;
+  }
+
+  #cc-main .cm__desc {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+  }
+
+  #cc-main .cm__btns {
+    flex-direction: column !important;
+  }
+
+  #cc-main .cm__btn {
+    min-height: 44px !important;
+  }
+}
+
 @media print {
   @page {
     size: A4;
     margin: 0;
   }
 
+  html,
   body {
+    background: white !important;
+    background-image: none !important;
+    color: #333 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+
+  header,
+  footer,
+  main,
+  #main-content,
+  #cookie-settings-button,
+  #cc-main,
+  astro-dev-toolbar,
+  .print\:hidden,
+  .no-print {
+    display: none !important;
+  }
+
+  #cv-print-view {
+    display: block !important;
+    visibility: visible !important;
+    font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
+  }
+
+  #cv-print-view,
+  #cv-print-view * {
+    font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
+    letter-spacing: normal !important;
+  }
+
+  #cv-sidebar-bg {
+    display: none !important;
   }
 
   .page-break-inside-avoid {

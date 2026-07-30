@@ -8,12 +8,12 @@ export const uiText = {
       opensInNewTabSuffix: "abre num novo separador"
     },
     header: {
-      brand: "Portfólio",
+      brand: "NUNO CASTRO",
       nav: [
-        { id: "sobre", label: "Sobre" },
-        { id: "experiencia", label: "Experiência" },
-        { id: "projetos", label: "Projetos" },
-        { id: "contacto", label: "Contacto" }
+        { id: "sobre", label: "01 / Sobre" },
+        { id: "experiencia", label: "02 / Experiência" },
+        { id: "projetos", label: "03 / Projetos" },
+        { id: "contacto", label: "04 / Contacto" }
       ]
     },
     hero: {
@@ -26,7 +26,14 @@ export const uiText = {
       showLess: "Ver menos",
       readMore: "Ver mais",
       githubLabel: "GitHub",
-      viewScreenshots: "Ver Imagens"
+      viewScreenshots: "Ver Imagens",
+      viewDemo: "Ver Demo",
+      indexLabel: "Projetos"
+    },
+    marquee: {
+      developer: "DEVELOPER / DIGITAL",
+      projects: "SELECTED / WORK",
+      contact: "LET'S / TALK"
     },
     contact: {
       socialLinks: "Ligações Sociais",
@@ -34,7 +41,9 @@ export const uiText = {
     },
     footer: {
       rights: "Todos os direitos reservados",
-      contact: "Contacto"
+      contact: "Contacto",
+      explore: "Explorar",
+      connect: "Ligações"
     },
     faq: {
       sectionLabel: "Perguntas frequentes"
@@ -47,17 +56,25 @@ export const uiText = {
       switchToLight: "Mudar para tema claro",
       switchToDark: "Mudar para tema escuro",
       light: "Claro",
-      dark: "Escuro"
+      dark: "Escuro",
+      day: "DAY",
+      night: "NIGHT"
     },
     cv: {
-      summary: "Resumo",
-      experience: "Experiência",
-      education: "Educação",
+      summary: "Resumo profissional",
+      experience: "Experiência profissional",
+      education: "Formação",
       languages: "Idiomas",
-      keyAchievements: "Principais Conquistas",
+      keyAchievements: "Principais conquistas",
       skills: "Competências",
-      strengths: "Pontos Fortes",
-      awards: "Prémios"
+      strengths: "Pontos fortes",
+      awards: "Certificações e prémios",
+      projects: "Projetos",
+      technologies: "Tecnologias",
+      objective: "Objetivo",
+      result: "Resultado",
+      demo: "Demo",
+      links: "Links"
     },
     cookieConsent: {
       consentModal: {
@@ -100,12 +117,12 @@ export const uiText = {
       opensInNewTabSuffix: "opens in a new tab"
     },
     header: {
-      brand: "Portfolio",
+      brand: "NUNO CASTRO",
       nav: [
-        { id: "sobre", label: "About" },
-        { id: "experiencia", label: "Experience" },
-        { id: "projetos", label: "Projects" },
-        { id: "contacto", label: "Contact" }
+        { id: "sobre", label: "01 / About" },
+        { id: "experiencia", label: "02 / Experience" },
+        { id: "projetos", label: "03 / Projects" },
+        { id: "contacto", label: "04 / Contact" }
       ]
     },
     hero: {
@@ -118,7 +135,14 @@ export const uiText = {
       showLess: "Show less",
       readMore: "Read more",
       githubLabel: "GitHub",
-      viewScreenshots: "View Screenshots"
+      viewScreenshots: "View Screenshots",
+      viewDemo: "View Demo",
+      indexLabel: "Projects"
+    },
+    marquee: {
+      developer: "DEVELOPER / DIGITAL",
+      projects: "SELECTED / WORK",
+      contact: "LET'S / TALK"
     },
     contact: {
       socialLinks: "Social Links",
@@ -126,7 +150,9 @@ export const uiText = {
     },
     footer: {
       rights: "All rights reserved",
-      contact: "Contact"
+      contact: "Contact",
+      explore: "Explore",
+      connect: "Connect"
     },
     faq: {
       sectionLabel: "Frequently asked questions"
@@ -139,17 +165,25 @@ export const uiText = {
       switchToLight: "Switch to light theme",
       switchToDark: "Switch to dark theme",
       light: "Light",
-      dark: "Dark"
+      dark: "Dark",
+      day: "DAY",
+      night: "NIGHT"
     },
     cv: {
-      summary: "Summary",
-      experience: "Experience",
+      summary: "Professional summary",
+      experience: "Professional experience",
       education: "Education",
       languages: "Languages",
-      keyAchievements: "Key Achievements",
+      keyAchievements: "Key achievements",
       skills: "Skills",
       strengths: "Strengths",
-      awards: "Awards"
+      awards: "Awards and recognition",
+      projects: "Projects",
+      technologies: "Technologies",
+      objective: "Objective",
+      result: "Result",
+      demo: "Demo",
+      links: "Links"
     },
     cookieConsent: {
       consentModal: {

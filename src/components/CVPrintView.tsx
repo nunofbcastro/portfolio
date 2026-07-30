@@ -1,292 +1,271 @@
-import { portfolioData } from "@/data/portfolio";
+import { cvData } from "@/data/cv";
 import { uiText, type Language } from "@/data/i18n";
-import { AtSign, MapPin, Zap, Star, Trophy } from "lucide-react";
+import { portfolioData } from "@/data/portfolio";
 
 interface CVPrintViewProps {
-    language: Language;
+  language: Language;
 }
 
 export const CVPrintView = ({ language }: CVPrintViewProps) => {
-    const personal = portfolioData.personal;
-    const about = portfolioData.about[language];
-    const timeline = portfolioData.timeline[language].items;
-    const projects = portfolioData.projects[language].projects;
-    const text = uiText[language].cv;
+  const cv = cvData[language];
+  const labels = uiText[language].cv;
+  const location = portfolioData.personal.location[language];
+  const name = portfolioData.personal.name;
 
-    const experience = timeline.filter((item) => item.type === "experience");
-    const education = timeline.filter((item) => item.type === "education");
-    const awards = timeline.filter((item) => item.type === "award");
+  return (
+    <div id="cv-print-view" className="cv-print hidden print:block">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @media print {
+            @page {
+              size: A4;
+              margin: 12mm 14mm 14mm 14mm;
+            }
 
-    return (
-        <div id="cv-print-view" className="hidden print:block w-[210mm] mx-auto font-sans text-[#333] relative z-[9999]">
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @media print {
-                    @page { 
-                        size: A4; 
-                        margin: 0 !important; 
-                    }
-                    
-                    body { 
-                        background: white !important;
-                        -webkit-print-color-adjust: exact !important;
-                        print-color-adjust: exact !important;
-                        margin: 0 !important;
-                    }
+            body {
+              background: white !important;
+              margin: 0 !important;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
 
-                    /* Ensure the main container doesn't force a minimum height or background on print */
-                    .min-h-screen.bg-background {
-                        background: white !important;
-                        min-height: 0 !important;
-                        height: auto !important;
-                        display: block !important;
-                    }
+            #cv-print-view {
+              display: block !important;
+              visibility: visible !important;
+              width: 100% !important;
+              max-width: 100% !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              color: #1f2933 !important;
+              background: white !important;
+              font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
+              font-size: 10.5pt !important;
+              line-height: 1.4 !important;
+              font-weight: 400 !important;
+            }
 
-                    #cv-print-view { 
-                        display: block !important; 
-                        visibility: visible !important;
-                        width: 210mm !important;
-                        margin: 0 auto !important;
-                        background: transparent !important;
-                        position: relative !important;
-                    }
+            #cv-print-view,
+            #cv-print-view * {
+              font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
+              letter-spacing: normal !important;
+              opacity: 1 !important;
+              visibility: visible !important;
+              animation: none !important;
+              transition: none !important;
+              box-shadow: none !important;
+              text-shadow: none !important;
+            }
 
-                    /* Fixed background for the sidebar to ensure it repeats on every page and reaches the edges */
-                    #cv-sidebar-bg {
-                        position: fixed !important;
-                        top: 0 !important;
-                        bottom: 0 !important;
-                        right: 0 !important;
-                        width: 32% !important;
-                        background-color: #004e52 !important;
-                        z-index: -1 !important;
-                        display: block !important;
-                    }
+            #cv-print-view .cv-header {
+              display: block !important;
+              margin: 0 0 14pt 0 !important;
+              padding: 0 0 10pt 0 !important;
+              border-bottom: 2.5pt solid #0f766e !important;
+            }
 
-                    /* Table layout for consistent margins on every page */
-                    #cv-print-table {
-                        width: 100% !important;
-                        border-collapse: collapse !important;
-                        table-layout: fixed !important;
-                    }
+            #cv-print-view .cv-name {
+              display: block !important;
+              font-size: 28pt !important;
+              font-weight: 700 !important;
+              line-height: 1.05 !important;
+              margin: 0 0 4pt 0 !important;
+              color: #111827 !important;
+              letter-spacing: -0.02em !important;
+            }
 
-                    #cv-print-table thead .margin-spacer {
-                        height: 20mm !important;
-                    }
+            #cv-print-view .cv-role {
+              display: block !important;
+              font-size: 13pt !important;
+              font-weight: 700 !important;
+              margin: 0 0 8pt 0 !important;
+              color: #0f766e !important;
+            }
 
-                    #cv-print-table tfoot .margin-spacer {
-                        height: 15mm !important;
-                    }
+            #cv-print-view .cv-contact-line {
+              display: block !important;
+              font-size: 9.5pt !important;
+              line-height: 1.45 !important;
+              margin: 0 0 2pt 0 !important;
+              color: #374151 !important;
+            }
 
-                    #cv-print-view * {
-                        opacity: 1 !important;
-                        visibility: visible !important;
-                        animation: none !important;
-                        transition: none !important;
-                    }
+            #cv-print-view .cv-contact-line a {
+              font-size: 9.5pt !important;
+              color: #111827 !important;
+              text-decoration: none !important;
+            }
 
-                    .page-break-inside-avoid {
-                        page-break-inside: avoid !important;
-                        break-inside: avoid !important;
-                    }
-                }
-            `}} />
+            #cv-print-view h3 {
+              font-size: 11pt !important;
+              font-weight: 700 !important;
+              text-transform: uppercase !important;
+              letter-spacing: 0.06em !important;
+              margin: 0 0 6pt 0 !important;
+              padding: 0 0 3pt 0 !important;
+              border-bottom: 1.25pt solid #0f766e !important;
+              color: #0f766e !important;
+            }
 
-            {/* Fixed Sidebar Background */}
-            <div id="cv-sidebar-bg" className="hidden print:block"></div>
+            #cv-print-view h4 {
+              font-size: 10.75pt !important;
+              font-weight: 700 !important;
+              margin: 0 !important;
+              color: #111827 !important;
+            }
 
-            <table id="cv-print-table">
-                <thead>
-                    <tr>
-                        <th className="margin-spacer w-[68%]"></th>
-                        <th className="margin-spacer w-[32%]"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {/* Main Column */}
-                        <td className="main-col align-top p-0">
-                            <div className="pl-[15mm] pr-[10mm] pt-[5mm]">
-                                {/* Header */}
-                                <header className="mb-14">
-                                    <h1 className="text-[38pt] font-black text-[#313b3d] tracking-tighter leading-[0.9] mb-4">
-                                        {personal.name}
-                                    </h1>
-                                    <p className="text-[18pt] text-[#4eaeb3] font-bold mb-8 uppercase tracking-tight">
-                                        {personal.title[language]}
-                                    </p>
-                                    <div className="flex flex-wrap gap-x-8 text-[10.5pt] text-[#555] font-semibold">
-                                        <div className="flex items-center gap-2.5">
-                                            <AtSign className="h-4.5 w-4.5 text-[#4eaeb3]" />
-                                            <span>{personal.email}</span>
-                                        </div>
-                                        <div className="flex items-center gap-2.5">
-                                            <MapPin className="h-4.5 w-4.5 text-[#4eaeb3]" />
-                                            <span>{personal.location[language]}</span>
-                                        </div>
-                                    </div>
-                                </header>
+            #cv-print-view p,
+            #cv-print-view li {
+              font-size: 10.5pt !important;
+              color: #1f2933 !important;
+            }
 
-                                {/* Summary */}
-                                <section className="mb-14">
-                                    <h3 className="text-[14pt] font-black uppercase text-[#313b3d] border-b-[2pt] border-[#f0f0f0] pb-2 mb-6 w-full">
-                                        {text.summary}
-                                    </h3>
-                                    <p className="text-[10.8pt] leading-[1.65] text-[#444] text-justify font-medium">
-                                        {about.description}
-                                    </p>
-                                </section>
+            #cv-print-view a {
+              text-decoration: none !important;
+              color: #111827 !important;
+            }
 
-                                {/* Experience */}
-                                <section className="mb-14">
-                                    <h3 className="text-[14pt] font-black uppercase text-[#313b3d] border-b-[2pt] border-[#f0f0f0] pb-2 mb-8 w-full">
-                                        {text.experience}
-                                    </h3>
-                                    <div className="space-y-12">
-                                        {experience.map((item, index) => (
-                                            <div key={index} className="page-break-inside-avoid">
-                                                <div className="flex justify-between items-baseline mb-1.5">
-                                                    <h4 className="text-[13pt] font-extrabold text-[#313b3d]">{item.role}</h4>
-                                                    <span className="text-[10pt] text-[#777] font-black">{item.period}</span>
-                                                </div>
-                                                <div className="flex justify-between items-baseline mb-4">
-                                                    <span className="text-[12pt] text-[#4eaeb3] font-black uppercase tracking-tight">{item.company}</span>
-                                                    <span className="text-[9.5pt] text-[#aaa] italic font-bold">{item.location}</span>
-                                                </div>
-                                                <ul className="list-disc ml-4.5 text-[10.5pt] text-[#555] space-y-2.5 font-medium leading-relaxed">
-                                                    {Array.isArray(item.description) ? (
-                                                        item.description.map((desc, i) => <li key={i} className="pl-1.5">{desc}</li>)
-                                                    ) : (
-                                                        <li className="pl-1.5">{item.description}</li>
-                                                    )}
-                                                </ul>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
+            #cv-print-view ul {
+              margin: 3pt 0 0 14pt !important;
+              padding: 0 !important;
+            }
 
-                                {/* Education */}
-                                <section className="mb-12">
-                                    <h3 className="text-[14pt] font-black uppercase text-[#313b3d] border-b-[2pt] border-[#f0f0f0] pb-2 mb-8 w-full">
-                                        {text.education}
-                                    </h3>
-                                    <div className="space-y-10">
-                                        {education.map((item, index) => (
-                                            <div key={index} className="page-break-inside-avoid">
-                                                <div className="flex justify-between items-baseline mb-1.5">
-                                                    <h4 className="text-[12.5pt] font-extrabold text-[#313b3d]">{item.degree}</h4>
-                                                    <span className="text-[10.5pt] text-[#777] font-black">{item.period}</span>
-                                                </div>
-                                                <div className="text-[11.8pt] text-[#4eaeb3] font-black mb-3">{item.institution}</div>
-                                                <p className="text-[10.5pt] text-[#555] font-medium leading-relaxed">
-                                                    {item.description}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
+            #cv-print-view li {
+              margin: 0 0 2.5pt 0 !important;
+            }
 
-                                {/* Languages */}
-                                <section className="page-break-inside-avoid mt-14 mb-8">
-                                    <h3 className="text-[14pt] font-black uppercase text-[#313b3d] border-b-[2pt] border-[#f0f0f0] pb-2 mb-8 w-full">
-                                        {text.languages}
-                                    </h3>
-                                    <div className="grid grid-cols-2 gap-x-14 gap-y-4">
-                                        {(personal as any).languages?.[language]?.map((lang: any, index: number) => (
-                                            <div key={index} className="flex items-center gap-3 text-[10.5pt]">
-                                                <span className="font-extrabold text-[#313b3d]">{lang.name}</span>
-                                                <span className="text-[400] text-[#777]">•</span>
-                                                <span className="text-[9pt] text-[#4eaeb3] uppercase font-black tracking-tighter">{lang.level}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
-                            </div>
-                        </td>
+            #cv-print-view .cv-section {
+              margin: 0 0 11pt 0 !important;
+              page-break-inside: avoid;
+            }
 
-                        {/* Sidebar Column */}
-                        <td className="side-col align-top p-0 text-white relative">
-                            <div className="pl-[10mm] pr-[15mm] pt-[5mm] space-y-16">
-                                {/* Key Achievements */}
-                                <section className="page-break-inside-avoid">
-                                    <h3 className="text-[14pt] font-black uppercase border-b-[2pt] border-[#ffffff33] pb-2.5 mb-7 px-0">
-                                        {text.keyAchievements}
-                                    </h3>
-                                    <div className="space-y-9">
-                                        {projects.slice(0, 3).map((project, index) => (
-                                            <div key={index} className="flex gap-4 items-start">
-                                                <Zap className="h-[14pt] w-[14pt] text-[#4eaeb3] mt-1.5 flex-shrink-0" />
-                                                <div>
-                                                    <h4 className="text-[11.5pt] font-black mb-2 leading-snug">{project.title}</h4>
-                                                    <p className="text-[9.8pt] text-[#ccd9d9] leading-relaxed font-medium">
-                                                        {project.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
+            #cv-print-view .cv-item {
+              margin: 0 0 8pt 0 !important;
+              page-break-inside: avoid;
+            }
 
-                                {/* Skills */}
-                                <section className="page-break-inside-avoid">
-                                    <h3 className="text-[14pt] font-black uppercase border-b-[2pt] border-[#ffffff33] pb-2.5 mb-7 px-0">
-                                        {text.skills}
-                                    </h3>
-                                    <p className="text-[10.5pt] text-[#ccd9d9] leading-[1.8] font-bold">
-                                        {about.skills.map(s => s.title).join(", ")}
-                                    </p>
-                                </section>
+            #cv-print-view .cv-meta {
+              font-size: 9.5pt !important;
+              color: #4b5563 !important;
+            }
 
-                                {/* Strengths */}
-                                <section className="page-break-inside-avoid">
-                                    <h3 className="text-[14pt] font-black uppercase border-b-[2pt] border-[#ffffff33] pb-2.5 mb-7 px-0">
-                                        {text.strengths}
-                                    </h3>
-                                    <div className="space-y-9">
-                                        {(about as any).strengths?.map((strength: any, index: number) => (
-                                            <div key={index} className="flex gap-4 items-start">
-                                                <Star className="h-[14pt] w-[14pt] text-[#4eaeb3] mt-1.5 flex-shrink-0" />
-                                                <div>
-                                                    <h4 className="text-[11.5pt] font-black mb-2 leading-snug">{strength.title}</h4>
-                                                    <p className="text-[9.8pt] text-[#ccd9d9] leading-relaxed font-medium">
-                                                        {strength.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
+            #cv-print-view .cv-tech {
+              font-size: 9pt !important;
+              color: #374151 !important;
+            }
+          }
+        `,
+        }}
+      />
 
-                                {/* Awards */}
-                                <section className="page-break-inside-avoid">
-                                    <h3 className="text-[14pt] font-black uppercase border-b-[2pt] border-[#ffffff33] pb-2.5 mb-7 px-0">
-                                        {text.awards}
-                                    </h3>
-                                    <div className="space-y-9">
-                                        {awards.slice(0, 4).map((award, index) => (
-                                            <div key={index} className="flex gap-4 items-start">
-                                                <Trophy className="h-[14pt] w-[14pt] text-[#4eaeb3] mt-1.5 flex-shrink-0" />
-                                                <div>
-                                                    <h4 className="text-[11pt] font-black mb-1.5 leading-snug">{award.title}</h4>
-                                                    <div className="text-[8.5pt] text-[#4eaeb3] font-black uppercase tracking-wider">
-                                                        {award.issuer} <span className="opacity-30 mx-1.5">•</span> {award.period}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td className="margin-spacer"></td>
-                        <td className="margin-spacer"></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    );
+      <header className="cv-header">
+        <p className="cv-name">{name}</p>
+        <p className="cv-role">{cv.targetRole}</p>
+        <p className="cv-contact-line">
+          {location}
+          {" · "}
+          <a href={`mailto:${portfolioData.personal.email}`}>{portfolioData.personal.email}</a>
+        </p>
+        <p className="cv-contact-line">
+          {cv.links
+            .filter((link) => link.label !== "Email")
+            .map((link, index) => (
+              <span key={link.label}>
+                {index > 0 ? " · " : null}
+                <a href={link.href}>{link.value}</a>
+              </span>
+            ))}
+        </p>
+      </header>
+
+      <section className="cv-section">
+        <h3>{labels.summary}</h3>
+        <p>{cv.summary}</p>
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.skills}</h3>
+        {cv.skillGroups.map((group) => (
+          <p key={group.title} style={{ margin: "0 0 3pt 0" }}>
+            <strong>{group.title}:</strong> {group.items.join(" · ")}
+          </p>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.experience}</h3>
+        {cv.experience.map((job) => (
+          <article key={`${job.company}-${job.period}`} className="cv-item">
+            <h4>
+              {job.role} — {job.company}
+            </h4>
+            <p className="cv-meta" style={{ margin: "1pt 0 3pt 0" }}>
+              {job.location} | {job.period}
+            </p>
+            <ul>
+              {job.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+            <p className="cv-tech" style={{ margin: "3pt 0 0 0" }}>
+              <strong>{labels.technologies}:</strong> {job.technologies.join(" · ")}
+            </p>
+          </article>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.projects}</h3>
+        {cv.projects.map((project) => (
+          <article key={project.title} className="cv-item">
+            <h4>{project.title}</h4>
+            <p style={{ margin: "2pt 0" }}>
+              <strong>{labels.objective}:</strong> {project.objective}
+            </p>
+            <p className="cv-tech" style={{ margin: "2pt 0" }}>
+              <strong>{labels.technologies}:</strong> {project.technologies.join(" · ")}
+            </p>
+            <p style={{ margin: "2pt 0" }}>
+              <strong>{labels.result}:</strong> {project.result}
+            </p>
+            {project.links.demo ? (
+              <p className="cv-meta" style={{ margin: "2pt 0 0 0" }}>
+                <strong>{labels.demo}:</strong>{" "}
+                <a href={project.links.demo}>{project.links.demo}</a>
+              </p>
+            ) : null}
+          </article>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.education}</h3>
+        {cv.education.map((item) => (
+          <article key={`${item.degree}-${item.period}`} className="cv-item">
+            <h4>{item.degree}</h4>
+            <p className="cv-meta" style={{ margin: "1pt 0 2pt 0" }}>
+              {item.institution} — {item.location} | {item.period}
+            </p>
+            <p style={{ margin: 0 }}>{item.details}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.awards}</h3>
+        {cv.awards.map((award) => (
+          <p key={`${award.title}-${award.period}`} style={{ margin: "0 0 3pt 0" }}>
+            <strong>{award.title}</strong> — {award.issuer} ({award.period})
+          </p>
+        ))}
+      </section>
+
+      <section className="cv-section">
+        <h3>{labels.languages}</h3>
+        <p style={{ margin: 0 }}>
+          {cv.languages.map((lang) => `${lang.name} (${lang.level})`).join(" · ")}
+        </p>
+      </section>
+    </div>
+  );
 };

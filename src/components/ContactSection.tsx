@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { FAQSection } from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Mail, Globe } from "lucide-react";
@@ -18,55 +17,52 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     Mail,
     Linkedin: LinkedInIcon,
     Github: GitHubIcon,
-    Globe
+    Globe,
   };
 
   return (
-    <section id="contacto" className="py-20 md:py-32 bg-linear-to-b from-muted to-background">
+    <section id="contacto" className="relative py-20 md:py-32">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-14">
+            <p className="mb-3 font-mono-meta text-[11px] text-muted-foreground">04 / {data.title}</p>
+            <h2 className="mb-5 text-4xl font-black tracking-tight text-foreground md:text-6xl">
               {data.title}
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              {data.subtitle}
-            </p>
+            <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">{data.subtitle}</p>
           </div>
 
-          <div className="max-w-2xl mx-auto mb-8">
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-base mb-4 text-foreground text-center">
-                  {text.contact.socialLinks}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {data.socialLinks.map((link, index) => {
-                    const Icon = iconMap[link.icon as keyof typeof iconMap];
-                    const externalLabel = `${link.label} (${text.accessibility.opensInNewTabSuffix})`;
-                    return (
-                      <Button key={index} asChild variant="outline" className="flex items-center gap-2 justify-start">
-                        <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={externalLabel}>
-                          <Icon className="h-4 w-4" aria-hidden="true" />
-                          {link.label}
-                        </a>
-                      </Button>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="mb-12 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {data.socialLinks.map((link, index) => {
+              const Icon = iconMap[link.icon as keyof typeof iconMap];
+              const externalLabel = `${link.label} (${text.accessibility.opensInNewTabSuffix})`;
+              return (
+                <Button
+                  key={index}
+                  asChild
+                  variant="outline"
+                  className="h-14 justify-start rounded-xl border-border/70 px-5"
+                >
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={externalLabel}
+                    data-cursor={link.label}
+                  >
+                    <Icon className="mr-3 h-4 w-4" aria-hidden="true" />
+                    <span className="font-mono-meta text-[11px]">{link.label}</span>
+                  </a>
+                </Button>
+              );
+            })}
           </div>
 
-          <div className="max-w-2xl mx-auto mt-8">
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-base mb-4 text-foreground text-center">
-                  {text.contact.faq}
-                </h3>
-                <FAQSection faq={data.faq} language={language} className="mt-4" />
-              </CardContent>
-            </Card>
+          <div className="border-t border-border/60 pt-10">
+            <h3 className="mb-4 font-mono-meta text-[11px] text-muted-foreground">
+              {text.contact.faq}
+            </h3>
+            <FAQSection faq={data.faq} language={language} className="mt-2" />
           </div>
         </div>
       </div>

@@ -11,7 +11,12 @@ import { TestimonialsSection } from "../components/TestimonialsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { SectionDivider } from "../components/SectionDivider";
+import { CustomCursor } from "../components/CustomCursor";
+import { FloatingActions } from "../components/FloatingActions";
+import { ScrollProgress } from "../components/ScrollProgress";
+import { CVPrintView } from "../components/CVPrintView";
 import { portfolioData } from "../data/portfolio";
+import { uiText } from "../data/i18n";
 import heroImage from "../assets/hero-image.jpg";
 
 const currentLocale = (Astro.currentLocale || "en") as "en" | "pt";
@@ -78,30 +83,49 @@ const jsonLd = {
   <link slot="head" rel="alternate" hrefLang="pt-PT" href={new URL("/portfolio/pt/", siteUrl).toString()} />
   <link slot="head" rel="alternate" hrefLang="x-default" href={new URL("/portfolio/", siteUrl).toString()} />
   
+  <ScrollProgress client:load />
+  <CustomCursor client:load />
   <Header language={currentLocale} client:load />
+  <FloatingActions language={currentLocale} client:load />
+  <CVPrintView language={currentLocale} />
 
-  <main id="main-content">
+  <main id="main-content" class="no-print">
     {portfolioData.sections.hero && (
       <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} />
     )}
     
     <script>
-      document.getElementById("download-cv-button")?.addEventListener("click", () => {
+      const printCV = async () => {
+        try {
+          if (document.fonts?.ready) {
+            await document.fonts.ready;
+          }
+        } catch {
+          // System fonts (Calibri/Arial) are used for print reliability.
+        }
         window.print();
+      };
+
+      document.addEventListener("click", (event) => {
+        const target = event.target as HTMLElement | null;
+        if (target?.closest("#download-cv-button, #download-cv-button-fab")) {
+          event.preventDefault();
+          void printCV();
+        }
       });
     </script>
 
     {portfolioData.sections.about && (
       <>
         <AboutSection language={currentLocale} client:visible />
-        <SectionDivider />
+        <SectionDivider text={uiText[currentLocale].marquee.developer} />
       </>
     )}
 
     {portfolioData.sections.timeline && (
       <>
         <JourneySection language={currentLocale} client:visible />
-        <SectionDivider />
+        <SectionDivider text={uiText[currentLocale].marquee.projects} reverse />
       </>
     )}
 
@@ -118,9 +142,36 @@ const jsonLd = {
     )}
 
     {portfolioData.sections.contact && (
-      <ContactSection language={currentLocale} client:visible />
+      <>
+        <SectionDivider text={uiText[currentLocale].marquee.contact} />
+        <ContactSection language={currentLocale} client:visible />
+      </>
     )}
   </main>
 
   <Footer language={currentLocale} currentYear={currentYear} />
 </BaseLayout>
+
+<style is:global>
+  @media print {
+    header,
+    footer,
+    #cookie-settings-button,
+    #cc-main,
+    astro-dev-toolbar,
+    #main-content,
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white !important;
+      background-image: none !important;
+      color: #333 !important;
+    }
+
+    #cv-print-view {
+      display: block !important;
+    }
+  }
+</style>
