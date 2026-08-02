@@ -35,6 +35,14 @@ const description = `${person.name} - ${person.title[currentLocale]}. ${person.s
 const keywords = "Nuno Castro, Software Engineer, Portfolio, React, React Native, TypeScript, .NET, Web Development, Mobile Development, Porto, ESTG, ISEP, Instituto Politécnico do Porto, B2F - BUSINESSTOFUTURE";
 const title = `${person.name} | Portfolio`;
 
+const enUrl = new URL("/portfolio/", siteUrl).toString();
+const ptUrl = new URL("/portfolio/pt/", siteUrl).toString();
+const alternates = [
+  { href: enUrl, hreflang: "en" },
+  { href: ptUrl, hreflang: "pt-PT" },
+  { href: enUrl, hreflang: "x-default" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -74,19 +82,15 @@ const jsonLd = {
   preloadImage={optimizedHero.src}
   imageUrl={imageUrl}
   locale={currentLocale === "pt" ? "pt_PT" : "en_US"}
-  alternateLocale={currentLocale === "pt" ? "en_US" : "pt_PT"}
+  alternates={alternates}
   twitterImageAlt="Nuno Castro portfolio social preview"
   jsonLd={jsonLd}
   lang={currentLocale}
 >
-  <link slot="head" rel="alternate" hrefLang="en" href={new URL("/portfolio/", siteUrl).toString()} />
-  <link slot="head" rel="alternate" hrefLang="pt-PT" href={new URL("/portfolio/pt/", siteUrl).toString()} />
-  <link slot="head" rel="alternate" hrefLang="x-default" href={new URL("/portfolio/", siteUrl).toString()} />
-  
-  <ScrollProgress client:load />
-  <CustomCursor client:load />
-  <Header language={currentLocale} client:load />
-  <FloatingActions language={currentLocale} client:load />
+  <ScrollProgress client:idle />
+  <CustomCursor client:idle />
+  <Header language={currentLocale} client:idle />
+  <FloatingActions language={currentLocale} client:idle />
   <CVPrintView language={currentLocale} />
 
   <main id="main-content" class="no-print">

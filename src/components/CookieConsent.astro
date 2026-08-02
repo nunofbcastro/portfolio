@@ -12,22 +12,22 @@ const translations = {
 
 <button
   id="cookie-settings-button"
+  type="button"
   aria-label="Manage Cookie Preferences"
   class="fixed bottom-4 left-4 z-40 h-10 w-10 md:bottom-6 md:left-6 md:h-12 md:w-12 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center border border-white/10 no-print print:hidden"
   onclick="window.openCookiePreferences(event)"
   title="Cookie Preferences"
+  hidden
 >
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie md:w-6 md:h-6"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
 </button>
 
 <script>
-  import * as CookieConsent from "vanilla-cookieconsent";
-  import "vanilla-cookieconsent/dist/cookieconsent.css";
-  import { GTM_ID, GA_ID } from "../data/config";
+  import { GA_ID } from "../data/config";
 
   const GA_MEASUREMENT_ID = GA_ID;
-  const GTM_CONTAINER_ID = GTM_ID;
   let analyticsLoaded = false;
+  let consentReady: typeof import("vanilla-cookieconsent") | null = null;
 
   const setDeniedGoogleConsent = () => {
     if (typeof window.gtag !== "function") return;
@@ -43,21 +43,13 @@ const translations = {
     if (analyticsLoaded) return;
     analyticsLoaded = true;
 
-    // Load Google Analytics (gtag.js) dynamically
+    // Single analytics loader (GA via gtag). Avoid also loading GTM —
+    // the container re-injects gtag and roughly doubles third-party JS.
     const gaScript = document.createElement("script");
     gaScript.async = true;
     gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     document.head.appendChild(gaScript);
 
-    // Load Google Tag Manager dynamically only if GTM ID is set
-    if (GTM_CONTAINER_ID) {
-      const gtmScript = document.createElement("script");
-      gtmScript.async = true;
-      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-      document.head.appendChild(gtmScript);
-    }
-
-    // Update Google Consent Mode state to granted for analytics
     if (typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         ad_storage: "denied",
@@ -73,11 +65,12 @@ const translations = {
   const disableAnalytics = () => {
     window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
     setDeniedGoogleConsent();
-    CookieConsent.eraseCookies([/^_ga/, /^_gid/, /^_gat/, /^_gcl_/]);
+    consentReady?.eraseCookies([/^_ga/, /^_gid/, /^_gat/, /^_gcl_/]);
   };
 
   const syncAnalyticsWithConsent = () => {
-    if (CookieConsent.acceptedCategory("analytics")) {
+    if (!consentReady) return;
+    if (consentReady.acceptedCategory("analytics")) {
       window[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
       loadAnalytics();
     } else {
@@ -85,10 +78,26 @@ const translations = {
     }
   };
 
-  const configElement = document.getElementById("cookie-consent-config");
-  if (configElement) {
+  const initCookieConsent = async () => {
+    const configElement = document.getElementById("cookie-consent-config");
+    if (!configElement) return;
+
+    const [{ default: cssHref }, CookieConsent] = await Promise.all([
+      import("vanilla-cookieconsent/dist/cookieconsent.css?url"),
+      import("vanilla-cookieconsent"),
+    ]);
+
+    // Load consent CSS without render-blocking the first paint
+    if (!document.querySelector(`link[href="${cssHref}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    consentReady = CookieConsent;
+
     const translations = JSON.parse(configElement.getAttribute("data-translations") || "{}");
-    // Normalize language (e.g. pt-PT -> pt)
     const getLang = () => document.documentElement.lang.split("-")[0] || "en";
     const initialLang = getLang();
 
@@ -114,22 +123,43 @@ const translations = {
       onChange: syncAnalyticsWithConsent,
     });
 
-    // Listen for language changes from React
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === "attributes" && mutation.attributeName === "lang") {
-          const newLang = getLang();
-          CookieConsent.setLanguage(newLang);
+          CookieConsent.setLanguage(getLang());
         }
       });
     });
 
     observer.observe(document.documentElement, { attributes: true });
-  }
 
-  // Expose to window for React components to call
+    const settingsButton = document.getElementById("cookie-settings-button");
+    if (settingsButton) {
+      settingsButton.hidden = false;
+      settingsButton.classList.add("is-ready");
+    }
+  };
+
   window.openCookiePreferences = (e) => {
     if (e) e.preventDefault();
-    CookieConsent.showPreferences();
+    if (consentReady) {
+      consentReady.showPreferences();
+      return;
+    }
+    void initCookieConsent().then(() => consentReady?.showPreferences());
   };
+
+  const scheduleInit = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(() => void initCookieConsent(), { timeout: 2000 });
+    } else {
+      window.setTimeout(() => void initCookieConsent(), 1);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    scheduleInit();
+  } else {
+    window.addEventListener("load", scheduleInit, { once: true });
+  }
 </script>

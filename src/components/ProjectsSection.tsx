@@ -164,7 +164,10 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                       </div>
                     )}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-70" />
-                    <span className="absolute bottom-3 left-3 font-mono-meta text-[10px] text-white/90">
+                    <span
+                      aria-hidden="true"
+                      className="absolute bottom-3 left-3 font-mono-meta text-[10px] text-white/90"
+                    >
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </a>
