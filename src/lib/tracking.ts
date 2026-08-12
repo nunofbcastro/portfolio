@@ -85,7 +85,7 @@ const isTrackingAllowed = (): boolean => {
   if (typeof window === "undefined") return false;
   
   // Check if Google Analytics is explicitly disabled (e.g. user opted out)
-  if (window[`ga-disable-${GA_ID}`] === true) return false;
+  if ((window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] === true) return false;
 
   // If google_tag_data is available (from GTM/Gtag), respect the consent settings
   if (window.google_tag_data) {

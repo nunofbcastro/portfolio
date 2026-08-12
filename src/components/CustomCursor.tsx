@@ -64,7 +64,7 @@ export const CustomCursor = () => {
     >
       <div
         className={`flex items-center justify-center rounded-full border border-white/80 bg-white text-black transition-all duration-300 ${
-          label ? "h-20 w-20 px-2" : "h-3 w-3"
+          label ? "h-20 w-20 px-2" : "h-3.5 w-3.5"
         }`}
       >
         {label ? (

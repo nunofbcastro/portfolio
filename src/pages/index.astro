@@ -95,7 +95,7 @@ const jsonLd = {
 
   <main id="main-content" class="no-print">
     {portfolioData.sections.hero && (
-      <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} />
+      <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} client:load />
     )}
     
     <script>

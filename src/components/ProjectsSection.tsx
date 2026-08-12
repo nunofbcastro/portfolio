@@ -263,6 +263,46 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
               </Button>
             </div>
           )}
+
+          {/* GitSnake GitHub Contributions Interactive Activity Block */}
+          <div className="mt-16 md:mt-24">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <span className="font-mono-meta text-[11px] uppercase tracking-widest text-muted-foreground">
+                  [ GITHUB ACTIVITY ]
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mt-1">
+                  {language === "pt" ? "Atividade no GitHub (GitSnake)" : "GitHub Activity (GitSnake)"}
+                </h3>
+              </div>
+              <a
+                href="https://github.com/nunofbcastro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono-meta text-xs text-primary hover:underline inline-flex items-center gap-1.5"
+              >
+                <GitHubIcon className="h-4 w-4" aria-hidden="true" />
+                @nunofbcastro
+              </a>
+            </div>
+
+            <div className="relative w-full overflow-hidden rounded-2xl border border-border/70 bg-card p-2 md:p-3 shadow-xl transition-all hover:shadow-2xl">
+              <iframe
+                src="https://nunofbcastro.github.io/GitSnake/?user=nunofbcastro"
+                width="100%"
+                height="400"
+                frameBorder="0"
+                title="GitSnake - Nuno Castro GitHub Activity"
+                loading="lazy"
+                className="w-full rounded-xl border-0 bg-background/50"
+                style={{
+                  borderRadius: "12px",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                  minHeight: "360px",
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
