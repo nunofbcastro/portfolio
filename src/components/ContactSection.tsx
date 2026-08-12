@@ -11,20 +11,23 @@ interface ContactSectionProps {
   language: Language;
 }
 
-// Fun physics objects with absolute base-path safe URLs
+// Transparent technology icons + fun stickers falling with gravity physics (NO text boxes, NO backgrounds)
 const BASE_PATH = "/portfolio";
 
-const GRAVITY_FUN_OBJECTS = [
-  { type: "image", src: `${BASE_PATH}/fun_duck.png`, label: "Rubber Duck", w: 120, h: 120 },
-  { type: "image", src: `${BASE_PATH}/fun_strawberry.png`, label: "Strawberry", w: 120, h: 120 },
-  { type: "image", src: `${BASE_PATH}/fun_unicorn.png`, label: "Unicorn", w: 130, h: 130 },
-  { type: "image", src: `${BASE_PATH}/fun_computer.png`, label: "Retro PC", w: 130, h: 130 },
-  { type: "tag", label: "REACT", bg: "#06b6d4", color: "#ffffff", w: 120, h: 46 },
-  { type: "tag", label: "TYPESCRIPT", bg: "#3b82f6", color: "#ffffff", w: 140, h: 46 },
-  { type: "tag", label: ".NET CORE", bg: "#8b5cf6", color: "#ffffff", w: 130, h: 46 },
-  { type: "tag", label: "ANDROID", bg: "#22c55e", color: "#ffffff", w: 120, h: 46 },
-  { type: "tag", label: "AZURE", bg: "#0284c7", color: "#ffffff", w: 110, h: 46 },
-  { type: "tag", label: "PYTHON", bg: "#eab308", color: "#ffffff", w: 115, h: 46 },
+const GRAVITY_TECH_OBJECTS = [
+  { src: `${BASE_PATH}/tech/react.svg`, label: "React", w: 90, h: 90 },
+  { src: `${BASE_PATH}/tech/typescript.svg`, label: "TypeScript", w: 85, h: 85 },
+  { src: `${BASE_PATH}/tech/dotnet.svg`, label: ".NET", w: 90, h: 90 },
+  { src: `${BASE_PATH}/tech/android.svg`, label: "Android", w: 90, h: 90 },
+  { src: `${BASE_PATH}/tech/azure.svg`, label: "Azure", w: 85, h: 85 },
+  { src: `${BASE_PATH}/tech/python.svg`, label: "Python", w: 85, h: 85 },
+  { src: `${BASE_PATH}/tech/docker.svg`, label: "Docker", w: 95, h: 95 },
+  { src: `${BASE_PATH}/tech/javascript.svg`, label: "JavaScript", w: 85, h: 85 },
+  { src: `${BASE_PATH}/tech/csharp.svg`, label: "C#", w: 85, h: 85 },
+  { src: `${BASE_PATH}/fun_duck.png`, label: "Duck", w: 100, h: 100 },
+  { src: `${BASE_PATH}/fun_strawberry.png`, label: "Strawberry", w: 100, h: 100 },
+  { src: `${BASE_PATH}/fun_unicorn.png`, label: "Unicorn", w: 105, h: 105 },
+  { src: `${BASE_PATH}/fun_computer.png`, label: "Retro PC", w: 105, h: 105 },
 ];
 
 export const ContactSection = ({ language }: ContactSectionProps) => {
@@ -40,7 +43,7 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
   };
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const objectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const objectRefs = useRef<(HTMLImageElement | null)[]>([]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -56,7 +59,7 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     const runner = Matter.Runner.create();
     Matter.Runner.run(runner, engine);
 
-    // Walls
+    // Invisible boundary walls
     const wallOpts = { isStatic: true, render: { visible: false } } as Matter.IChamferableBodyDefinition;
     Matter.Composite.add(engine.world, [
       Matter.Bodies.rectangle(W / 2, H + 25, W * 2, 50, wallOpts),   // floor
@@ -64,17 +67,17 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
       Matter.Bodies.rectangle(W + 25, H / 2, 50, H * 2, wallOpts),    // right
     ]);
 
-    // Create physical bodies
-    const bodies = GRAVITY_FUN_OBJECTS.map((obj, i) => {
-      const cols = 4;
+    // Create physical bodies for each technology icon / fun object
+    const bodies = GRAVITY_TECH_OBJECTS.map((obj, i) => {
+      const cols = 5;
       const col = i % cols;
       const row = Math.floor(i / cols);
-      const x = (W / (cols + 1)) * (col + 1) + (Math.random() * 40 - 20);
+      const x = (W / (cols + 1)) * (col + 1) + (Math.random() * 30 - 15);
       const y = -obj.h - row * (obj.h + 20) - 30;
 
       return Matter.Bodies.rectangle(x, y, obj.w, obj.h, {
-        chamfer: { radius: obj.type === "image" ? 24 : 23 },
-        restitution: 0.5,
+        chamfer: { radius: 20 },
+        restitution: 0.55,
         friction: 0.3,
         frictionAir: 0.015,
         angle: (Math.random() - 0.5) * 0.6,
@@ -93,14 +96,14 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     (mouse as any).element.removeEventListener("DOMMouseScroll", (mouse as any).mousewheel);
     Matter.Composite.add(engine.world, mouseConstraint);
 
-    // Sync DOM element position to physics body every frame
+    // Sync DOM image elements position & rotation to physics body every frame
     let rafId: number;
     const sync = () => {
       bodies.forEach((body, i) => {
         const el = objectRefs.current[i];
         if (!el) return;
-        el.style.left = `${body.position.x - GRAVITY_FUN_OBJECTS[i].w / 2}px`;
-        el.style.top  = `${body.position.y - GRAVITY_FUN_OBJECTS[i].h / 2}px`;
+        el.style.left = `${body.position.x - GRAVITY_TECH_OBJECTS[i].w / 2}px`;
+        el.style.top  = `${body.position.y - GRAVITY_TECH_OBJECTS[i].h / 2}px`;
         el.style.transform = `rotate(${body.angle}rad)`;
       });
       rafId = requestAnimationFrame(sync);
@@ -128,7 +131,7 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
             <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">{data.subtitle}</p>
           </div>
 
-          {/* ── GRAVITY SECTION WITH FUN STICKERS ────────────────────────────────────── */}
+          {/* ── GRAVITY SECTION WITH TRANSPARENT TECH ICONS ────────────────────────────────────── */}
           <div className="mb-14 overflow-hidden rounded-3xl border border-border/60 bg-card shadow-2xl">
             {/* Top bar */}
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
@@ -156,32 +159,22 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 </h3>
               </div>
 
-              {/* DOM physics objects */}
-              {GRAVITY_FUN_OBJECTS.map((obj, i) => (
-                <div
+              {/* Pure Transparent DOM Technology & Sticker Icons */}
+              {GRAVITY_TECH_OBJECTS.map((obj, i) => (
+                <img
                   key={`${resetKey}-${i}`}
                   ref={el => { objectRefs.current[i] = el; }}
-                  className="absolute"
-                  style={{ width: obj.w, height: obj.h, willChange: "transform" }}
-                >
-                  {obj.type === "image" ? (
-                    <img
-                      src={obj.src}
-                      alt={obj.label}
-                      draggable={false}
-                      className="w-full h-full object-contain pointer-events-none drop-shadow-xl"
-                    />
-                  ) : (
-                    <div
-                      className="w-full h-full rounded-full flex items-center justify-center shadow-lg border-2 border-white/90 px-4"
-                      style={{ backgroundColor: obj.bg, color: obj.color }}
-                    >
-                      <span className="font-mono-meta text-[11px] font-bold uppercase tracking-widest whitespace-nowrap">
-                        {obj.label}
-                      </span>
-                    </div>
-                  )}
-                </div>
+                  src={obj.src}
+                  alt={obj.label}
+                  title={obj.label}
+                  draggable={false}
+                  className="absolute object-contain pointer-events-none drop-shadow-xl filter"
+                  style={{
+                    width: obj.w,
+                    height: obj.h,
+                    willChange: "transform",
+                  }}
+                />
               ))}
             </div>
           </div>
