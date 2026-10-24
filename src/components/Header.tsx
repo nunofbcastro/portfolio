@@ -1,7 +1,7 @@
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { uiText, type Language } from "@/data/i18n";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 interface HeaderProps {
@@ -13,6 +13,7 @@ export const Header = ({ language, setLanguage }: HeaderProps) => {
   const text = uiText[language];
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const defaultSetLanguage = (nextLanguage: Language) => {
     localStorage.setItem("language", nextLanguage);
@@ -30,10 +31,23 @@ export const Header = ({ language, setLanguage }: HeaderProps) => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
+    const closeOnDesktop = () => {
+      if (window.matchMedia("(min-width: 768px)").matches) setOpen(false);
     };
+    window.addEventListener("resize", closeOnDesktop);
+    return () => window.removeEventListener("resize", closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
   return (
@@ -69,10 +83,12 @@ export const Header = ({ language, setLanguage }: HeaderProps) => {
           <LanguageToggle language={language} setLanguage={onSetLanguage} />
           <ThemeToggle language={language} />
           <button
+            ref={menuButtonRef}
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 md:hidden"
             aria-expanded={open}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-controls="mobile-navigation-menu"
+            aria-label={open ? text.accessibility.closeMenu : text.accessibility.openMenu}
             onClick={() => setOpen((prev) => !prev)}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -80,25 +96,25 @@ export const Header = ({ language, setLanguage }: HeaderProps) => {
         </div>
       </div>
 
-      {open && (
-        <nav
-          aria-label={text.accessibility.primaryNavigation}
-          className="border-t border-border/60 bg-background/95 px-4 py-5 md:hidden"
-        >
-          <div className="flex flex-col gap-1">
-            {text.header.nav.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="rounded-lg px-3 py-3.5 font-mono-meta text-xs text-foreground transition-colors hover:bg-muted"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </nav>
-      )}
+      <nav
+        id="mobile-navigation-menu"
+        aria-label={text.accessibility.primaryNavigation}
+        hidden={!open}
+        className="border-t border-border/60 bg-background/95 px-4 py-5 md:hidden"
+      >
+        <div className="flex flex-col gap-1">
+          {text.header.nav.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="rounded-lg px-3 py-3.5 font-mono-meta text-xs text-foreground transition-colors hover:bg-muted"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
     </header>
   );
 };

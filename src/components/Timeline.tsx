@@ -35,8 +35,8 @@ export const Timeline = <T,>({
     setMounted(true);
   }, []);
 
-  // On server and first client render, use a default that matches server (width 1024 < 1160)
-  const isMobile = !mounted ? true : width < 1160;
+  // Start with the mobile layout for SSR; switch to the two-column timeline at lg.
+  const isMobile = !mounted ? true : width < 1024;
   const timelineListId = "timeline-list";
 
   // Determine which items to show

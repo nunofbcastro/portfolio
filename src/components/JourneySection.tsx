@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { AutoFitText } from "@/components/AutoFitText";
 import { Timeline } from "@/components/Timeline";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +14,7 @@ interface JourneySectionProps {
 
 const TechList = ({ technologies, language }: { technologies: string[], language: Language }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const listId = useId();
     const text = uiText[language];
 
     const displayTechs = isExpanded ? technologies : technologies.slice(0, 3);
@@ -21,17 +22,21 @@ const TechList = ({ technologies, language }: { technologies: string[], language
 
     return (
         <div className="flex flex-wrap gap-2.5 items-center">
-            {displayTechs.map((tech, techIdx) => (
-                <Badge key={techIdx} variant="secondary" className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/5 text-primary border-primary/10">
-                    {tech}
-                </Badge>
-            ))}
+            <div id={listId} className="flex flex-wrap gap-2.5 items-center">
+                {displayTechs.map((tech, techIdx) => (
+                    <Badge key={techIdx} variant="secondary" className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/5 text-primary border-primary/10">
+                        {tech}
+                    </Badge>
+                ))}
+            </div>
             {hasMore && (
                 <button
                     onClick={(e) => {
                         e.preventDefault();
                         setIsExpanded(!isExpanded);
                     }}
+                    aria-expanded={isExpanded}
+                    aria-controls={listId}
                     className="text-xs font-bold text-primary hover:text-primary/80 transition-colors ml-1 px-2 py-1 rounded-md hover:bg-primary/5 border border-transparent hover:border-primary/10"
                 >
                     {isExpanded ? text.projects.showLess : `+${technologies.length - 3}`}

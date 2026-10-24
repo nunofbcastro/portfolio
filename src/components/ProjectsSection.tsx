@@ -4,7 +4,7 @@ import { ExternalLink, Image as ImageIcon } from "lucide-react";
 import { GitHubIcon } from "./icons/BrandIcons";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { uiText, type Language } from "@/data/i18n";
 import {
   Dialog,
@@ -27,27 +27,32 @@ interface ProjectsSectionProps {
 
 const TechList = ({ technologies, language }: { technologies: string[]; language: Language }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const listId = useId();
   const text = uiText[language];
   const displayTechs = isExpanded ? technologies : technologies.slice(0, 4);
   const hasMore = technologies.length > 4;
 
   return (
     <div className="mb-5 flex flex-wrap items-center gap-2">
-      {displayTechs.map((tech, techIdx) => (
-        <Badge
-          key={techIdx}
-          variant="secondary"
-          className="rounded-full border-border/60 bg-transparent px-2.5 py-0.5 font-mono-meta text-[10px] text-muted-foreground"
-        >
-          {tech}
-        </Badge>
-      ))}
+      <div id={listId} className="flex flex-wrap items-center gap-2">
+        {displayTechs.map((tech, techIdx) => (
+          <Badge
+            key={techIdx}
+            variant="secondary"
+            className="rounded-full border-border/60 bg-transparent px-2.5 py-0.5 font-mono-meta text-[10px] text-muted-foreground"
+          >
+            {tech}
+          </Badge>
+        ))}
+      </div>
       {hasMore && (
         <button
           onClick={(e) => {
             e.preventDefault();
             setIsExpanded(!isExpanded);
           }}
+          aria-expanded={isExpanded}
+          aria-controls={listId}
           className="px-2 py-1 font-mono-meta text-[10px] text-primary transition-colors hover:text-primary/80"
         >
           {isExpanded ? text.projects.showLess : `+${technologies.length - 4}`}
@@ -67,6 +72,7 @@ const ExpandableDescription = ({
   showLessText: string;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const descriptionId = useId();
   const shouldTruncate = text.length > 160;
 
   if (!shouldTruncate) {
@@ -75,7 +81,7 @@ const ExpandableDescription = ({
 
   return (
     <div className="mb-4 flex-grow">
-      <p className={`leading-relaxed text-muted-foreground ${isExpanded ? "" : "line-clamp-3"}`}>
+      <p id={descriptionId} className={`leading-relaxed text-muted-foreground ${isExpanded ? "" : "line-clamp-3"}`}>
         {text}
       </p>
       <button
@@ -84,6 +90,8 @@ const ExpandableDescription = ({
           e.stopPropagation();
           setIsExpanded(!isExpanded);
         }}
+        aria-expanded={isExpanded}
+        aria-controls={descriptionId}
         className="mt-2 font-mono-meta text-[10px] text-primary hover:underline"
       >
         {isExpanded ? showLessText : readMoreText}

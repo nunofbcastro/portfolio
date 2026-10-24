@@ -5,6 +5,8 @@ export const uiText = {
     accessibility: {
       skipToMainContent: "Saltar para o conteúdo principal",
       primaryNavigation: "Navegação principal",
+      openMenu: "Abrir menu",
+      closeMenu: "Fechar menu",
       opensInNewTabSuffix: "abre num novo separador"
     },
     header: {
@@ -115,6 +117,8 @@ export const uiText = {
     accessibility: {
       skipToMainContent: "Skip to main content",
       primaryNavigation: "Primary navigation",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
       opensInNewTabSuffix: "opens in a new tab"
     },
     header: {
