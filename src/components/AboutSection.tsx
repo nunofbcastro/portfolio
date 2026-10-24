@@ -41,7 +41,7 @@ export const AboutSection = ({ language }: AboutSectionProps) => {
           </p>
         </div>
 
-        <div ref={skillsRef} className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+        <div ref={skillsRef} className="mx-auto grid max-w-6xl grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {text.skills.map((skill, index) => {
             const Icon = iconMap[skill.icon as keyof typeof iconMap];
             const delay = 100 + index * 80;
