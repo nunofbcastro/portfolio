@@ -4,7 +4,7 @@ export const cvData = {
   pt: {
     targetRole: "Engenheiro de Software | .NET, React e Azure",
     summary:
-      "Engenheiro de Software com experiência em aplicações web e mobile, com foco em .NET, React, Azure e SQL Server. Na B2F, desenvolvo aplicações e integrações e automatizo processos de negócio. Experiência em manutenção de sistemas em produção e desenvolvimento de aplicações Android.",
+      "Engenheiro de Software com experiência em aplicações web, apps multiplataforma para Android/iOS e apps para Android TV. Trabalho com .NET Core, React e Azure; na B2F desenvolvo integrações, ETL e automatizações e participo no desenho de sistemas e bases de dados.",
     links: [
       { label: "Email", value: "nunofbcastro@gmail.com", href: "mailto:nunofbcastro@gmail.com" },
       { label: "LinkedIn", value: "linkedin.com/in/nunofbcastro", href: "https://www.linkedin.com/in/nunofbcastro/" },
@@ -18,7 +18,7 @@ export const cvData = {
       },
       {
         title: "Backend",
-        items: [".NET / .NET Core", ".NET Framework", "Razor ASP.NET", "FastAPI", "REST APIs"],
+        items: [".NET Core", ".NET Framework", "ASP.NET Core", "FastAPI", "REST APIs", "Desenho de sistemas"],
       },
       {
         title: "Frontend",
@@ -26,7 +26,7 @@ export const cvData = {
       },
       {
         title: "Mobile",
-        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose"],
+        items: ["React Native (Android/iOS)", "Android TV", "Android (Java/Kotlin)", "Jetpack Compose"],
       },
       {
         title: "Cloud & DevOps",
@@ -34,7 +34,7 @@ export const cvData = {
       },
       {
         title: "Dados & Low-Code",
-        items: ["SQL Server", "ETL", "Power Platform", "Power Automate", "Power Apps"],
+        items: ["SQL Server", "ETL", "Desenho de bases de dados", "Power Automate"],
       },
     ],
     experience: [
@@ -45,9 +45,10 @@ export const cvData = {
         period: "set 2023 – Atual",
         bullets: [
           "Desenvolvo aplicações web com .NET Core e React, incluindo sites e Progressive Web Apps (PWA).",
-          "Desenvolvo aplicações mobile com React Native e automatizações robóticas de processos (RPA) com Microsoft Power Automate.",
-          "Implemento integrações com sistemas externos através de APIs, Azure Functions e SQL Server.",
-          "Crio testes unitários, de integração e end-to-end (E2E), e faço a manutenção de aplicações em produção.",
+          "Desenvolvo apps multiplataforma com React Native para Android e iOS, além de aplicações para Android TV.",
+          "Criei vários processos ETL e automatizações RPA com Microsoft Power Automate.",
+          "Integro sistemas externos através de APIs, Azure Functions e SQL Server; participo no desenho de sistemas e bases de dados.",
+          "Crio testes unitários, de integração e end-to-end (E2E), e mantenho aplicações em produção.",
         ],
       },
       {
@@ -158,7 +159,7 @@ export const cvData = {
   en: {
     targetRole: "Software Engineer | .NET, React & Azure",
     summary:
-      "Software Engineer experienced in web and mobile applications, with a focus on .NET, React, Azure, and SQL Server. At B2F, I develop applications and integrations and automate business processes. Background in maintaining production systems and building Android applications.",
+      "Software Engineer experienced in web applications, cross-platform apps for Android/iOS, and apps for Android TV. I work with .NET Core, React, and Azure; at B2F, I build integrations, ETL processes, and automations, and contribute to system and database design.",
     links: [
       { label: "Email", value: "nunofbcastro@gmail.com", href: "mailto:nunofbcastro@gmail.com" },
       { label: "LinkedIn", value: "linkedin.com/in/nunofbcastro", href: "https://www.linkedin.com/in/nunofbcastro/" },
@@ -172,7 +173,7 @@ export const cvData = {
       },
       {
         title: "Backend",
-        items: [".NET / .NET Core", ".NET Framework", "Razor ASP.NET", "FastAPI", "REST APIs"],
+        items: [".NET Core", ".NET Framework", "ASP.NET Core", "FastAPI", "REST APIs", "System design"],
       },
       {
         title: "Frontend",
@@ -180,7 +181,7 @@ export const cvData = {
       },
       {
         title: "Mobile",
-        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose"],
+        items: ["React Native (Android/iOS)", "Android TV", "Android (Java/Kotlin)", "Jetpack Compose"],
       },
       {
         title: "Cloud & DevOps",
@@ -188,7 +189,7 @@ export const cvData = {
       },
       {
         title: "Data & Low-Code",
-        items: ["SQL Server", "ETL", "Power Platform", "Power Automate", "Power Apps"],
+        items: ["SQL Server", "ETL", "Database design", "Power Automate"],
       },
     ],
     experience: [
@@ -199,8 +200,9 @@ export const cvData = {
         period: "Sep 2023 – Present",
         bullets: [
           "Develop web applications with .NET Core and React, including websites and Progressive Web Apps (PWAs).",
-          "Build mobile applications with React Native and robotic process automations (RPA) with Microsoft Power Automate.",
-          "Integrate external systems through APIs, Azure Functions, and SQL Server.",
+          "Build cross-platform React Native apps for Android and iOS, as well as applications for Android TV.",
+          "Created multiple ETL processes and robotic process automations (RPA) with Microsoft Power Automate.",
+          "Integrate external systems through APIs, Azure Functions, and SQL Server; contribute to system and database design.",
           "Create unit, integration, and end-to-end (E2E) tests, and maintain applications in production.",
         ],
       },

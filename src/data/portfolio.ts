@@ -53,11 +53,11 @@ export const portfolioData = {
       description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, tenho dedicado o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
       skillsTitle: "Principais Competências",
       skills: [
-        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
+        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger", "Desenho de sistemas"] },
         { icon: "Layout", title: "Frontend", description: ["Blazor / Razor", "React / Next.js", "Angular", "Tailwind CSS", "Bootstrap"] },
-        { icon: "Smartphone", title: "Mobile", description: ["Android Nativo (Java/Kotlin)", "Jetpack Compose", "React Native", "Ionic"] },
+        { icon: "Smartphone", title: "Mobile", description: ["Android Nativo (Java/Kotlin)", "Android TV", "iOS", "Jetpack Compose", "React Native multiplataforma", "Ionic"] },
         { icon: "Cloud", title: "Cloud e DevOps", description: ["Azure", "Docker", "GitLab CI/CD", "NGINX", "IIS", "Scrum"] },
-        { icon: "Database", title: "Dados e Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "Power Platform"] }
+        { icon: "Database", title: "Dados e Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "ETL", "Modelação de bases de dados", "Power Platform"] }
       ],
       strengths: [
         { title: "Resolução de Problemas", description: "Capacidade de identificar e resolver problemas técnicos complexos de forma eficiente." },
@@ -70,11 +70,11 @@ export const portfolioData = {
       description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
       skillsTitle: "Key Skills",
       skills: [
-        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
+        { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger", "System design"] },
         { icon: "Layout", title: "Frontend", description: ["Blazor / Razor", "React / Next.js", "Angular", "Tailwind CSS", "Bootstrap"] },
-        { icon: "Smartphone", title: "Mobile", description: ["Native Android (Java/Kotlin)", "Jetpack Compose", "React Native", "Ionic"] },
+        { icon: "Smartphone", title: "Mobile", description: ["Native Android (Java/Kotlin)", "Android TV", "iOS", "Jetpack Compose", "Cross-platform React Native", "Ionic"] },
         { icon: "Cloud", title: "Cloud & DevOps", description: ["Azure", "Docker", "GitLab CI/CD", "NGINX", "IIS", "Scrum"] },
-        { icon: "Database", title: "Data & Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "Power Platform"] }
+        { icon: "Database", title: "Data & Low-Code", description: ["SQL Server", "MongoDB", "MySQL", "ETL", "Database design", "Power Platform"] }
       ],
       strengths: [
         { title: "Problem Solving", description: "Ability to efficiently identify and resolve complex technical problems." },
@@ -96,11 +96,12 @@ export const portfolioData = {
           location: "Presencial",
           period: "set 2023 – Atual",
           description: [
-            "Desenvolvimento de aplicações web com .NET Framework",
-            "Criação de interfaces com Razor ASP.NET",
-            "Manutenção e otimização de sistemas existentes"
+            "Aplicações web com .NET Core, React e Progressive Web Apps (PWA)",
+            "Apps multiplataforma com React Native para Android/iOS e aplicações para Android TV",
+            "Processos ETL, automações RPA com Power Automate e integração de sistemas externos",
+            "Desenho de sistemas, modelação de bases de dados e testes de software"
           ],
-          technologies: [".NET Framework", "Razor ASP.NET", "Docker", "Azure Functions", "Python", "Microsoft Power Automate", "JavaScript", "Git", "Azure DevOps", "Azure Logic", "Microsoft PowerApps", "ETL", "Microsoft SQL Server", "IIS", "FastAPI", "Blazor", "Arquitetura MVC", "Arquitetura limpa", "React.js", "React Native", "Azure"]
+          technologies: [".NET Core", "React", "Progressive Web Apps", "React Native", "Android", "iOS", "Android TV", "Power Automate", "RPA", "ETL", "APIs", "Azure Functions", "SQL Server", "Modelação de dados", "Testes de software"]
 
         },
         {
@@ -262,11 +263,12 @@ export const portfolioData = {
           location: "On-site",
           period: "Sep 2023 – Present",
           description: [
-            "Web application development with .NET Framework",
-            "Interface creation with Razor ASP.NET",
-            "Maintenance and optimization of existing systems"
+            "Web applications with .NET Core, React, and Progressive Web Apps (PWAs)",
+            "Cross-platform React Native apps for Android/iOS and applications for Android TV",
+            "ETL processes, Power Automate RPA, and external system integrations",
+            "System design, database modeling, and software testing"
           ],
-          technologies: [".NET Framework", "Razor ASP.NET", "Docker", "Azure Functions", "Python", "Microsoft Power Automate", "JavaScript", "Git", "Azure DevOps", "Azure Logic", "Microsoft PowerApps", "ETL", "Microsoft SQL Server", "IIS", "FastAPI", "Blazor", "MVC Architecture", "Clean Architecture", "React.js", "React Native", "Azure"]
+          technologies: [".NET Core", "React", "Progressive Web Apps", "React Native", "Android", "iOS", "Android TV", "Power Automate", "RPA", "ETL", "APIs", "Azure Functions", "SQL Server", "Database modeling", "Software testing"]
 
         },
         {
