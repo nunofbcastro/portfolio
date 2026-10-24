@@ -1,1 +1,0 @@
-var e=`/portfolio/_astro/cookieconsent.DjanN7tQ.css`;export{e as default};
