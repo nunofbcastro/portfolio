@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './styles/cv.css';
 
 @plugin 'tailwindcss-animate';
 
@@ -429,54 +430,5 @@
 
   #cc-main .cm__btn {
     min-height: 44px !important;
-  }
-}
-
-@media print {
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  html,
-  body {
-    background: white !important;
-    background-image: none !important;
-    color: #333 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  header,
-  footer,
-  main,
-  #main-content,
-  #cookie-settings-button,
-  #cc-main,
-  astro-dev-toolbar,
-  .print\:hidden,
-  .no-print {
-    display: none !important;
-  }
-
-  #cv-print-view {
-    display: block !important;
-    visibility: visible !important;
-    font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
-  }
-
-  #cv-print-view,
-  #cv-print-view * {
-    font-family: Calibri, Aptos, Arial, Helvetica, sans-serif !important;
-    letter-spacing: normal !important;
-  }
-
-  #cv-sidebar-bg {
-    display: none !important;
-  }
-
-  .page-break-inside-avoid {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
   }
 }

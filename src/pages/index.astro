@@ -99,22 +99,25 @@ const jsonLd = {
     )}
     
     <script>
-      const printCV = async () => {
+      const printCV = () => {
+        const originalTitle = document.title;
+        const language = document.querySelector("#cv-print-view")?.getAttribute("lang") || "en";
+        document.title = `Nuno-Castro-CV-${language}`;
+        const restoreTitle = () => { document.title = originalTitle; };
+        window.addEventListener("afterprint", restoreTitle, { once: true });
         try {
-          if (document.fonts?.ready) {
-            await document.fonts.ready;
-          }
-        } catch {
-          // System fonts (Calibri/Arial) are used for print reliability.
+          // The CV uses local fonts, so printing never waits for remote web fonts.
+          window.print();
+        } finally {
+          restoreTitle();
         }
-        window.print();
       };
 
       document.addEventListener("click", (event) => {
         const target = event.target as HTMLElement | null;
         if (target?.closest("#download-cv-button, #download-cv-button-fab")) {
           event.preventDefault();
-          void printCV();
+          printCV();
         }
       });
     </script>
@@ -155,27 +158,3 @@ const jsonLd = {
 
   <Footer language={currentLocale} currentYear={currentYear} />
 </BaseLayout>
-
-<style is:global>
-  @media print {
-    header,
-    footer,
-    #cookie-settings-button,
-    #cc-main,
-    astro-dev-toolbar,
-    #main-content,
-    .no-print {
-      display: none !important;
-    }
-
-    body {
-      background: white !important;
-      background-image: none !important;
-      color: #333 !important;
-    }
-
-    #cv-print-view {
-      display: block !important;
-    }
-  }
-</style>

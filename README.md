@@ -80,3 +80,23 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 - Vite
+
+
+## CV export
+
+The **Download CV / Descarregar CV** buttons open the browser print dialog in the
+current page language. Choose **Save as PDF**, A4, 100% scale and disable browser
+headers and footers. The print document uses local fonts and selectable text;
+no screenshot or canvas conversion is involved.
+
+`src/data/cv.ts` holds the PT/EN CV content, `src/components/CVPrintView.tsx`
+provides semantic headings and lists, and `src/styles/cv.css` is the single source
+of print styles. The current content is arranged into two A4 pages: profile,
+skills and experience; then projects, education, awards and languages. Entries
+stay together while sections can flow. Content additions can create extra pages;
+do not force a fixed height or hide overflow to fit them.
+
+When changing the CV, export both languages and verify page breaks, visible
+contact details, clickable links and PDF text extraction in reading order. Check
+printing from both light and dark themes and from a narrow viewport. ATS parsers
+vary; the layout deliberately uses a single column and ordinary text headings.

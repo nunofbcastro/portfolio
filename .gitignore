@@ -31,3 +31,5 @@ dist
 *.sw?
 
 package-lock.json
+# Local package cache
+.npm-cache/
