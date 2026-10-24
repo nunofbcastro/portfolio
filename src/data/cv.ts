@@ -44,12 +44,11 @@ export const cvData = {
         location: "Portugal",
         period: "set 2023 – Atual",
         bullets: [
-          "Desenvolvo e mantenho aplicações web com .NET Framework e Razor ASP.NET para processos de negócio em produção.",
-          "Implemento integrações e automações de processos internos com Azure Functions, SQL Server e Power Platform.",
-          "Desenvolvo interfaces web e mobile com Blazor, React e React Native, com arquitetura MVC e princípios de arquitetura limpa.",
-          "Faço manutenção e otimização de sistemas existentes, com foco na estabilidade e na evolução das aplicações.",
+          "Desenvolvo aplicações web com .NET Core e React, incluindo sites e Progressive Web Apps (PWA).",
+          "Desenvolvo aplicações mobile com React Native e automatizações robóticas de processos (RPA) com Microsoft Power Automate.",
+          "Implemento integrações com sistemas externos através de APIs, Azure Functions e SQL Server.",
+          "Crio testes unitários, de integração e end-to-end (E2E), e faço a manutenção de aplicações em produção.",
         ],
-        technologies: [".NET Framework", "Blazor", "React", "React Native", "Azure", "SQL Server", "Power Platform"],
       },
       {
         role: "Software Developer (Estágio)",
@@ -199,12 +198,11 @@ export const cvData = {
         location: "Portugal",
         period: "Sep 2023 – Present",
         bullets: [
-          "Develop and maintain web applications with .NET Framework and Razor ASP.NET for business processes in production.",
-          "Implement integrations and internal process automation with Azure Functions, SQL Server, and Power Platform.",
-          "Build web and mobile interfaces with Blazor, React, and React Native, using MVC and clean architecture principles.",
-          "Maintain and optimize existing systems, focusing on application stability and ongoing development.",
+          "Develop web applications with .NET Core and React, including websites and Progressive Web Apps (PWAs).",
+          "Build mobile applications with React Native and robotic process automations (RPA) with Microsoft Power Automate.",
+          "Integrate external systems through APIs, Azure Functions, and SQL Server.",
+          "Create unit, integration, and end-to-end (E2E) tests, and maintain applications in production.",
         ],
-        technologies: [".NET Framework", "Blazor", "React", "React Native", "Azure", "SQL Server", "Power Platform"],
       },
       {
         role: "Software Developer (Internship)",
