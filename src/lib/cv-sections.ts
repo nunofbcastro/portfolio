@@ -28,7 +28,11 @@ export function getCVPages(language: Language): CVSection[][] {
           { text: `${job.role} — ${job.company}`, kind: "title" },
           { text: `${job.location} | ${job.period}`, kind: "meta" },
           ...job.bullets.map((text) => ({ text, bullet: true })),
-          { text: `${labels.technologies}: ${job.technologies.join(", ")}`, kind: "tech", boldPrefix: `${labels.technologies}:` },
+          ...("technologies" in job && job.technologies.length ? [{
+            text: `${labels.technologies}: ${job.technologies.join(", ")}`,
+            kind: "tech" as const,
+            boldPrefix: `${labels.technologies}:`,
+          }] : []),
         ]),
       },
       {
@@ -44,7 +48,7 @@ export function getCVPages(language: Language): CVSection[][] {
           { text: `${item.institution} — ${item.location} | ${item.period}`, kind: "meta" },
           { text: item.details },
           ...("projectUrl" in item ? [{
-            text: `${labels.academicProjects}: ${item.projectUrl.replace("https://", "")}`,
+            text: `${labels.academicProjects} (${item.institution.split(" - ")[0]}) — ${item.projectUrl.replace("https://", "")}`,
             kind: "meta" as const, url: item.projectUrl,
           }] : []),
         ]),

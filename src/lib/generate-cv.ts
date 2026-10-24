@@ -64,7 +64,7 @@ export function createCV(language: Language) {
   function write(block: TextBlock) {
     const { lines, size, lineHeight } = prepare(block);
     const x = margin + (block.indent ?? (block.bullet ? 13 : 0));
-    doc.setTextColor(24, 35, 45);
+    doc.setTextColor(block.url ? 36 : 24, block.url ? 86 : 35, block.url ? 79 : 45);
     for (let i = 0; i < lines.length; i++) {
       ensureSpace(lineHeight);
       if (block.bullet && i === 0) doc.text("•", margin + 1, y + size);
@@ -77,7 +77,13 @@ export function createCV(language: Language) {
       } else {
         doc.text(lines[i], x, y + size);
       }
-      if (block.url) doc.link(x, y, doc.getTextWidth(lines[i]), lineHeight, { url: block.url });
+      if (block.url) {
+        const linkWidth = doc.getTextWidth(lines[i]);
+        doc.link(x, y, linkWidth, lineHeight, { url: block.url });
+        doc.setDrawColor(36, 86, 79);
+        doc.setLineWidth(0.35);
+        doc.line(x, y + size + 1, x + linkWidth, y + size + 1);
+      }
       y += lineHeight;
     }
     y += block.after ?? 3;
@@ -111,12 +117,25 @@ export function createCV(language: Language) {
   let linkX = margin;
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
-  for (const link of links) {
+  for (const [index, link] of links.entries()) {
     const linkWidth = doc.getTextWidth(link.value);
-    if (linkX + linkWidth > margin + width) { linkX = margin; y += 13; }
+    const separator = index > 0 ? " · " : "";
+    const separatorWidth = doc.getTextWidth(separator);
+    if (linkX + linkWidth + separatorWidth > margin + width) {
+      linkX = margin;
+      y += 13;
+    } else if (separator) {
+      doc.setTextColor(24, 35, 45);
+      doc.text(separator, linkX, y + 9);
+      linkX += separatorWidth;
+    }
+    doc.setTextColor(36, 86, 79);
     doc.text(link.value, linkX, y + 9);
     doc.link(linkX, y, linkWidth, 13, { url: link.href });
-    linkX += linkWidth + 12;
+    doc.setDrawColor(36, 86, 79);
+    doc.setLineWidth(0.35);
+    doc.line(linkX, y + 10, linkX + linkWidth, y + 10);
+    linkX += linkWidth;
   }
   y += 22;
   doc.setDrawColor(36, 86, 79);
@@ -133,7 +152,7 @@ export function createCV(language: Language) {
         entry(blocks.map((block) => ({
           ...block,
           after: block.kind === "title" ? 1 : block.bullet ? 2 : 3,
-        })), compact ? 0 : 5);
+        })), compact ? 0 : current.id === "experience" ? 8 : 5);
       }
     }
   }

@@ -112,6 +112,10 @@
     break-inside: avoid;
   }
 
+  #cv-print-view .cv-section-experience .cv-item {
+    margin-bottom: 10pt;
+  }
+
   #cv-print-view .cv-meta,
   #cv-print-view .cv-tech {
     font-size: 9.5pt;
@@ -132,8 +136,9 @@
   }
 
   #cv-print-view a {
-    color: inherit;
-    text-decoration: none;
+    color: #24564f;
+    text-decoration: underline;
+    text-underline-offset: 1pt;
     overflow-wrap: anywhere;
   }
 
