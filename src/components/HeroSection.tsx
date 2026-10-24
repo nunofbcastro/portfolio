@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { CVDownloadButton } from "@/components/CVDownloadButton";
 import { portfolioData } from "@/data/portfolio";
 import { uiText, type Language } from "@/data/i18n";
 
@@ -196,15 +196,13 @@ export const HeroSection = ({ language, heroImageUrl }: HeroSectionProps) => {
                 {text.hero.contact}
               </a>
             </Button>
-            <Button
+            <CVDownloadButton
+              language={language}
               id="download-cv-button"
               variant="ghost"
               size="lg"
               className="h-11 w-full rounded-full px-6 text-muted-foreground sm:w-auto"
-            >
-              <FileText className="mr-2 h-4 w-4" aria-hidden="true" />
-              {text.hero.downloadCV}
-            </Button>
+            />
           </div>
         </div>
       </div>

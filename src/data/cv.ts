@@ -2,9 +2,9 @@ import type { Language } from "./i18n";
 
 export const cvData = {
   pt: {
-    targetRole: "Engenheiro de Software",
+    targetRole: "Engenheiro de Software | .NET, React e Azure",
     summary:
-      "Engenheiro de Software com experiência em desenvolvimento web e mobile, focado em entregar soluções com .NET, React, Azure e SQL Server. Ajudo empresas a modernizar aplicações, automatizar processos e melhorar a qualidade de sistemas em produção. Destaque: cocriação da app SandSpace, cobrindo 865 praias em Portugal e referida em mais de 100 meios de comunicação nacionais, com participação na INTEL ISEF (EUA).",
+      "Engenheiro de Software com experiência em aplicações web e mobile, com foco em .NET, React, Azure e SQL Server. Na B2F, desenvolvo aplicações e integrações e automatizo processos de negócio. Experiência em manutenção de sistemas em produção e desenvolvimento de aplicações Android.",
     links: [
       { label: "Email", value: "nunofbcastro@gmail.com", href: "mailto:nunofbcastro@gmail.com" },
       { label: "LinkedIn", value: "linkedin.com/in/nunofbcastro", href: "https://www.linkedin.com/in/nunofbcastro/" },
@@ -13,28 +13,28 @@ export const cvData = {
     ],
     skillGroups: [
       {
-        title: "Linguagens",
-        items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "Kotlin", "SQL", "HTML", "CSS"],
+        title: "Linguagens de programação",
+        items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "Kotlin", "SQL"],
       },
       {
         title: "Backend",
-        items: [".NET / .NET Core", ".NET Framework", "FastAPI", "NestJS", "Express.js", "Azure Functions", "REST APIs", "Swagger"],
+        items: [".NET / .NET Core", ".NET Framework", "Razor ASP.NET", "FastAPI", "REST APIs"],
       },
       {
         title: "Frontend",
-        items: ["React", "Next.js", "Blazor", "Razor ASP.NET", "Angular", "Tailwind CSS"],
+        items: ["React", "Blazor", "Next.js", "Tailwind CSS"],
       },
       {
         title: "Mobile",
-        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose", "Ionic"],
+        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose"],
       },
       {
         title: "Cloud & DevOps",
-        items: ["Azure", "Docker", "Git", "GitLab CI/CD", "Azure DevOps", "NGINX", "IIS", "Scrum"],
+        items: ["Azure", "Azure Functions", "Azure DevOps", "Docker", "Git"],
       },
       {
         title: "Dados & Low-Code",
-        items: ["SQL Server", "MongoDB", "MySQL", "ETL", "Power Platform", "Power Automate", "PowerApps"],
+        items: ["SQL Server", "ETL", "Power Platform", "Power Automate", "Power Apps"],
       },
     ],
     experience: [
@@ -44,12 +44,12 @@ export const cvData = {
         location: "Portugal",
         period: "set 2023 – Atual",
         bullets: [
-          "Desenvolvi e mantive aplicações web com .NET Framework e Razor ASP.NET para suporte a processos de negócio em produção.",
-          "Implementei integrações e automações com Azure Functions, Azure DevOps, SQL Server e Power Platform, reduzindo tarefas manuais em fluxos internos.",
-          "Criei e evoluí interfaces e funcionalidades com Blazor, React e React Native, alinhadas com arquitetura MVC e princípios de clean architecture.",
-          "Otimizei e estabilizei sistemas existentes, melhorando manutenibilidade e continuidade operacional das soluções da empresa.",
+          "Desenvolvo e mantenho aplicações web com .NET Framework e Razor ASP.NET para processos de negócio em produção.",
+          "Implemento integrações e automações de processos internos com Azure Functions, SQL Server e Power Platform.",
+          "Desenvolvo interfaces web e mobile com Blazor, React e React Native, com arquitetura MVC e princípios de arquitetura limpa.",
+          "Faço manutenção e otimização de sistemas existentes, com foco na estabilidade e na evolução das aplicações.",
         ],
-        technologies: [".NET Framework", "Razor", "Blazor", "React", "React Native", "Azure", "SQL Server", "Docker", "FastAPI", "Power Platform"],
+        technologies: [".NET Framework", "Blazor", "React", "React Native", "Azure", "SQL Server", "Power Platform"],
       },
       {
         role: "Software Developer (Estágio)",
@@ -57,9 +57,9 @@ export const cvData = {
         location: "Portugal",
         period: "mar 2023 – jul 2023",
         bullets: [
-          "Automatizei processos ETL para recolha e tratamento de dados escolares, acelerando a disponibilização de informação.",
-          "Mantive website com dados de fontes oficiais (Eurostat e DGEEC), garantindo atualização e fiabilidade dos conteúdos.",
-          "Desenvolvi componentes escaláveis em .NET Framework e Razor ASP.NET para evoluir a plataforma existente.",
+          "Automatizei processos ETL para recolha e tratamento de dados escolares.",
+          "Mantive um website com dados de fontes oficiais, incluindo Eurostat e DGEEC.",
+          "Desenvolvi componentes em .NET Framework e Razor ASP.NET para a plataforma existente.",
         ],
         technologies: [".NET Framework", "Razor ASP.NET", "ETL", "SQL"],
       },
@@ -69,8 +69,8 @@ export const cvData = {
         location: "Portsmouth, Inglaterra",
         period: "jun 2019",
         bullets: [
-          "Desenvolvi páginas web em HTML, CSS e JavaScript num contexto internacional de estágio Erasmus+.",
-          "Colaborei em entregas rápidas de protótipos web, reforçando comunicação e práticas de desenvolvimento em equipa.",
+          "Desenvolvi páginas e protótipos web em HTML, CSS e JavaScript num estágio internacional Erasmus+.",
+          "Colaborei com uma equipa internacional na entrega de protótipos web.",
         ],
         technologies: ["HTML", "CSS", "JavaScript"],
       },
@@ -78,16 +78,16 @@ export const cvData = {
     projects: [
       {
         title: "SandSpace",
-        objective: "Aplicação móvel para consultar a ocupação de praias e apoiar decisões de deslocação em contexto pandémico.",
+        objective: "Cocriação de uma aplicação Android para consultar a ocupação de praias durante a pandemia.",
         technologies: ["Java", "Android Studio", "PHP", "MySQL", "REST API"],
-        result: "Cobriu 865 praias em Portugal; referido em mais de 100 meios nacionais (RTP, SIC, CMTV, Porto Canal); participou na INTEL ISEF (EUA).",
+        result: "Cobertura de 865 praias em Portugal e divulgação em mais de 100 meios nacionais, incluindo RTP e SIC. Participação na INTEL ISEF (EUA).",
         links: {
           demo: "https://play.google.com/store/apps/details?id=com.essl.sandspace&hl=pt_PT&gl=US",
         },
       },
       {
         title: "PoluMap",
-        objective: "App colaborativa para mapear focos de poluição e alertar autoridades ambientais.",
+        objective: "Aplicação colaborativa para mapear focos de poluição e alertar autoridades ambientais.",
         technologies: ["Java", "Android Studio", "PHP", "MySQL", "REST API"],
         result: "Permitiu reportar pontos críticos com notificação por email a autoridades locais e à Agência Portuguesa do Ambiente.",
         links: {
@@ -98,7 +98,7 @@ export const cvData = {
         title: "SmartHouse",
         objective: "Sistema de segurança residencial com sensores, câmaras, app móvel e backoffice web (PAP).",
         technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "REST API"],
-        result: "Entregue como prova de aptidão profissional, integrando monitorização em tempo real e gestão técnica via website.",
+        result: "Integração de monitorização em tempo real e gestão via website na prova de aptidão profissional.",
         links: {
           demo: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
         },
@@ -109,15 +109,17 @@ export const cvData = {
         degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
         institution: "ISEP - Instituto Superior de Engenharia do Porto",
         location: "Porto, Portugal",
-        period: "set 2024 – set 2026",
-        details: "Formação em sistemas críticos, cibersegurança e engenharia de software. Projetos: github.com/orgs/nunofbcastro-ISEP",
+        period: "set 2024 – nov 2026 (previsto)",
+        details: "Em curso. Formação em sistemas críticos, cibersegurança e engenharia de software.",
+        projectUrl: "https://github.com/orgs/nunofbcastro-ISEP",
       },
       {
         degree: "Licenciatura em Engenharia Informática",
         institution: "ESTG - Politécnico do Porto",
         location: "Felgueiras, Portugal",
         period: "out 2020 – jul 2023",
-        details: "Classificação ECTS: A. Projetos: github.com/orgs/nunofbcastro-ESTG-IPP",
+        details: "Classificação ECTS: A.",
+        projectUrl: "https://github.com/orgs/nunofbcastro-ESTG-IPP",
       },
       {
         degree: "Técnico de Gestão e Programação de Sistemas Informáticos",
@@ -155,9 +157,9 @@ export const cvData = {
     ],
   },
   en: {
-    targetRole: "Software Engineer",
+    targetRole: "Software Engineer | .NET, React & Azure",
     summary:
-      "Software Engineer experienced in web and mobile development, focused on delivering solutions with .NET, React, Azure, and SQL Server. I help companies modernize applications, automate processes, and improve the quality of production systems. Highlight: co-created SandSpace, covering 865 beaches in Portugal and featured in 100+ national media outlets, with participation in INTEL ISEF (USA).",
+      "Software Engineer experienced in web and mobile applications, with a focus on .NET, React, Azure, and SQL Server. At B2F, I develop applications and integrations and automate business processes. Background in maintaining production systems and building Android applications.",
     links: [
       { label: "Email", value: "nunofbcastro@gmail.com", href: "mailto:nunofbcastro@gmail.com" },
       { label: "LinkedIn", value: "linkedin.com/in/nunofbcastro", href: "https://www.linkedin.com/in/nunofbcastro/" },
@@ -166,28 +168,28 @@ export const cvData = {
     ],
     skillGroups: [
       {
-        title: "Languages",
-        items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "Kotlin", "SQL", "HTML", "CSS"],
+        title: "Programming languages",
+        items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "Kotlin", "SQL"],
       },
       {
         title: "Backend",
-        items: [".NET / .NET Core", ".NET Framework", "FastAPI", "NestJS", "Express.js", "Azure Functions", "REST APIs", "Swagger"],
+        items: [".NET / .NET Core", ".NET Framework", "Razor ASP.NET", "FastAPI", "REST APIs"],
       },
       {
         title: "Frontend",
-        items: ["React", "Next.js", "Blazor", "Razor ASP.NET", "Angular", "Tailwind CSS"],
+        items: ["React", "Blazor", "Next.js", "Tailwind CSS"],
       },
       {
         title: "Mobile",
-        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose", "Ionic"],
+        items: ["React Native", "Android (Java/Kotlin)", "Jetpack Compose"],
       },
       {
         title: "Cloud & DevOps",
-        items: ["Azure", "Docker", "Git", "GitLab CI/CD", "Azure DevOps", "NGINX", "IIS", "Scrum"],
+        items: ["Azure", "Azure Functions", "Azure DevOps", "Docker", "Git"],
       },
       {
         title: "Data & Low-Code",
-        items: ["SQL Server", "MongoDB", "MySQL", "ETL", "Power Platform", "Power Automate", "PowerApps"],
+        items: ["SQL Server", "ETL", "Power Platform", "Power Automate", "Power Apps"],
       },
     ],
     experience: [
@@ -197,12 +199,12 @@ export const cvData = {
         location: "Portugal",
         period: "Sep 2023 – Present",
         bullets: [
-          "Developed and maintained web applications with .NET Framework and Razor ASP.NET supporting business processes in production.",
-          "Implemented integrations and automations with Azure Functions, Azure DevOps, SQL Server, and Power Platform, reducing manual work in internal workflows.",
-          "Built and evolved UI features with Blazor, React, and React Native, following MVC architecture and clean architecture principles.",
-          "Optimized and stabilized existing systems, improving maintainability and operational continuity of company solutions.",
+          "Develop and maintain web applications with .NET Framework and Razor ASP.NET for business processes in production.",
+          "Implement integrations and internal process automation with Azure Functions, SQL Server, and Power Platform.",
+          "Build web and mobile interfaces with Blazor, React, and React Native, using MVC and clean architecture principles.",
+          "Maintain and optimize existing systems, focusing on application stability and ongoing development.",
         ],
-        technologies: [".NET Framework", "Razor", "Blazor", "React", "React Native", "Azure", "SQL Server", "Docker", "FastAPI", "Power Platform"],
+        technologies: [".NET Framework", "Blazor", "React", "React Native", "Azure", "SQL Server", "Power Platform"],
       },
       {
         role: "Software Developer (Internship)",
@@ -210,9 +212,9 @@ export const cvData = {
         location: "Portugal",
         period: "Mar 2023 – Jul 2023",
         bullets: [
-          "Automated ETL processes for school data extraction and processing, accelerating information availability.",
-          "Maintained a website powered by official sources (Eurostat and DGEEC), ensuring content freshness and reliability.",
-          "Developed scalable components with .NET Framework and Razor ASP.NET to evolve the existing platform.",
+          "Automated ETL processes for school data extraction and processing.",
+          "Maintained a website using data from official sources, including Eurostat and DGEEC.",
+          "Developed components with .NET Framework and Razor ASP.NET for the existing platform.",
         ],
         technologies: [".NET Framework", "Razor ASP.NET", "ETL", "SQL"],
       },
@@ -222,8 +224,8 @@ export const cvData = {
         location: "Portsmouth, England",
         period: "Jun 2019",
         bullets: [
-          "Built web pages with HTML, CSS, and JavaScript in an international Erasmus+ internship setting.",
-          "Collaborated on rapid web prototype delivery, strengthening teamwork and communication skills.",
+          "Built web pages and prototypes with HTML, CSS, and JavaScript during an international Erasmus+ internship.",
+          "Collaborated with an international team to deliver web prototypes.",
         ],
         technologies: ["HTML", "CSS", "JavaScript"],
       },
@@ -231,7 +233,7 @@ export const cvData = {
     projects: [
       {
         title: "SandSpace",
-        objective: "Mobile app to check beach occupancy and support travel decisions during pandemic restrictions.",
+        objective: "Co-created an Android application to check beach occupancy during the pandemic.",
         technologies: ["Java", "Android Studio", "PHP", "MySQL", "REST API"],
         result: "Covered 865 beaches in Portugal; featured in 100+ national media outlets; participated in INTEL ISEF (USA).",
         links: {
@@ -251,7 +253,7 @@ export const cvData = {
         title: "SmartHouse",
         objective: "Home security system with sensors, cameras, mobile app, and web backoffice (final professional project).",
         technologies: ["PHP", "Laravel", "Android Studio", "MySQL", "REST API"],
-        result: "Delivered as a professional aptitude project, integrating real-time monitoring and technical management via website.",
+        result: "Integrated real-time monitoring and web-based management in the final professional project.",
         links: {
           demo: "https://www.youtube.com/channel/UCpMwe4zgl5rZKVPa9AdDzKA",
         },
@@ -262,15 +264,17 @@ export const cvData = {
         degree: "Master's in Critical Computational Systems Engineering",
         institution: "ISEP - Instituto Superior de Engenharia do Porto",
         location: "Porto, Portugal",
-        period: "Sep 2024 – Sep 2026",
-        details: "Focus on critical systems, cybersecurity, and software engineering. Projects: github.com/orgs/nunofbcastro-ISEP",
+        period: "Sep 2024 – Nov 2026 (expected)",
+        details: "In progress. Focus on critical systems, cybersecurity, and software engineering.",
+        projectUrl: "https://github.com/orgs/nunofbcastro-ISEP",
       },
       {
         degree: "BSc in Computer Engineering",
         institution: "ESTG - Polytechnic of Porto",
         location: "Felgueiras, Portugal",
         period: "Oct 2020 – Jul 2023",
-        details: "ECTS grade: A. Projects: github.com/orgs/nunofbcastro-ESTG-IPP",
+        details: "ECTS grade: A.",
+        projectUrl: "https://github.com/orgs/nunofbcastro-ESTG-IPP",
       },
       {
         degree: "Technician in Computer Systems Management and Programming",

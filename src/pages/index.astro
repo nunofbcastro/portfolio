@@ -97,30 +97,6 @@ const jsonLd = {
     {portfolioData.sections.hero && (
       <HeroSection language={currentLocale} heroImageUrl={optimizedHero.src} client:load />
     )}
-    
-    <script>
-      const printCV = () => {
-        const originalTitle = document.title;
-        const language = document.querySelector("#cv-print-view")?.getAttribute("lang") || "en";
-        document.title = `Nuno-Castro-CV-${language}`;
-        const restoreTitle = () => { document.title = originalTitle; };
-        window.addEventListener("afterprint", restoreTitle, { once: true });
-        try {
-          // The CV uses local fonts, so printing never waits for remote web fonts.
-          window.print();
-        } finally {
-          restoreTitle();
-        }
-      };
-
-      document.addEventListener("click", (event) => {
-        const target = event.target as HTMLElement | null;
-        if (target?.closest("#download-cv-button, #download-cv-button-fab")) {
-          event.preventDefault();
-          printCV();
-        }
-      });
-    </script>
 
     {portfolioData.sections.about && (
       <>

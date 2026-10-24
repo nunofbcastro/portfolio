@@ -1,5 +1,6 @@
-import { FileText, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useEffect, useState } from "react";
+import { CVDownloadButton } from "@/components/CVDownloadButton";
 import { uiText, type Language } from "@/data/i18n";
 
 interface FloatingActionsProps {
@@ -38,15 +39,12 @@ export const FloatingActions = ({ language }: FloatingActionsProps) => {
         <Mail className="h-3.5 w-3.5" aria-hidden="true" />
         {text.hero.contact}
       </a>
-      <button
+      <CVDownloadButton
+        language={language}
+        variant="ghost"
         id="download-cv-button-fab"
-        type="button"
-        data-cursor={text.hero.downloadCV}
         className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-background/90 px-4 font-mono-meta text-[11px] font-semibold text-foreground backdrop-blur-md transition-transform duration-300 hover:scale-[1.03] active:scale-95"
-      >
-        <FileText className="h-3.5 w-3.5" aria-hidden="true" />
-        {text.hero.downloadCV}
-      </button>
+      />
     </div>
   );
 };

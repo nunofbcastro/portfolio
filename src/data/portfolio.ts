@@ -50,7 +50,7 @@ export const portfolioData = {
   about: {
     pt: {
       title: "Sobre Mim",
-      description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em agosto de 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, tenho dedicado o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
+      description: "Olá, o meu nome é Nuno, licenciei-me em Engenharia Informática na ESTG Felgueiras em 2023. Descobri a minha paixão pela programação aos 15 anos, quando decidi ingressar num curso profissional na área. Desde então, tenho dedicado o meu tempo a aperfeiçoar as minhas competências e a desenvolver projetos inovadores.",
       skillsTitle: "Principais Competências",
       skills: [
         { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
@@ -67,7 +67,7 @@ export const portfolioData = {
     },
     en: {
       title: "About Me",
-      description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in August 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
+      description: "Hello, my name is Nuno, I graduated in Computer Engineering from ESTG Felgueiras in 2023. I discovered my passion for programming at the age of 15, when I decided to join a professional course in the area. Since then, I've dedicated my time to honing my skills and developing innovative projects.",
       skillsTitle: "Key Skills",
       skills: [
         { icon: "Code", title: "Backend", description: [".NET / .NET Core", "Express.js", "NestJS", "FastAPI", "Azure Functions", "Swagger"] },
@@ -172,8 +172,8 @@ export const portfolioData = {
           institution: "ISEP - Instituto Superior de Engenharia do Porto",
           degree: "Mestrado em Engenharia de Sistemas Computacionais Críticos",
           location: "Porto, Portugal",
-          period: "set 2024 – set 2026",
-          description: "Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories",
+          period: "set 2024 – nov 2026 (previsto)",
+          description: "Mestrado em curso, com conclusão prevista para novembro de 2026. Projetos: https://github.com/orgs/nunofbcastro-ISEP/repositories",
           technologies: ["C", "C++", "Programação Ada", "SPARK", "FreeRTOS", "Linux", "Kernel Linux", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "Scrum", "Arduino", "NuSMV", "Rust", "Cibersegurança", "ROS"]
 
         },
@@ -338,8 +338,8 @@ export const portfolioData = {
           institution: "ISEP - Instituto Superior de Engenharia do Porto",
           degree: "Master's in Critical Computational Systems Engineering",
           location: "Porto, Portugal",
-          period: "Sep 2024 – Sep 2026",
-          description: "Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories",
+          period: "Sep 2024 – Nov 2026 (expected)",
+          description: "Master’s in progress, with completion expected in November 2026. Projects: https://github.com/orgs/nunofbcastro-ISEP/repositories",
           technologies: ["C", "C++", "Ada Programming", "SPARK", "FreeRTOS", "Linux", "Linux Kernel", "Microsoft Project", "JIRA", "MQTT", "DDS", "COAP", "FIWARE", "Scrum", "Arduino", "NuSMV", "Rust", "Cybersecurity", "ROS"]
 
         },

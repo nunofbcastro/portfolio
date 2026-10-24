@@ -68,13 +68,14 @@ export const uiText = {
       keyAchievements: "Principais conquistas",
       skills: "Competências",
       strengths: "Pontos fortes",
-      awards: "Certificações e prémios",
+      awards: "Prémios e distinções",
       projects: "Projetos",
       technologies: "Tecnologias",
       objective: "Objetivo",
       result: "Resultado",
       demo: "Demo",
-      links: "Links"
+      links: "Links",
+      academicProjects: "Projetos académicos"
     },
     cookieConsent: {
       consentModal: {
@@ -183,7 +184,8 @@ export const uiText = {
       objective: "Objective",
       result: "Result",
       demo: "Demo",
-      links: "Links"
+      links: "Links",
+      academicProjects: "Academic projects"
     },
     cookieConsent: {
       consentModal: {

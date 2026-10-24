@@ -84,19 +84,21 @@ This project is built with:
 
 ## CV export
 
-The **Download CV / Descarregar CV** buttons open the browser print dialog in the
-current page language. Choose **Save as PDF**, A4, 100% scale and disable browser
-headers and footers. The print document uses local fonts and selectable text;
-no screenshot or canvas conversion is involved.
+The **Download CV / Descarregar CV** buttons generate a fresh PDF in the browser
+on every click, using the current page language and `src/data/cv.ts`. No prebuilt
+PDF, server or print dialog is required. The PDF generator is loaded only on
+demand and writes selectable text with clickable links in a single column.
 
-`src/data/cv.ts` holds the PT/EN CV content, `src/components/CVPrintView.tsx`
-provides semantic headings and lists, and `src/styles/cv.css` is the single source
-of print styles. The current content is arranged into two A4 pages: profile,
-skills and experience; then projects, education, awards and languages. Entries
-stay together while sections can flow. Content additions can create extra pages;
-do not force a fixed height or hide overflow to fit them.
+`src/lib/generate-cv.ts` controls PDF layout and pagination.
+`src/lib/cv-sections.ts` shares section order, text and links between the PDF
+and browser print view, with experience before skills and education before projects.
+`src/components/CVDownloadButton.tsx` handles loading, repeat-click protection and
+errors for both download buttons. If a network error prevents the PDF library
+from loading, the message asks the user to reload before retrying. `CVPrintView.tsx` and
+`src/styles/cv.css` remain available for users printing the page with Ctrl+P.
+Both renderers share the same CV data and translated section labels.
 
-When changing the CV, export both languages and verify page breaks, visible
-contact details, clickable links and PDF text extraction in reading order. Check
-printing from both light and dark themes and from a narrow viewport. ATS parsers
-vary; the layout deliberately uses a single column and ordinary text headings.
+After changing CV data or either layout, verify downloads in PT/EN, including
+accents, page breaks, clickable links and complete PDF text extraction in reading
+order. The current content fits two A4 pages; additional content may flow onto
+extra pages. ATS parsers vary; the layout uses ordinary text and one column.
