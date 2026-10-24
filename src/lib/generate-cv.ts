@@ -151,7 +151,7 @@ export function createCV(language: Language) {
       for (const blocks of current.entries) {
         entry(blocks.map((block) => ({
           ...block,
-          after: block.kind === "title" ? 1 : block.bullet ? 2 : 3,
+          after: current.id === "skills" ? 0 : block.kind === "title" ? 1 : block.bullet ? 2 : 3,
         })), compact ? 0 : current.id === "experience" ? 8 : 5);
       }
     }

@@ -151,6 +151,16 @@
     margin-bottom: 3pt;
   }
 
+  #cv-print-view .cv-section-skills {
+    margin-bottom: 5pt;
+  }
+
+  #cv-print-view .cv-section-skills .cv-item,
+  #cv-print-view .cv-section-skills p {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
   #cv-print-view .cv-item:last-child,
   #cv-print-view .cv-section:last-child {
     margin-bottom: 0;

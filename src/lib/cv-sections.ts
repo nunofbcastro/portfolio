@@ -37,7 +37,11 @@ export function getCVPages(language: Language): CVSection[][] {
       },
       {
         id: "skills", title: labels.skills,
-        entries: cv.skillGroups.map((group) => [{ text: `${group.title}: ${group.items.join(", ")}`, boldPrefix: `${group.title}:` }]),
+        entries: cv.skillGroups.map((group) => [{
+          text: `${group.title}: ${group.items.join(", ")}`,
+          kind: "tech" as const,
+          boldPrefix: `${group.title}:`,
+        }]),
       },
     ],
     [
