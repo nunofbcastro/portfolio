@@ -1,4 +1,3 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useWindowSize } from "@/hooks/useWindowSize";
@@ -25,8 +24,6 @@ export const Timeline = <T,>({
   showMoreText = "Ver mais",
   showLessText = "Ver menos"
 }: TimelineProps<T>) => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
   const [width] = useWindowSize();
   const [showAll, setShowAll] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -48,10 +45,7 @@ export const Timeline = <T,>({
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div
-            ref={titleRef}
-            className={`mb-16 transition-all duration-1000 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className="mb-16"
           >
             <p className="mb-3 font-mono-meta text-[11px] text-muted-foreground">02 / {title}</p>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight text-foreground">
@@ -59,17 +53,14 @@ export const Timeline = <T,>({
             </h2>
           </div>
 
-          <div ref={timelineRef} className="relative">
+          <div className="relative">
             {/* Timeline - Only on desktop (1024px+) */}
             {!isMobile && (
-              <div className={`absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2 transition-all duration-1000 ${
-                timelineVisible ? 'bg-linear-to-b from-primary via-primary to-transparent scale-y-100' : 'scale-y-0'
-              }`} />
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-linear-to-b from-primary via-primary to-transparent" />
             )}
 
             <div id={timelineListId} className={`${isMobile ? 'space-y-6' : 'space-y-8 md:space-y-16'}`}>
               {displayItems.map((item, index) => {
-                const delay = index * 200;
                 const isLeft = index % 2 === 0;
 
                 return (
@@ -77,18 +68,9 @@ export const Timeline = <T,>({
                     {/* Timeline Dot - Only on desktop */}
                     {!isMobile && (
                       <div
-                        className={`absolute left-1/2 transform -translate-x-1/2 z-10 w-12 h-12 rounded-full transition-[transform,background-color,box-shadow] duration-1000 ${
-                          timelineVisible
-                            ? 'bg-primary scale-100 shadow-lg shadow-primary/50'
-                            : 'bg-muted scale-0'
-                        }`}
-                        style={{
-                          transitionDelay: timelineVisible ? `${delay + 400}ms` : '0ms',
-                        }}
+                        className="absolute left-1/2 z-10 h-12 w-12 -translate-x-1/2 rounded-full bg-primary shadow-lg shadow-primary/50"
                       >
-                        <div className={`absolute inset-2 bg-background rounded-full transition-transform duration-1000 ${
-                          timelineVisible ? 'scale-100' : 'scale-0'
-                        }`} style={{ transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms' }} />
+                        <div className="absolute inset-2 rounded-full bg-background" />
                         <div className="absolute inset-0 flex items-center justify-center z-20">
                           {(item as any).icon === "Briefcase" ? (
                             <Briefcase className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -104,29 +86,18 @@ export const Timeline = <T,>({
                     {/* Connecting Line - Only on desktop */}
                     {!isMobile && (
                       <div
-                        className={`absolute top-1/2 z-5 h-0.5 w-[60px] transition-transform duration-1000 ${
+                        className={`absolute top-1/2 z-5 h-0.5 w-[60px] ${
                           isLeft
-                            ? 'left-1/2 ml-4 bg-linear-to-r from-primary to-transparent origin-left'
-                            : 'right-1/2 mr-4 bg-linear-to-l from-primary to-transparent origin-right'
+                            ? 'left-1/2 ml-4 bg-linear-to-r from-primary to-transparent'
+                            : 'right-1/2 mr-4 bg-linear-to-l from-primary to-transparent'
                         }`}
-                        style={{
-                          transitionDelay: timelineVisible ? `${delay + 600}ms` : '0ms',
-                          transform: timelineVisible ? 'scaleX(1)' : 'scaleX(0)'
-                        }}
                       />
                     )}
 
                     {/* Item Content */}
                     <div className={`flex-1 ${isMobile ? '' : (isLeft ? 'pr-4 md:pr-16' : 'pl-4 md:pl-16')}`}>
                       <div
-                        className={`transition-[transform,opacity] duration-1000 ${
-                          timelineVisible
-                            ? 'opacity-100 translate-y-0'
-                            : 'opacity-0 translate-y-8'
-                        } ${!isMobile && isLeft ? 'ml-auto max-w-md' : ''} ${!isMobile && !isLeft ? 'mr-auto max-w-md' : ''}`}
-                        style={{
-                          transitionDelay: timelineVisible ? `${delay}ms` : '0ms'
-                        }}
+                        className={`${!isMobile && isLeft ? 'ml-auto max-w-md' : ''} ${!isMobile && !isLeft ? 'mr-auto max-w-md' : ''}`}
                       >
                         {renderItem(item, index, isMobile)}
                       </div>

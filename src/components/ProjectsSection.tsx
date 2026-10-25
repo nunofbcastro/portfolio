@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Image as ImageIcon } from "lucide-react";
 import { GitHubIcon } from "./icons/BrandIcons";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { portfolioData } from "@/data/portfolio";
 import { useId, useState } from "react";
 import { uiText, type Language } from "@/data/i18n";
@@ -101,8 +100,6 @@ const ExpandableDescription = ({
 };
 
 export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
   const [showAll, setShowAll] = useState(false);
 
   const text = portfolioData.projects[language];
@@ -115,12 +112,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
     <section id="projetos" className="relative overflow-hidden py-16 md:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-6xl">
-          <div
-            ref={titleRef}
-            className={`mb-10 transition-all duration-1000 md:mb-14 ${
-              titleVisible ? "animate-fade-in" : "translate-y-8 opacity-0"
-            }`}
-          >
+          <div className="mb-10 md:mb-14">
             <p className="mb-3 font-mono-meta text-[11px] text-muted-foreground">
               03 / {i18n.projects.indexLabel}
             </p>
@@ -130,12 +122,10 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
           </div>
 
           <div
-            ref={projectsRef}
             id={projectsListId}
             className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-x-8 md:gap-y-14"
           >
             {text.projects.slice(0, visibleCount).map((project, index) => {
-              const delay = 120 + index * 90;
               const screenshots = (project as { screenshots?: string[] }).screenshots ?? [];
               const cover = screenshots[0];
               const viewProjectAriaLabel = `${text.viewProject}: ${project.title} (${i18n.accessibility.opensInNewTabSuffix})`;
@@ -144,12 +134,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
               return (
                 <article
                   key={index}
-                  className="group flex flex-col transition-all duration-700"
-                  style={{
-                    transitionDelay: projectsVisible ? `${delay}ms` : "0ms",
-                    opacity: projectsVisible ? 1 : 0,
-                    transform: projectsVisible ? "translateY(0)" : "translateY(40px)",
-                  }}
+                  className="group flex flex-col"
                 >
                   <a
                     href={project.link}
